@@ -1,20 +1,20 @@
-# Plover-vim
+* Plover-vim
 
 - this is an ambitious project that aims to make vim even more ergonomic than it already is
 
-# Motivation:
+* Motivation:
 
 - plover phrasing systems
 - slowness of changing between insert and normal mode
 
-# Aims:
+* Aims:
 
 - (mostly) single chords for virtually every vim command combination
 
-# Will not be implemented:
+* Will not be implemented:
 
 - control commands (already done in other plover plugins)
 
-# Testing?:
+* Testing?:
 
 - check for conflicts before outputing dictionary results to a file
