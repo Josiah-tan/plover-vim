@@ -17,12 +17,8 @@ def getDirection(stroke):
 
 def assertGetDirection(strokes, start, end):
     for raw_stroke in strokes:
-        # stroke = raw_stroke.split("-")
-        # if len(stroke) == 1:
-        #     stroke.append('')
         match = re.fullmatch('([KWR]*)([*-]?)([RBGSDZ]*)', raw_stroke)
         (lhs, _, rhs) = match.groups()
-        # print(f"stroke = {stroke}")
         if lhs == removeNumbers(start) and rhs == removeNumbers(end):
             return getDirection(raw_stroke)
     raise KeyError
@@ -60,21 +56,16 @@ def testLookup(chord, down, up):
 # Lookup function: return the translation for <key> (a tuple of strokes)
 # or raise KeyError if no translation is available/possible.
 def lookup(chord):
-    # print(Config.DOWN)
     assert len(chord) <= Config.LONGEST_KEY
     stroke = chord[0]
     if not containsNumber(stroke):
         raise KeyError
 
-    # match = re.fullmatch(r'([#STKPWHR]*)([AO]*)([*-]?)([EU]*)([FRPBLG]*)([TS]*)', stroke)
-    print("stroke", stroke)
     match = re.fullmatch(r'([12K3W4R]*)([50]*)([*-]?)([EU]*)([6R7B8G9SDZ]*)', stroke)
     (start, mid_left, wild, inversion, end) = match.groups()
     start = start + mid_left
 
-    print(f"match.groups() = {match.groups()}")
     direction = assertGetDirection((Config.UP, Config.DOWN), start, end)
-    print(f"direction = {direction }")
     isInverted = assertGetInversion(inversion)
     repeat = assertGetNumber(start, mid_left, isInverted, end)
 

@@ -22,12 +22,16 @@ def testSingleDigitUp():
 
 @Test(flhs=testLookup)
 def testMultipleDigit():
-    return (f"1-6{Config.UP}",), f"{{#up{' up' * 15}}}"
+    return (
+            ((("1-6B",), "-R", "B"), f"{{#up{' up' * 15}}}"),
+           )
 
 
 @Test(flhs=testLookup)
 def testReverseDown():
-    return (f"1EU{Config.DOWN}7",), f"{{#down{' down' * 70}}}"
+    return (
+            ((("1EUR7",), "-R", "B"), f"{{#down{' down' * 70}}}"),
+           )
 
 ##
 
@@ -35,8 +39,8 @@ def testReverseDown():
 def testAll():
     testSingleDigitDown()
     testSingleDigitUp()
-    # testMultipleDigit()
-    # testReverseDown()
+    testMultipleDigit()
+    testReverseDown()
 ##
 
 if __name__ == "__main__":

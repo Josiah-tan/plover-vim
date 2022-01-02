@@ -1,4 +1,4 @@
 class Config:
-    VERBOSE = True
+    VERBOSE = False
     ASSERTION = True
     TESTMODE = "fLHS"
