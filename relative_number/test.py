@@ -16,6 +16,7 @@ def singleDigitDown():
 def singleDigitUp():
     return (
             ((("2B",), "-R", "B"), "{#up up}"),
+            ((("5B",), "-R", "B"), "{#up up up up up}"),
            )
 
 

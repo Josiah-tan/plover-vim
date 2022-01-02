@@ -63,7 +63,6 @@ def lookup(chord):
 
     match = re.fullmatch(r'([12K3W4R]*)([50]*)([*-]?)([EU]*)([6R7B8G9SDZ]*)', stroke)
     (start, mid_left, wild, inversion, end) = match.groups()
-    start = start + mid_left
 
     direction = assertGetDirection((Config.UP, Config.DOWN), start, end)
     isInverted = assertGetInversion(inversion)
