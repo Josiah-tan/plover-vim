@@ -1,14 +1,25 @@
+import config
+from config import Global
+import importlib
 import relative_number.test as relative_number_test
+# import shared.builtins.test as shared_builtins_test
 
-RELOAD = True
-TEST = {"relative_number"}
+TEST = {
+        relative_number_test,
+        # shared_builtins_test
+        }
 
-if RELOAD:
+importlib.reload(config)
+
+if Global.RELOAD:
+    import shared
     import relative_number
 
-    import importlib
+    importlib.reload(shared)
     importlib.reload(relative_number)
-    importlib.reload(relative_number_test)
 
-if "relative_number" in TEST:
-    relative_number_test.testAll()
+for test in TEST:
+    test.testAll()
+
+
+
