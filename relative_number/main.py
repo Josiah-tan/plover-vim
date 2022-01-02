@@ -29,7 +29,9 @@ def assertGetNumber(start, mid_left, isInverted, end):
     end = removeNotNumbers(end)
     number = start + mid_left + end
 
-    if len(number) == 1 and not isInverted:
+    if number == "0":
+        raise KeyError
+    elif len(number) == 1 and not isInverted:
         return int(number)
     elif len(number) == 2:
         if isInverted:

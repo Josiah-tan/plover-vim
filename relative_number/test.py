@@ -34,6 +34,7 @@ def reverseDown():
             ((("1EUR7",), "-R", "B"), f"{{#down{' down' * 70}}}"),
            )
 
+
 ##
 
 
@@ -52,6 +53,14 @@ def incorrectChord():
            )
 
 
+@Test(flhs=testLookup)
+def zeroes():
+    return (
+            ((("0R",), "-R", "B"), KeyError),
+            ((("0B",), "-R", "B"), KeyError),
+           )
+
+
 def testNoErrors():
     singleDigitDown()
     singleDigitUp()
@@ -62,6 +71,7 @@ def testNoErrors():
 def testKeyError():
     tooManyNumbers()
     incorrectChord()
+    zeroes()
 
 
 def testAll():
