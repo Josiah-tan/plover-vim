@@ -1,5 +1,5 @@
 import config
-from config import Global
+from config import RELOAD
 import importlib
 import relative_number.test as relative_number_test
 import shared.builtins.test as shared_builtins_test
@@ -13,7 +13,7 @@ TEST = {
 
 importlib.reload(config)
 
-if Global.RELOAD:
+if RELOAD:
     import shared
     import relative_number
 

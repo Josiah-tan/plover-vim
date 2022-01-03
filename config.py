@@ -1,2 +1,1 @@
-class Global:
-    RELOAD = True
+RELOAD = True

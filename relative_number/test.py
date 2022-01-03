@@ -1,9 +1,14 @@
-from relative_number.main import testLookup
+from relative_number.builtins import Lookup
+# from relative_number.utils import testLookup
 # import relative_number.globals as Config
 from shared.test.builtins import Test
 
 
+def testLookup(chord, down, up):
+    return Lookup({"up": up, "down": down})(chord)
+
 ##
+
 
 @Test(flhs=testLookup)
 def singleDigitDown():
@@ -85,5 +90,3 @@ if __name__ == "__main__":
     testAll()
 
 ##
-
-

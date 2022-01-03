@@ -1,6 +1,6 @@
-from config import Global
+from config import RELOAD
 
-if Global.RELOAD:
+if RELOAD:
     import importlib
     from shared.test import config, builtins
     importlib.reload(config)
