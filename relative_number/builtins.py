@@ -1,6 +1,9 @@
 import re
 from shared.builtins.builtins import containsNumber
-from relative_number.util import assertGetDirection, assertGetInversion, assertGetNumber
+from relative_number.util import (
+        assertGetDirection, assertGetInversion,
+        assertGetNumber, assertDoubleValue
+        )
 from relative_number.util import recursiveUpdate
 from relative_number.config import LONGEST_KEY
 from relative_number.defaults import defaults
@@ -33,6 +36,7 @@ class Lookup:
 
         isInverted = assertGetInversion(inversion)
         repeat = assertGetNumber(start, mid_left, isInverted, end)
+        repeat = assertDoubleValue(repeat, end)
 
         output = f"{{#{direction}{f' {direction}' * (repeat - 1)}}}"
         return output

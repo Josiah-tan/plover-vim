@@ -1,4 +1,4 @@
 defaults = {
         "up": "B",
-        "down": "-R"
+        "down": "-R",
         }

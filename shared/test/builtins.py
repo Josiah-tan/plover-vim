@@ -1,5 +1,6 @@
 # from config import Global
 from shared.test.config import Config
+import traceback
 
 
 def log(*args, **kwargs):
@@ -27,6 +28,8 @@ class Test:
                 else:
                     # print is here on purpose
                     print(f"function {self.func.__qualname__} incorrectly raised KeyError")
+                    print(traceback.format_exc())
+                    exit()
 
         def iter(res):
             for lhs, rhs in res:

@@ -1,5 +1,6 @@
 # import the modules that you want for your python experience here
-# call them in this lookup function
+
+from contextlib import suppress
 import sys; sys.path.append("/home/josiah/.dotfiles/plover/.config/plover/vim")
 # from relative_number.main import lookup as relative_number_lookup
 from relative_number.builtins import Lookup as RelativeNumberLookup
@@ -13,6 +14,6 @@ relative_number_lookup = RelativeNumberLookup({
 
 
 def lookup(key):
-    return relative_number_lookup(key)
-
-
+    for look in [relative_number_lookup]:
+        with suppress(KeyError):
+            return look(key)

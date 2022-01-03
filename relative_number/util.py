@@ -11,15 +11,16 @@ def removeNotNumbers(s):
     return ''.join([i for i in s if i.isdigit()])
 
 
-# def getDirection(stroke):
-#     return {Config.UP: "up", Config.DOWN: "down"}.get(stroke)
+def removeDouble(s):
+    return ''.join([i for i in s if i != "D"])
 
 
 def assertGetDirection(strokes, start, end):
     for direction, stroke in strokes.items():
         match = re.fullmatch('([KWR]*)([*-]?)([RBGSDZ]*)', stroke)
         (lhs, _, rhs) = match.groups()
-        if lhs == removeNumbers(start) and rhs == removeNumbers(end):
+        if lhs == removeNumbers(start) and \
+                rhs == removeDouble(removeNumbers(end)):
             return direction
     raise KeyError
 
@@ -47,6 +48,14 @@ def assertGetInversion(inversion):
     if inversion == "EU":
         return True
     raise KeyError
+
+
+def assertDoubleValue(number, end):
+    if "D" in end:
+        if number >= 10:
+            raise KeyError
+        return number * 11
+    return number
 
 
 def recursiveUpdate(d: dict, u: dict) -> dict:

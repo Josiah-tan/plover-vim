@@ -40,6 +40,14 @@ def reverseDown():
            )
 
 
+@Test(flhs=testLookup)
+def repeatDigit():
+    return (
+            ((("-R7D",), "-R", "B"), f"{{#down{' down' * 76}}}"),
+            ((("3-BD",), "-R", "B"), f"{{#up{' up' * 32}}}"),
+           )
+
+
 ##
 
 
@@ -66,17 +74,29 @@ def zeroes():
            )
 
 
+@Test(flhs=testLookup)
+def tooManyRepeatDigit():
+    return (
+            ((("14-RD",), "-R", "B"), KeyError),
+           )
+
+
+##
+
+
 def testNoErrors():
     singleDigitDown()
     singleDigitUp()
     multipleDigit()
     reverseDown()
+    repeatDigit()
 
 
 def testKeyError():
     tooManyNumbers()
     incorrectChord()
     zeroes()
+    tooManyRepeatDigit()
 
 
 def testAll():
