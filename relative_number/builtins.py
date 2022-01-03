@@ -42,7 +42,5 @@ class Lookup:
         return output
 
 
-# Lookup function: return the translation for <key> (a tuple of strokes)
-# or raise KeyError if no translation is available/possible.
 def lookup(chord):
     return Lookup()(chord)

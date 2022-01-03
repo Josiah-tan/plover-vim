@@ -1,6 +1,7 @@
-# import the modules that you want for your python experience here
 from contextlib import suppress
 import sys; sys.path.append("/home/josiah/.dotfiles/plover/.config/plover/vim")
+
+# import the modules that you want for your python experience here
 from relative_number.builtins import lookup as relative_number_lookup
 
 LONGEST_KEY = 1

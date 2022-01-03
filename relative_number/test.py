@@ -1,6 +1,4 @@
 from relative_number.builtins import Lookup
-# from relative_number.utils import testLookup
-# import relative_number.globals as Config
 from shared.test.builtins import Test
 
 

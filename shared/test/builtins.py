@@ -1,4 +1,3 @@
-# from config import Global
 from shared.test.config import Config
 import traceback
 

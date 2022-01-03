@@ -1,5 +1,4 @@
 import collections.abc
-# import relative_number.globals as Config
 import re
 
 
