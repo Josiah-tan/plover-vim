@@ -89,10 +89,18 @@
 - No longer have to press "escape" every time you run a (single character) command
 	- escape + character:
 - Might not implement, let the user create one using the api
+	- use a different ending chord?
 
 **** macros
 - macros are used for recording + replaying commands
 	- q + character: record macro into this register
 	- @ + character: play macro from this register
 - Might not implement, let the user create one using the api
+	- use a different ending chord?
+
+**** double characters
+- No longer have to spam so many times when you want to run a vim command
+	- command * 2:
+- Might not implement, let the user create one using the api
+	- use a different ending chord?
 
