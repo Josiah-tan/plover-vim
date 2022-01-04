@@ -1,9 +1,7 @@
 * Plover-vim
-
 - this is an ambitious project that aims to make vim even more ergonomic than it already is for plover users!
 
 * Motivation:
-
 - slowness of changing between insert and normal mode
 - plover phrasing systems
 	- Create phrases in single strokes
@@ -12,39 +10,36 @@
 	- Contains all control, alt, windows, etc combined with every symbol that you would ever dream of
 
 * Aims:
-
 - Highly extensible and customisable commands and translations
 - (mostly) single chords for virtually every vim command combination
 - make vim's modal system uneccessary
 	- more flexibility in what you can do in insert mode
 
 * Will not be implemented:
-
 - control commands (Already done in Emily's symbol + modifier system)
 
 * Testing:
-
 - [X] Check to see if translations are as expected
 - [ ] Check for conflicts before outputting dictionary results to a file
 
-* Modules:
+* Prerequisites
+	- Make sure to install python-plover-dictionary from plover's plugins
+	- Aerick has a [[https://www.youtube.com/watch?v=uQZp7RX-h6o][video]] on this
 
+* Modules:
 - The system is designed with different modules, so that you can choose what you want and don't want to include
 	- (currently there is only one module: relative\under{}number, but more are coming soon)
 
-** Prerequisites
-- Make sure to intall python-plover-dictionary from plover's plugins
-	- Aerick has a [[https://www.youtube.com/watch?v=uQZp7RX-h6o][video]] on this
 
 ** relative-number
-*** What is relative-number?
-
+*** What is relativenumbering in vim?
 - If you don't know what relative numbering is, then you are in for a treat
-- Go on vim and search:
+- Basically it allows you to move more quickly between different lines
+- I recommend checking out 
 	- :help relativenumber
 - It is good stuff
 
-*** How does this plugin improve relative-number?
+*** How does this module improve vim?
 - You can jump to different lines (up and down) in a single stroke
 - This is achieved by stroking a number like usual in addition another chord
 	- '-7R' => down 7 times
@@ -58,3 +53,46 @@
 *** Usage
 - copy templates/simple.py and add it to your dictionaries for a simple configuration
 - copy templates/customised.py for a more customised experience
+
+** TODO character-commands
+*** How does this module improve vim? 
+- This module is inspired by emily's modifier system to generate all the characters
+	- This means that the vowels and left hand side are utilised for the characters
+	- We can only customise right hand side chords
+- Everything below are the default configs (can be disabled)
+**** searching characters
+- There are a few methods of searching
+	- f + character: find character forwards in the same line and go to that character
+	- F + character: find character backwards in the same line and go to that character
+	- t + character: find character forwards in the same line and go just before that character
+	- T + character: find character backwards in the same line and go just after that character
+- Would be nice if we could do this in a single stroke wouldn't it?
+	- -LTDZ used as the original ending chord by default
+	- -R => shift (same as emily) for capitalization of characters
+	- -B => backwards
+	- -F => find 
+	- -P => previous character
+- Steno equivalents
+	- f: -F
+	- F: -FB
+	- t: -FP
+	- T: -FPB
+
+**** easy motion
+- Code from this plugin: 
+	- <leader><leader>f + character: find character anywhere in all windows
+- Steno equivalent:
+  	- <leader><leader>f + character: -PB
+***** TODO think about how we enter the characters to locate the character
+
+**** escaped characters
+- No longer have to press "escape" every time you run a (single character) command
+	- escape + character:
+- Might not implement, let the user create one using the api
+
+**** macros
+- macros are used for recording + replaying commands
+	- q + character: record macro into this register
+	- @ + character: play macro from this register
+- Might not implement, let the user create one using the api
+
