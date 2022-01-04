@@ -83,7 +83,7 @@
 	- <leader><leader>f + character: find character anywhere in all windows
 - Steno equivalent:
   	- <leader><leader>f + character: -PB
-***** TODO think about how we enter the characters to locate the character
+***** TODO need to think about how we enter the characters to locate the character
 
 **** escaped characters
 - No longer have to press "escape" every time you run a (single character) command
