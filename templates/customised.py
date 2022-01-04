@@ -6,10 +6,35 @@ from relative_number.builtins import Lookup as RelativeNumberLookup
 
 LONGEST_KEY = 1
 
+
 relative_number_lookup = RelativeNumberLookup({
-        "up": "B",
-        "down": "-R"
-        })
+    "up": "B",
+    "down": "-R"
+    })
+
+# Other API ideas (not implemented unless people want it)
+
+# relative_number_lookup = RelativeNumberLookup({
+#     "disable_default_translations": True,
+#     "translations": {
+#         "up": "B",
+#         "down": "-R"
+#         },
+#     "escape": {
+#         },
+#     "multiplier": {
+#         },
+#     })
+#
+# relative_number_lookup = RelativeNumberLookup({
+#     "disable_default_translations": True,
+#     "translations": {
+#         "k": "B",
+#         "j": "-R"
+#         },
+#     "use_escape": ["k", "j"],
+#     "multiplier": ["k", "j"],
+#     })
 
 
 def lookup(key):

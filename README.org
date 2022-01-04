@@ -1,20 +1,60 @@
 * Plover-vim
 
-- this is an ambitious project that aims to make vim even more ergonomic than it already is
+- this is an ambitious project that aims to make vim even more ergonomic than it already is for plover users!
 
 * Motivation:
 
-- plover phrasing systems
 - slowness of changing between insert and normal mode
+- plover phrasing systems
+	- Create phrases in single strokes
+	- Personally I use [[https://github.com/Jade-GG/plover_phrasing][Jade's]]
+- Emily's [[https://github.com/EPLHREU/emily-modifiers][modifiers]] + [[https://github.com/EPLHREU/emily-symbols][symbol]] system
+	- Contains all control, alt, windows, etc combined with every symbol that you would ever dream of
 
 * Aims:
 
+- Highly extensible and customisable commands and translations
 - (mostly) single chords for virtually every vim command combination
+- make vim's modal system uneccessary
+	- more flexibility in what you can do in insert mode
 
 * Will not be implemented:
 
-- control commands (already done in other plover plugins)
+- control commands (Already done in Emily's symbol + modifier system)
 
-* Testing?:
+* Testing:
 
-- check for conflicts before outputing dictionary results to a file
+- [X] Check to see if translations are as expected
+- [ ] Check for conflicts before outputting dictionary results to a file
+
+* Modules:
+
+- The system is designed with different modules, so that you can choose what you want and don't want to include
+	- (currently there is only one module: relative\under{}number, but more are coming soon)
+
+** Prerequisites
+- Make sure to intall python-plover-dictionary from plover's plugins
+	- Aerick has a [[https://www.youtube.com/watch?v=uQZp7RX-h6o][video]] on this
+
+** relative-number
+*** What is relative-number?
+
+- If you don't know what relative numbering is, then you are in for a treat
+- Go on vim and search:
+	- :help relativenumber
+- It is good stuff
+
+*** How does this plugin improve relative-number?
+- You can jump to different lines (up and down) in a single stroke
+- This is achieved by stroking a number like usual in addition another chord
+	- '-7R' => down 7 times
+	- '1-6B' => up 16 times
+	- '1EUR7' => down 71 times
+- Note that 'R' and 'B' are the same keys as what you'd use in qwerty for up and down
+
+*** Limitations
+- You can't go past 99 lines at a time
+
+*** Usage
+- copy templates/simple.py and add it to your dictionaries for a simple configuration
+- copy templates/customised.py for a more customised experience
