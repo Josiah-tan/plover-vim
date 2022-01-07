@@ -23,6 +23,9 @@ class Lookup(RecursiveUpdate):
         characters = getCasedCharacters(getCharacters(self.opts['spelling'], symbols))
         return (escape * systems * characters).map(addCommandSyntax)
 
+    def generateJson(self):
+        self.dictionary.print_items()
+
     def __call__(self, chord):
         assert len(chord) <= LONGEST_KEY
-        self.dictionary.lookup_tuple(chord)
+        return self.dictionary.lookup_tuple(chord)

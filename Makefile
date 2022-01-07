@@ -5,4 +5,4 @@ test:
 
 all:
 	# python3 plover_dict.py
-	python3 command_letter/builtins.py > command_letter/builtins.json
+	python3 templates/command_letter/customised.py

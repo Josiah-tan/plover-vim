@@ -19,30 +19,30 @@ def getEnders(enders):
 
 
 def getMods(mods):
-    return s(mods).map(spaceFormat)
+    return [s(mod).map(spaceFormat) for mod in mods]
 
 
 def combineModsEnders(mods, enders):
-    lis = []
+    res = None
     for ender, mod in zip(enders, mods):
-        lis.append(ender * mod)
-
-    res = lis[0]
-    for i in range(1, len(lis)):
-        res = res | lis[i]
+        mult = ender * mod
+        if res is None:
+            res = mult
+        else:
+            res = res | mult
     return res
 
 
 def getEscape(escape):
     return translation(spaceFormat(escape))
 
-def getCharacters(spelling, symbols, shifted):
 
 def getCasedCharacters(characters):
     return (
             characters *
             s({"-R": ["shift"], "": []}).named("mods")
             ).map(applyModifiers)
+
 
 # define your ender here
 uniqueEnderSearch = stroke("LTDZ")
@@ -165,6 +165,7 @@ count = (
 
 
 def getCharacters(spelling, symbols):
+    spelling = s(spelling)
     # left-hand bottom row counts in binary for numbers 0-9
     count = (
             s({"R": 1, "": 0}) *
