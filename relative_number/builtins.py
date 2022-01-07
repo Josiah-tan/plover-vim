@@ -4,19 +4,14 @@ from relative_number.util import (
         assertGetDirection, assertGetInversion,
         assertGetNumber, assertDoubleValue
         )
-from relative_number.util import recursiveUpdate
+from shared.builtins import RecursiveUpdate
 from relative_number.config import LONGEST_KEY
 from relative_number.defaults import defaults
 
 
-class Lookup:
-    def update(self, opts={}):
-        if opts:
-            recursiveUpdate(self.opts, opts)
-
+class Lookup(RecursiveUpdate):
     def __init__(self, opts={}):
-        self.opts = defaults
-        self.update(opts)
+        super().__init__(defaults, opts)
 
     def __call__(self, chord):
         assert len(chord) <= LONGEST_KEY

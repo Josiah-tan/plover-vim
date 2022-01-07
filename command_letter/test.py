@@ -1,0 +1,2 @@
+def testAll():
+    pass

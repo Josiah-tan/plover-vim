@@ -15,7 +15,7 @@ relative_number_lookup = RelativeNumberLookup({
 # Other API ideas (not implemented unless people want it)
 
 # relative_number_lookup = RelativeNumberLookup({
-#     "disable_default_translations": True,
+#     "disable_defaults": True,
 #     "translations": {
 #         "up": "B",
 #         "down": "-R"
@@ -27,7 +27,7 @@ relative_number_lookup = RelativeNumberLookup({
 #     })
 #
 # relative_number_lookup = RelativeNumberLookup({
-#     "disable_default_translations": True,
+#     "disable_defaults": True,
 #     "translations": {
 #         "k": "B",
 #         "j": "-R"
@@ -41,3 +41,4 @@ def lookup(key):
     for look in [relative_number_lookup]:
         with suppress(KeyError):
             return look(key)
+

@@ -1,4 +1,5 @@
 from config import RELOAD
+from shared.builtins.builtins import RecursiveUpdate
 
 if RELOAD:
     import importlib

@@ -1,0 +1,3 @@
+[submodule "lib"]
+	path = lib
+	url = git@github.com:Josiah-tan/plover-python-dictionary-lib.git
