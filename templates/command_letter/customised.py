@@ -17,6 +17,7 @@ command_letter_lookup = CommandLetterLookup({
     "systems": [
         {
             "unique_ender": "LTDZ",
+            # some ideas for others if you ever run out: -TZ, -SD, -TDZ, -SDZ, -TSZ, -TSD, or -TSDZ
             "mods": {
                 # "-FPB": "",  # left empty for you to customise!
                 # "-FP": "",  #
@@ -32,7 +33,7 @@ command_letter_lookup = CommandLetterLookup({
             "unique_ender": "-TZ",
             "mods": {
                 "-FPB": "q",  # liSten
-                "-FP": "shift(at)",  # at
+                "-FP": "shift(at)",  # @
                 # "-FB": "",
                 "-PB": "z",  # zeN
                 "-F": "g",  # the good Spot (primeagen youtube video on the g command)

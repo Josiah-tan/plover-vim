@@ -1,7 +1,10 @@
 from typing import List
 from plover.system import english_stenotype as e
 
-from plover_python_dictionary_lib import get_context_from_system
+try:
+    from plover_python_dictionary_lib import get_context_from_system
+except ImportError:
+    from plover_python_dictionary_lib.plover_python_dictionary_lib import get_context_from_system
 
 # ======== Boilerplate to set up objects.
 context = get_context_from_system(e)
@@ -47,7 +50,6 @@ def getCasedCharacters(characters):
 # define your ender here
 uniqueEnderSearch = stroke("LTDZ")
 uniqueEnderMisc = stroke("-TZ")
-# some ideas for others if you ever run out: -TZ, -SD, -TDZ, -SDZ, -TSZ, -TSD, or -TSDZ
 
 # fingerspelling dictionary entries for relevant theories
 spelling = s({

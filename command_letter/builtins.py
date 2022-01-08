@@ -1,5 +1,7 @@
 from shared.builtins import RecursiveUpdate
-from command_letter.defaults import defaults
+from command_letter.defaults import (
+        defaults, spelling, symbols, shifted_symbols_aus
+        )
 from command_letter.config import LONGEST_KEY
 from command_letter.util import (
         getMods, getEnders, combineModsEnders,
@@ -27,5 +29,53 @@ class Lookup(RecursiveUpdate):
         self.dictionary.print_items()
 
     def __call__(self, chord):
+        print(len(chord))
         assert len(chord) <= LONGEST_KEY
         return self.dictionary.lookup_tuple(chord)
+
+
+findLookup = Lookup({
+    "disable_defaults": True,
+    "spelling": spelling,
+    "symbols": symbols,
+    "shifted": shifted_symbols_aus,
+    "escape": "escape",
+    "systems": [
+        {
+            "unique_ender": "LTDZ",
+            "mods": {
+                # "-FPB": "",  # left empty for you to customise!
+                # "-FP": "",  #
+                # "-FB": "space space f",  # Forward Back (moving this to another module)
+                "-PB": "shift(t)",  # Previous Backwards
+                "-F": "f",  # Forwards
+                "-P": "t",  # Previous
+                "-B": "shift(f)",  # Backwards
+                "": ""  # for normal commands
+                }
+            }
+        ]
+    })
+
+
+miscLookup = Lookup({
+    "disable_defaults": True,
+    "spelling": spelling,
+    "symbols": symbols,
+    "shifted": shifted_symbols_aus,
+    "escape": "escape",
+    "systems": [
+        {
+            "unique_ender": "-TZ",
+            "mods": {
+                "-FPB": "q",  # liSten
+                "-FP": "shift(at)",  # at
+                # "-FB": "",
+                "-PB": "z",  # zeN
+                "-F": "g",  # the good Spot (primeagen youtube video on the g command)
+                # "-P": "",
+                "-B": "m"
+                }
+            }
+        ]
+   })

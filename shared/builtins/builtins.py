@@ -5,7 +5,7 @@ class RecursiveUpdate:
     def update(self, opts={}):
         if opts.get("disable_defaults"):
             self.opts = opts
-        if opts:
+        elif opts:
             recursiveUpdate(self.opts, opts)
 
     def __init__(self, defaults, opts={}):

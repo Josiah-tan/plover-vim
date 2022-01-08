@@ -37,5 +37,4 @@ class Lookup(RecursiveUpdate):
         return output
 
 
-def lookup(chord):
-    return Lookup()(chord)
+lookup = Lookup()
