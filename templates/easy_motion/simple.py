@@ -7,7 +7,7 @@ sys.path.append(repository_location)
 # import the modules that you want for your python experience here
 from easy_motion.builtins import findLetterLookup
 
-LONGEST_KEY = 1
+LONGEST_KEY = 2
 
 
 def lookup(key):

@@ -32,27 +32,4 @@ class Lookup(RecursiveUpdate, SingleStrokeLeft):
         return self.dictionary.lookup_tuple(chord)
 
 
-findLetterLookup = Lookup({
-    "disable_defaults": True,
-    "spelling": spelling,
-    "symbols": symbols,
-    "shifted": shifted_symbols_aus,
-    "escape": "escape",
-    "right_hand": right_hand,  # dict: easymotion finger spelling (right hand)
-    "left_hand": left_hand,  # dict: easymotion finger spelling (left hand)
-    "systems": [
-        {
-            "unique_ender": "LTDZ",
-            "mods": {
-                # "-FPB": "",  #
-                # "-FP": "",  #
-                "-FB": "space space f",  # Forward Back
-                # "-PB": "shift(t)",  # Previous Backwards (in command_letter)
-                # "-F": "f",  # Forwards (in command_letter)
-                # "-P": "t",  # Previous (in command_letter)
-                # "-B": "shift(f)",  # Backwards (in command_letter)
-                # "": ""  # for normal commands (in command_letter)
-                }
-            }
-        ]
-    })
+findLetterLookup = Lookup()
