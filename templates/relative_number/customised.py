@@ -1,5 +1,7 @@
 from contextlib import suppress
-import sys; sys.path.append("/home/josiah/.dotfiles/plover/.config/plover/vim")
+import sys
+repository_location = "/home/josiah/.dotfiles/plover/.config/plover/vim"
+sys.path.append(repository_location)
 
 # import the modules that you want for your python experience here
 from relative_number.builtins import Lookup as RelativeNumberLookup

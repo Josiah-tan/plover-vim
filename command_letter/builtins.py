@@ -29,7 +29,6 @@ class Lookup(RecursiveUpdate):
         self.dictionary.print_items()
 
     def __call__(self, chord):
-        print(len(chord))
         assert len(chord) <= LONGEST_KEY
         return self.dictionary.lookup_tuple(chord)
 
