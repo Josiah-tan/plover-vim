@@ -10,20 +10,25 @@ from command_letter.util import (
         )
 
 
-class Lookup(RecursiveUpdate):
-    def __init__(self, opts={}):
-        super().__init__(defaults, opts)
-        self.dictionary = self.getDictionary()
-        assert self.dictionary.longest_key == LONGEST_KEY
-
-    def getDictionary(self):
+class SingleStrokeLeft:
+    def getLeftCommands(self):
         mods = getMods(system["mods"] for system in self.opts["systems"])
         enders = getEnders(system["unique_ender"] for system in self.opts["systems"])
         systems = combineModsEnders(mods, enders)
         escape = getEscape(self.opts["escape"])
         symbols = getSymbols(self.opts['symbols'], self.opts['shifted'])
         characters = getCasedCharacters(getCharacters(self.opts['spelling'], symbols))
-        return (escape * systems * characters).map(addCommandSyntax)
+        return (escape * systems * characters)
+
+
+class Lookup(RecursiveUpdate, SingleStrokeLeft):
+    def __init__(self, opts={}):
+        super().__init__(defaults, opts)
+        self.dictionary = self.getDictionary()
+        assert self.dictionary.longest_key == LONGEST_KEY
+
+    def getDictionary(self):
+        return self.getLeftCommands().map(addCommandSyntax)
 
     def generateJson(self):
         self.dictionary.print_items()
