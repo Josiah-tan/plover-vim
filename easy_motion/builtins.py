@@ -32,4 +32,4 @@ class Lookup(RecursiveUpdate, SingleStrokeLeft):
         return self.dictionary.lookup_tuple(chord)
 
 
-findLetterLookup = Lookup()
+lookup = Lookup()

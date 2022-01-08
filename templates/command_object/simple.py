@@ -5,12 +5,12 @@ repository_location = "/home/josiah/.dotfiles/plover/.config/plover/vim"
 sys.path.append(repository_location)
 
 # import the modules that you want for your python experience here
-from easy_motion.builtins import lookup as findLetterLookup
+from command_object.builtins import lookup as command_object_lookup
 
-LONGEST_KEY = 2
+LONGEST_KEY = 1
 
 
 def lookup(key):
-    for look in [findLetterLookup]:
+    for look in [command_object_lookup]:
         with suppress(KeyError):
             return look(key)
