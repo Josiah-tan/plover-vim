@@ -36,7 +36,8 @@ command_object_lookup = CommandObjectLookup({
                 "*TD": "",
                 "*DZ": "",
                 "*SZ": "",
-                "*TS": ""
+                "*TS": "",
+                "": ""
                 }
             }
         ]})

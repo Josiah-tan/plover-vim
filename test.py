@@ -30,6 +30,3 @@ if RELOAD:
 
 for test in TEST:
     test.testAll()
-
-
-

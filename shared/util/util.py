@@ -46,7 +46,7 @@ def applyModifiers(character: str, mods: List[str]) -> str:
 
 
 def addCommandSyntax(combo: str) -> str:
-    return "{#" + combo + "}"
+    return "{#" + combo + "}{^}"
 
 
 def accumulateModifiers(character: str, mods: List[str]) -> str:

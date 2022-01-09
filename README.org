@@ -1,36 +1,51 @@
 * Plover-vim
 - this is an ambitious project that aims to make vim faster and more ergonomic
 
-
-* Motivation:
-- slowness of changing between insert and normal mode
-- plover phrasing systems
-	- Create phrases in single strokes
-	- Personally I use [[https://github.com/Jade-GG/plover_phrasing][Jade's]]
-- Emily's [[https://github.com/EPLHREU/emily-modifiers][modifiers]] + [[https://github.com/EPLHREU/emily-symbols][symbol]] system
-	- Contains all control, alt, windows, etc combined with every symbol that you would ever dream of
-
 * Aims:
 - Highly extensible and customisable commands and translations
 - (mostly) single chords for virtually every vim command combination
-- make vim's modal system uneccessary
-	- more flexibility in what you can do in insert mode
+- Ability to do everything in insert mode (no more normal mode)
+
+* Motivation:
+- slowness of changing between insert and normal mode
+- Emily's [[https://github.com/EPLHREU/emily-modifiers][modifiers]]
+	- Contains all control, alt, windows, etc combined with every symbol that you would ever dream of
+- Emily's [[https://github.com/EPLHREU/emily-symbols][symbols]]
+	- Symbols with full control over spacing, capitalization and repetition
 
 * Will not be implemented:
 - control commands (Already done in Emily's symbol + modifier system)
 
-* Testing:
-- [X] Check to see if translations are as expected
-- [ ] Check for conflicts before outputting dictionary results to a file
-
 * Prerequisites
-	- Make sure to install python-plover-dictionary from plover's plugins
+- Install python-plover-dictionary from plover's plugins
 	- Aerick has a [[https://www.youtube.com/watch?v=uQZp7RX-h6o][video]] on this
 
-* Modules:
-- The system is designed with different modules, so that you can choose what you want and don't want to include
-	- (currently there is only one module: relative\under{}number, but more are coming soon)
+* Installation
+- Clone this repository (recommended putting this where you store your Plover dictionaries)
+- Update all git submodules
 
+#+BEGIN_SRC bash
+git clone https://github.com/Josiah-tan/plover-vim.git
+git submodule update --init --recursive
+#+END_SRC
+
+* Modules:
+- This repository separates the different dictionaries available into different modules
+	- Therefore you have control over what you want to include
+** Summary:
+|-----------------+-----------+---------------------------------------------------------+-----------------------|
+| module          | # strokes | short description                                       | examples              |
+|-----------------+-----------+---------------------------------------------------------+-----------------------|
+| relative number | 1         | jump to different lines (1 to 100)                      | 14j, 31k              |
+|-----------------+-----------+---------------------------------------------------------+-----------------------|
+| command letter  | 1         | any command followed by any character                   | fu, T?, @q, gv        |
+|                 |           | (characters same as Emily's symbols)                    |                       |
+|-----------------+-----------+---------------------------------------------------------+-----------------------|
+| command object  | 1         | any command followed by any text object                 | ciw, gcip, yi(        |
+|                 |           | (characters same as Emily's modifiers)                  |                       |
+|-----------------+-----------+---------------------------------------------------------+-----------------------|
+| easy motion     | 2         | command letter, but another stroke required for jumping | <leader><leader>fp st |
+|-----------------+-----------+---------------------------------------------------------+-----------------------|
 
 ** relative-number
 *** What is relativenumbering in vim?

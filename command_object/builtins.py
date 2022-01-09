@@ -1,4 +1,4 @@
-from shared.utils.utils import getMods, addCommandSyntax
+from shared.util.util import getMods, addCommandSyntax
 from shared.builtins import BaseLookup
 from command_object.defaults import defaults
 from command_object.config import LONGEST_KEY
