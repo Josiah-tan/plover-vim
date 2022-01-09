@@ -13,6 +13,19 @@ class RecursiveUpdate:
         self.update(opts)
 
 
+class BaseLookup(RecursiveUpdate):
+    def generateJson(self):
+        self.dictionary.print_items()
+
+    def __call__(self, chord):
+        res = self.dictionary.lookup_tuple(chord)
+        if res:
+            return res
+        else:
+            raise KeyError
+
+
+
 def containsNumber(stroke):
     return any(k.isnumeric() for k in stroke)
 

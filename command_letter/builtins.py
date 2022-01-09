@@ -1,12 +1,13 @@
-from shared.builtins import RecursiveUpdate
+from shared.util.util import getMods, addCommandSyntax
+from shared.builtins import BaseLookup
 from command_letter.defaults import (
         defaults, spelling, symbols, shifted_symbols_aus
         )
 from command_letter.config import LONGEST_KEY
 from command_letter.util import (
-        getMods, getEnders, combineModsEnders,
+        getEnders, combineModsEnders,
         getEscape, getSymbols, getCharacters,
-        getCasedCharacters, addCommandSyntax
+        getCasedCharacters
         )
 
 
@@ -21,7 +22,7 @@ class SingleStrokeLeft:
         return (escape * systems * characters)
 
 
-class Lookup(RecursiveUpdate, SingleStrokeLeft):
+class Lookup(BaseLookup, SingleStrokeLeft):
     def __init__(self, opts={}):
         super().__init__(defaults, opts)
         self.dictionary = self.getDictionary()
@@ -30,12 +31,9 @@ class Lookup(RecursiveUpdate, SingleStrokeLeft):
     def getDictionary(self):
         return self.getLeftCommands().map(addCommandSyntax)
 
-    def generateJson(self):
-        self.dictionary.print_items()
-
     def __call__(self, chord):
         assert len(chord) <= LONGEST_KEY
-        return self.dictionary.lookup_tuple(chord)
+        return super().__call__(chord)
 
 
 findLookup = Lookup({

@@ -15,7 +15,7 @@ def findLookupSuccess():
 @Test(flhs=findLookup)
 def findLookupFailure():
     return (
-            ((("KWR-RBTZ",),), None),
+            ((("KWR-RBTZ",),), KeyError),
            )
 
 
@@ -29,7 +29,7 @@ def miscLookupSuccess():
 @Test(flhs=miscLookup)
 def miscLookupFailure():
     return (
-            ((("HR*RPBLTDZ",),), None),
+            ((("HR*RPBLTDZ",),), KeyError),
            )
 
 ##

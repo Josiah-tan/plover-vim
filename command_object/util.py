@@ -1,4 +1,12 @@
-from typing import List
+from shared.util.util import (
+        spaceFormat,
+        convert2Stroke,
+        applyModifiers,
+        convertShiftDict,
+        productThenUnion
+        )
+
+
 from plover.system import english_stenotype as e
 
 try:
@@ -11,20 +19,6 @@ context = get_context_from_system(e)
 s = context.SingleDictionary
 stroke = context.stroke
 translation = context.translation
-
-
-def convertShiftDict(raw_symbols, shifted):
-    d = raw_symbols
-    for key, item in d.items():
-        if type(item) == list:
-            for i in range(len(item)):
-                if item[i] in shifted:
-                    d[key][i] = getShifted(item[i])
-        elif type(item) == str:
-            d[key] = getShifted(item)
-        else:
-            raise TypeError
-    return d
 
 
 def getSymbols(symbols, objects, shifted):
@@ -42,16 +36,8 @@ def getSymbols(symbols, objects, shifted):
             )
 
 
-def spaceFormat(x):
-    return x + ' ' if x != "" else ""
-
-
 def getStarters(starters):
-    return [stroke(starter) for starter in starters]
-
-
-def getMods(mods):
-    return [s(mod).map(spaceFormat) for mod in mods]
+    return convert2Stroke(starters)
 
 
 def getMiddle(middle):
@@ -59,14 +45,7 @@ def getMiddle(middle):
 
 
 def combineModsStarters(mods, starters):
-    res = None
-    for starter, mod in zip(starters, mods):
-        mult = starter * mod
-        if res is None:
-            res = mult
-        else:
-            res = res | mult
-    return res
+    return productThenUnion(mods, starters)
 
 
 def getEscape(escape):
@@ -78,14 +57,6 @@ def getCasedCharacters(characters):
             characters *
             s({"-R": ["shift"], "": []}).named("mods")
             ).map(applyModifiers)
-
-
-def getShifted(s):
-    return f"shift({s})"
-
-
-
-
 
 
 def getCharacters(spelling, symbols):
@@ -124,23 +95,3 @@ def getCharacters(spelling, symbols):
             spelling.filter(lambda character: character != "")
 
             ).named("character")
-
-
-def applyModifiers(character: str, mods: List[str]) -> str:
-    # apply those modifiers
-    combo = character
-    for mod in mods:
-        if mod not in combo:  # shift could already be used to create a symbol
-            combo = mod + "(" + combo + ")"
-    return combo
-
-
-def addCommandSyntax(combo: str) -> str:
-    return "{#" + combo + "}"
-
-
-def accumulateModifiers(character: str, mods: List[str]) -> str:
-    combo = applyModifiers(character, mods)
-    # package it up with the syntax
-    # all done! :D
-    return addCommandSyntax(combo)

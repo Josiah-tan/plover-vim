@@ -1,5 +1,6 @@
 * Plover-vim
-- this is an ambitious project that aims to make vim even more ergonomic than it already is for plover users!
+- this is an ambitious project that aims to make vim faster and more ergonomic
+
 
 * Motivation:
 - slowness of changing between insert and normal mode

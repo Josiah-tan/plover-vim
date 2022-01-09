@@ -1,4 +1,11 @@
-from typing import List
+from shared.util.util import (
+        spaceFormat,
+        convert2Stroke,
+        applyModifiers,
+        convertShiftDict,
+        productThenUnion
+        )
+
 from plover.system import english_stenotype as e
 
 try:
@@ -13,27 +20,12 @@ stroke = context.stroke
 translation = context.translation
 
 
-def spaceFormat(x):
-    return x + ' ' if x != "" else ""
-
-
 def getEnders(enders):
-    return [stroke(ender) for ender in enders]
-
-
-def getMods(mods):
-    return [s(mod).map(spaceFormat) for mod in mods]
+    return convert2Stroke(enders)
 
 
 def combineModsEnders(mods, enders):
-    res = None
-    for ender, mod in zip(enders, mods):
-        mult = ender * mod
-        if res is None:
-            res = mult
-        else:
-            res = res | mult
-    return res
+    return productThenUnion(mods, enders)
 
 
 def getEscape(escape):
@@ -45,24 +37,6 @@ def getCasedCharacters(characters):
             characters *
             s({"-R": ["shift"], "": []}).named("mods")
             ).map(applyModifiers)
-
-
-def getShifted(s):
-    return f"shift({s})"
-
-
-def convertShiftDict(raw_symbols, shifted):
-    d = raw_symbols
-    for key, item in d.items():
-        if type(item) == list:
-            for i in range(len(item)):
-                if item[i] in shifted:
-                    d[key][i] = getShifted(item[i])
-        elif type(item) == str:
-            d[key] = getShifted(item)
-        else:
-            raise TypeError# (f"expected str or list, instead got {type(item)}")
-    return d
 
 
 def getSymbols(symbols, shifted):
@@ -105,23 +79,3 @@ def getCharacters(spelling, symbols):
             spelling.filter(lambda character: character != "")
 
             ).named("character")
-
-
-def applyModifiers(character: str, mods: List[str]) -> str:
-    # apply those modifiers
-    combo = character
-    for mod in mods:
-        if mod not in combo:  # shift could already be used to create a symbol
-            combo = mod + "(" + combo + ")"
-    return combo
-
-
-def addCommandSyntax(combo: str) -> str:
-    return "{#" + combo + "}"
-
-
-def accumulateModifiers(character: str, mods: List[str]) -> str:
-    combo = applyModifiers(character, mods)
-    # package it up with the syntax
-    # all done! :D
-    return addCommandSyntax(combo)

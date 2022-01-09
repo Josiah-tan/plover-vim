@@ -1,5 +1,7 @@
 from config import RELOAD
-from shared.builtins.builtins import RecursiveUpdate
+from shared.builtins.builtins import (
+        RecursiveUpdate, BaseLookup
+        )
 
 if RELOAD:
     import importlib
