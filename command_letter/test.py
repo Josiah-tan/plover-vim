@@ -1,14 +1,15 @@
 from command_letter.builtins import findLookup, miscLookup
 from shared.test.builtins import Test
+from shared.util.util import addCommandSyntax
 
 
 ##
 
 
-@Test(flhs=findLookup)
+@Test(flhs=findLookup, frhs=addCommandSyntax)
 def findLookupSuccess():
     return (
-            ((("HR*RPBLTDZ",),), "{#escape shift(t) shift(exclam)}"),
+            ((("HR*RPBLTDZ",),), ("escape shift(t) shift(exclam)",)),
            )
 
 
@@ -19,11 +20,10 @@ def findLookupFailure():
            )
 
 
-@Test(flhs=miscLookup)
+@Test(flhs=miscLookup, frhs=addCommandSyntax)
 def miscLookupSuccess():
     return (
-            ((("KWR-RBTZ",),),  "{#escape m shift(y)}"),
-            ((("TKPW-FTZ",),),  "{#escape g g}"),
+            ((("KWR-RBTZ",),), ("escape m shift(y)",)),
            )
 
 

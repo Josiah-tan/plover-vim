@@ -8,9 +8,9 @@ import shared.builtins.test as shared_builtins_test
 import shared.test.test as shared_test_test
 
 TEST = {
-        relative_number_test,
-        shared_builtins_test,
         shared_test_test,
+        shared_builtins_test,
+        relative_number_test,
         command_letter_test,
         easy_motion_test
         }

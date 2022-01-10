@@ -12,6 +12,36 @@ class Test:
         self.flhs = flhs
         self.frhs = frhs
 
+    def f(self):
+        log(f"testing: {self.func.__qualname__}")
+
+        def exec(lhs, rhs):
+            try:
+                if self.flhs:
+                    lhs = self.flhs(*lhs)
+                    log(f"flhs = {lhs}")
+                if self.frhs:
+                    rhs = self.frhs(*rhs)
+                    log(f"frhs = {rhs}")
+                if Config.ASSERTION:
+                    assert lhs == rhs
+            except KeyError:
+                if rhs == KeyError:
+                    log("flhs correctly raised KeyError")
+                else:
+                    # print is here on purpose
+                    print(f"function {self.func.__qualname__} incorrectly raised KeyError")
+                    print(traceback.format_exc())
+                    exit()
+
+        def iter(res):
+            for lhs, rhs in res:
+                log(f"lhs: {lhs}")
+                log(f"rhs: {rhs}")
+                exec(lhs, rhs)
+        iter(self.func())
+
+
     def fLHS(self):
         log(f"testing: {self.func.__qualname__}")
 
@@ -39,5 +69,7 @@ class Test:
 
     def __call__(self, func):
         self.func = func
+        return self.f
         if self.flhs is not None and self.frhs is None:
             return self.fLHS
+

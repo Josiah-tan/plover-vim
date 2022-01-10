@@ -5,6 +5,13 @@ def testAdder(*args):
     return sum(args)
 
 
+def testMultiplier(*args):
+    i = 1
+    for a in args:
+        i *= a
+    return i
+
+
 def raiseKeyError(*args):
     raise KeyError
 
@@ -25,6 +32,15 @@ def testRaiseKeyError():
             )
 
 
+@Test(flhs=testAdder, frhs=testMultiplier)
+def testLhsRhs():
+    return (
+            ((1, 2, 3), (2, 3)),
+            ((1, 5, -7), (-1, 1, 1))
+            )
+
+
 def testAll():
     testNoError()
     testRaiseKeyError()
+    testLhsRhs()
