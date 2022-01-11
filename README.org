@@ -8,6 +8,7 @@
 
 * Motivation:
 - slowness of changing between insert and normal mode
+- slowness of finger spelling everything
 - Emily's [[https://github.com/EPLHREU/emily-modifiers][modifiers]]
 	- Contains all control, alt, windows, etc combined with every symbol that you would ever dream of
 - Emily's [[https://github.com/EPLHREU/emily-symbols][symbols]]
@@ -18,11 +19,12 @@
 
 * Will not be implemented:
 - control commands (Already done in Emily's symbol + modifier system)
+	- ctrl-A, alt-m, etc
 
 * Prerequisites
 - Install python-plover-dictionary from plover's plugins
 	- Aerick has a [[https://www.youtube.com/watch?v=uQZp7RX-h6o][video]] on this
-	- (just open up the latest build of plover, goto plugins manager and find "python-plover-dictionary in the list")
+	- (just open up the latest build of plover, goto plugins manager and find "python-plover-dictionary" in the list)
 
 * Installation
 - Clone this repository (recommended putting it where you store your Plover dictionaries)
@@ -154,11 +156,11 @@ git submodule update --init --recursive
 |                |           | customisable |                 |                       |
 |----------------+-----------+--------------+-----------------+-----------------------|
 |                | A         | a            | around          |                       |
-|                | O         | i            | (help)          |                       |
+|                | O         | i            |                 |                       |
 |                | AO        | customisable |                 |                       |
 |                |           | ""           |                 |                       |
 |----------------+-----------+--------------+-----------------+-----------------------|
-*** Limitations...
+*** Limitations
 - some command + motion combinations must be stroked in two, for example:
 	- ct=
 *** Usage
