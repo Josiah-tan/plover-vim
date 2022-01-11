@@ -83,8 +83,8 @@ git submodule update --init --recursive
 		- KWR* = ), using emily's modifier symbols for the left hand
 		- F = f
 		- -LTDZ = unique ender for finders
-- There are several categories of commands supported
-- "Customisable" commands can be filled in for personal useage
+- The table below shows default settings
+	- "Customisable" commands can be filled in for personal useage
 |---------------+--------------+-----------+--------------+----------------------|
 | category      | Unique Ender | Modifiers | Command      | How To Memorise      |
 |---------------+--------------+-----------+--------------+----------------------|
@@ -129,9 +129,9 @@ git submodule update --init --recursive
 		- O = i
 		- -FPL = (, using emily's symbols for the right hand
 		- -Z = y
-- There are several categories of commands supported
-- "Customisable" commands can be filled in for personal useage
-- note: \star{} denotes modifiers can be combined with non starred
+- The table below shows the default mappings
+	- "Customisable" commands can be filled in for personal useage
+	- note: AO combinations can be combined with other modifiers
 |----------------+-----------+--------------+-----------------+-----------------------|
 | Unique starter | Modifiers | Command      | How To Memorise | Plugin                |
 |----------------+-----------+--------------+-----------------+-----------------------|
@@ -153,16 +153,19 @@ git submodule update --init --recursive
 |                | *TS       | customisable |                 |                       |
 |                |           | customisable |                 |                       |
 |----------------+-----------+--------------+-----------------+-----------------------|
-
+|                | A         | a            | around          |                       |
+|                | O         | i            | (help)          |                       |
+|                | AO        | customisable |                 |                       |
+|                |           | ""           |                 |                       |
+|----------------+-----------+--------------+-----------------+-----------------------|
 *** Limitations...
 - some command + motion combinations must be stroked in two, for example:
 	- ct=
-
 *** Usage
 - copy templates/command\under{}object/simple.py and add it to your dictionaries for default configuration
 - copy templates/command\under{}object/customised.py for a more customised experience
 	- note that (shift(s)) is required to output S because raw keyboard input is [[https://github.com/openstenoproject/plover/issues/1465][weird]]
-	- See note on [[#control(J)]]
+	- See note on [[#Controlj][control(j)]]
 ** easy-motion
 *** What is easy-motion in vim?
 - easy motion is a [[https://github.com/easymotion/vim-easymotion][plugin]] that enables "vim motions on speed!"
@@ -193,12 +196,10 @@ let g:EasyMotion_keys = 'bdfgjklmnprstxz'
 - copy templates/easy\under{}motion/simple.py and add it to your dictionaries for default configuration
 - copy templates/easy\under{}motion/customised.py for a more customised experience
 	- see note on [[#Controlj][control(j)]]
-
 * Customisation
 ** Control(J)
 - Allows you to execute any (most) commands as if you are from normal mode
 - Sample .vimrc config (thanks [[https://github.com/openstenoproject/plover/discussions/1350#discussioncomment-1905781][User202729]])!
-
 #+BEGIN_SRC vim
 "do nothing in normal mode
 nore <c-j> <nop> 
