@@ -135,7 +135,7 @@ git submodule update --init --recursive
 	- "Customisable" commands can be filled in for personal useage
 	- note: AO combinations can be combined with other modifiers
 |----------------+-----------+--------------+-----------------+-----------------------|
-| Unique starter | Modifiers | Command      | How To Memorise | Plugin                |
+| Unique starter | Modifiers | Command      | How To Memorise | Plugin Requirements   |
 |----------------+-----------+--------------+-----------------+-----------------------|
 | STPR           | -T        | g c          | commenTary      | tpope/vim-commentary  |
 |                | -D        | d            | Delete          |                       |
