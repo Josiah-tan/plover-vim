@@ -114,7 +114,7 @@ git submodule update --init --recursive
 - copy templates/command\under{}letter/simple.py and add it to your dictionaries for default configuration
 - copy templates/command\under{}letter/customised.py for a more customised experience
 	- note that (shift(at)) is required to output @ because raw keyboard input is [[https://github.com/openstenoproject/plover/issues/1465][weird]]
-	- See note on [[#control(J)]]
+	- See note on [[#Control(J)]]
 ** command-object
 *** How does this module improve vim?
 - You can perform any command followed by a text "object" in a single stroke for example:
@@ -192,7 +192,7 @@ let g:EasyMotion_keys = 'bdfgjklmnprstxz'
 #+END_SRC
 - copy templates/easy\under{}motion/simple.py and add it to your dictionaries for default configuration
 - copy templates/easy\under{}motion/customised.py for a more customised experience
-	- see note on [[#control(J)]]
+	- see note on [[#Control(J)]]
 
 * Customisation
 ** Control(J)
