@@ -1,5 +1,5 @@
 * Plover-vim
-- this is an ambitious project that aims to make vim faster and more ergonomic
+- This is an ambitious project that aims to make vim faster and more ergonomic for plover users!
 
 * Aims:
 - Highly extensible and customisable commands and translations
@@ -12,6 +12,9 @@
 	- Contains all control, alt, windows, etc combined with every symbol that you would ever dream of
 - Emily's [[https://github.com/EPLHREU/emily-symbols][symbols]]
 	- Symbols with full control over spacing, capitalization and repetition
+- User202729's [[https://github.com/user202729/plover-python-dictionary-lib][ultimate python dictionary library]] 
+	- Makes coding a python dictionary significantly easier
+	- Highly recommended you check this out if you want to create your own dictionaries
 
 * Will not be implemented:
 - control commands (Already done in Emily's symbol + modifier system)
@@ -19,9 +22,10 @@
 * Prerequisites
 - Install python-plover-dictionary from plover's plugins
 	- Aerick has a [[https://www.youtube.com/watch?v=uQZp7RX-h6o][video]] on this
+	- (just open up the latest build of plover, goto plugins manager and find "python-plover-dictionary in the list")
 
 * Installation
-- Clone this repository (recommended putting this where you store your Plover dictionaries)
+- Clone this repository (recommended putting it where you store your Plover dictionaries)
 - Update all git submodules
 
 #+BEGIN_SRC bash
@@ -39,10 +43,10 @@ git submodule update --init --recursive
 | relative number | 1         | jump to different lines (1 to 100)                      | 14j, 31k              |
 |-----------------+-----------+---------------------------------------------------------+-----------------------|
 | command letter  | 1         | any command followed by any character                   | fu, T?, @q, gv        |
-|                 |           | (characters same as Emily's symbols)                    |                       |
+|                 |           | (characters same as Emily's modifiers)                  |                       |
 |-----------------+-----------+---------------------------------------------------------+-----------------------|
 | command object  | 1         | any command followed by any text object                 | ciw, gcip, yi(        |
-|                 |           | (characters same as Emily's modifiers)                  |                       |
+|                 |           | (characters same as Emily's symbols)                    |                       |
 |-----------------+-----------+---------------------------------------------------------+-----------------------|
 | easy motion     | 2         | command letter, but another stroke required for jumping | <leader><leader>fp st |
 |-----------------+-----------+---------------------------------------------------------+-----------------------|
@@ -67,56 +71,147 @@ git submodule update --init --recursive
 - You can't go past 99 lines at a time
 
 *** Usage
-- copy templates/simple.py and add it to your dictionaries for a simple configuration
-- copy templates/customised.py for a more customised experience
+- copy templates/relative\under{}number/simple.py and add it to your dictionaries for a simple configuration
+- copy templates/relative\under{}number/customised.py for a more customised experience
+- I recommend remapping the top left S key as #
 
-** TODO character-commands
+** command-letter
 *** How does this module improve vim? 
-- This module is inspired by emily's modifier system to generate all the characters
-	- This means that the vowels and left hand side are utilised for the characters
-	- We can only customise right hand side chords
-- Everything below are the default configs (can be disabled)
-**** searching characters
-- There are a few methods of searching
-	- f + character: find character forwards in the same line and go to that character
-	- F + character: find character backwards in the same line and go to that character
-	- t + character: find character forwards in the same line and go just before that character
-	- T + character: find character backwards in the same line and go just after that character
-- Would be nice if we could do this in a single stroke wouldn't it?
-	- -LTDZ used as the original ending chord by default
-	- -R => shift (same as emily) for capitalization of characters
-	- -B => backwards
-	- -F => find 
-	- -P => previous character
-- Steno equivalents
-	- f: -F
-	- F: -FB
-	- t: -FP
-	- T: -FPB
+- You can perform any command followed by a letter in a single stroke for example:
+	- f) = KWR*FLTDZ
+	- breaking it down: 
+		- KWR* = ), using emily's modifier symbols for the left hand
+		- F = f
+		- -LTDZ = unique ender for finders
+- There are several categories of commands supported
+- "Customisable" commands can be filled in for personal useage
+|---------------+--------------+-----------+--------------+----------------------|
+| category      | Unique Ender | Modifiers | Command      | How To Memorise      |
+|---------------+--------------+-----------+--------------+----------------------|
+| finders       | -LTDZ        | -FPB      | customisable |                      |
+|               |              | -FP       | customisable |                      |
+|               |              | -FB       |              | (used in easymotion) |
+|               |              | -PB       | shift(t)     | Previous Backwards   |
+|               |              | -F        | f            | Forwards             |
+|               |              | -P        | t            | Previous             |
+|               |              | -B        | shift(f)     | Backwards            |
+|               |              |           | ""           | escaped commands     |
+|---------------+--------------+-----------+--------------+----------------------|
+| miscallaneous | -TZ          | -FPB      | q            | liSeN                |
+|               |              | -FP       | shift(at)    | macros               |
+|               |              | -FB       | customisable |                      |
+|               |              | -PB       | z            | zeN                  |
+|               |              | -F        | g            | the good Spot        |
+|               |              | -P        | customisable |                      |
+|               |              | -B        | m            | marBg                |
+|               |              |           | customisable |                      |
+|---------------+--------------+-----------+--------------+----------------------|
 
-**** easy motion
-- Code from this plugin: 
-	- <leader><leader>f + character: find character anywhere in all windows
-- Steno equivalent:
-  	- <leader><leader>f + character: -PB
-***** TODO need to think about how we enter the characters to locate the character
+*** Limitations
+- Todo
 
-**** escaped characters
-- No longer have to press "escape" every time you run a (single character) command
-	- escape + character:
-- Might not implement, let the user create one using the api
-	- use a different ending chord?
+*** Usage
+- copy templates/command\under{}letter/simple.py and add it to your dictionaries for default configuration
+- copy templates/command\under{}letter/customised.py for a more customised experience
+	- note that (shift(at)) is required to output @ because raw keyboard input is [[https://github.com/openstenoproject/plover/issues/1465][weird]]
+	- See note on [[#control(J)]]
+** command-object
+*** How does this module improve vim?
+- You can perform any command followed by a text "object" in a single stroke for example:
+	- daw = STPRARLD
+	- breaking it down: 
+		- STPR = unique starter
+		- A = a
+		- -RL = w, (see "objects" in command\under{}object/defaults.py)
+		- -D = d
+	- yi( = STPROFPLZ
+		- STPR = unique starter
+		- O = i
+		- -FPL = (, using emily's symbols for the right hand
+		- -Z = y
+- There are several categories of commands supported
+- "Customisable" commands can be filled in for personal useage
+- note: \star{} denotes modifiers can be combined with non starred
+|----------------+-----------+--------------+-----------------+-----------------------|
+| Unique starter | Modifiers | Command      | How To Memorise | Plugin                |
+|----------------+-----------+--------------+-----------------+-----------------------|
+| STPR           | -T        | g c          | commenTary      | tpope/vim-commentary  |
+|                | -D        | d            | Delete          |                       |
+|                | -S        | y s          | Surround        | tpope/vim-surround    |
+|                | -Z        | y            | xyZ             |                       |
+|                | -TD       | customisable |                 |                       |
+|                | -DZ       | customisable |                 |                       |
+|                | -SZ       | v            | viSualiZe       |                       |
+|                | -TS       | customisable |                 |                       |
+|                | *T        | g b          | commenTary      | numToStr/Comment.nvim |
+|                | *D        | customisable |                 |                       |
+|                | *S        | shift(s)     | Surround        | tpope/vim-surround    |
+|                | *Z        | customisable |                 |                       |
+|                | *TD       | customisable |                 |                       |
+|                | *DZ       | customisable |                 |                       |
+|                | *SZ       | customisable |                 |                       |
+|                | *TS       | customisable |                 |                       |
+|                |           | customisable |                 |                       |
+|----------------+-----------+--------------+-----------------+-----------------------|
 
-**** macros
-- macros are used for recording + replaying commands
-	- q + character: record macro into this register
-	- @ + character: play macro from this register
-- Might not implement, let the user create one using the api
-	- use a different ending chord?
+*** Limitations...
+- some command + motion combinations must be stroked in two, for example:
+	- ct=
 
-**** double characters
-- No longer have to spam so many times when you want to run a vim command
-	- command * 2:
-- Might not implement, let the user create one using the api
-	- use a different ending chord?
+*** Usage
+- copy templates/command\under{}object/simple.py and add it to your dictionaries for default configuration
+- copy templates/command\under{}object/customised.py for a more customised experience
+	- note that (shift(s)) is required to output S because raw keyboard input is [[https://github.com/openstenoproject/plover/issues/1465][weird]]
+	- See note on [[#control(J)]]
+** easy-motion
+*** What is easy-motion in vim?
+- easy motion is a [[https://github.com/easymotion/vim-easymotion][plugin]] that enables "vim motions on speed!"
+- Aims to optimise text navigation
+*** How does this module improve vim? 
+- You can perform a search for a letter h as follows
+	- <leader><leader>fhtk => H-FBLTDZ/T-BG
+	- breaking it down: 
+		- H => h, using emily's modifier symbols for the left hand
+		- -FB => <leader><leader>f
+		- -LTDZ => unique ender for finders
+		- T-BG => tk, this is the second stroke that takes you to the location
 
+|--------------+-----------+-------------------+-------------------|
+| Unique Ender | Modifiers | Command           | How To Memorise   |
+|--------------+-----------+-------------------+-------------------|
+| -LTDZ        | -FB       | <leader><leader>f | Forward Backwards |
+|--------------+-----------+-------------------+-------------------|
+
+*** Problems
+- Can cause mental overhead when stroking to get to the location
+
+*** Usage
+- Put this somewhere in your vimrc
+#+BEGIN_SRC vim
+let g:EasyMotion_keys = 'bdfgjklmnprstxz'
+#+END_SRC
+- copy templates/easy\under{}motion/simple.py and add it to your dictionaries for default configuration
+- copy templates/easy\under{}motion/customised.py for a more customised experience
+	- see note on [[#control(J)]]
+
+* Customisation
+** Control(J)
+- Allows you to execute any (most) commands as if you are from normal mode
+- Sample .vimrc config (thanks [[https://github.com/openstenoproject/plover/discussions/1350#discussioncomment-1905781][User202729]])!
+
+#+BEGIN_SRC vim
+"do nothing in normal mode
+nore <c-j> <nop> 
+"escape insert mode, then return to insert mode afterwards
+inore <c-j> <c-\><c-o>
+"escape command mode
+cnoremap <c-j> <esc>
+
+if !has('nvim')
+	" escape terminal mode, then return to terminal mode
+	set termwinkey=<c-j>
+else
+	" escape terminal mode, does not return to terminal mode :<
+	tnoremap <c-j> <C-\><C-n>
+endif
+#+END_SRC
