@@ -84,7 +84,7 @@ git submodule update --init --recursive
 	- breaking it down: 
 		- KWR* = ), using emily's modifier symbols for the left hand
 		- F = f
-		- -LTDZ = unique ender for finders
+		- -LTDZ = unique ender for finders (ring finger on LT and pinky on DZ)
 - The table below shows default settings
 	- "Customisable" commands can be filled in for personal useage
 |---------------+--------------+-----------+--------------+----------------------|
