@@ -142,7 +142,7 @@ git submodule update --init --recursive
 |                | -S        | y s          | Surround        | tpope/vim-surround    |
 |                | -Z        | y            | xyZ             |                       |
 |                | -TD       | customisable |                 |                       |
-|                | -DZ       | customisable |                 |                       |
+|                | -DZ       | d s          | Delete Surround | tpope/vim-surround    |
 |                | -SZ       | v            | viSualiZe       |                       |
 |                | -TS       | customisable |                 |                       |
 |                | *T        | g b          | commenTary      | numToStr/Comment.nvim |

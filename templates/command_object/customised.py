@@ -26,7 +26,7 @@ command_object_lookup = CommandObjectLookup({
                 "-S": "y s",  # tpope/vim-Surround (for surrounding things)
                 "-Z": "y",  # yank? (plZ give ideas for this one)
                 "-TD": "",
-                "-DZ": "",
+                "-DZ": "d s",
                 "-SZ": "v",  # ViSualiZe
                 "-TS": "",
                 "*T": "g b",  # numToStr/Comment.nvim (for block commenting)
