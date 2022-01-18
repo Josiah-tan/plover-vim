@@ -104,7 +104,7 @@ git submodule update --init --recursive
 |               |              | -FB       | customisable |                      |
 |               |              | -PB       | z            | zeN                  |
 |               |              | -F        | g            | the good Spot        |
-|               |              | -P        | customisable |                      |
+|               |              | -P        | r            | rePlace              |
 |               |              | -B        | m            | marBg                |
 |               |              |           | customisable |                      |
 |---------------+--------------+-----------+--------------+----------------------|

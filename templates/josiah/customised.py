@@ -50,7 +50,7 @@ command_letter_lookup = CommandLetterLookup({
                 # "-FB": "",
                 "-PB": "z",  # zeN
                 "-F": "g",  # the good Spot (primeagen youtube video on the g command)
-                # "-P": "",
+                "-P": "r",
                 "-B": "m"
                 }
             }]
