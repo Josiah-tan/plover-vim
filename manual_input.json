@@ -1,7 +1,15 @@
 {
+"STPHA*EUF": "{#control(j) shift(colon) w return}",
 "SROEFD": "vscode",
-"TPWHR-LG": "{#escape space t m}",
+"TPWHR-LG": "{#control(j) space t m}",
 "TPWH*EUPL": "neovim",
+"THROBL": "togglable",
+"THROG": "toggle",
+"T*ERL": "terminal",
 "KR*L": "ctrl",
+"PHRO*FPLT": "{#control(j) space p v}",
+"PHROFPLT": "{#control(j) space p s}",
+"PHROFBG": "{#escape space p p}",
+"PAO*EUFPB": "python",
 "EFBG": "esc"
 }
