@@ -1,3 +1,4 @@
+import copy
 from shared.util import recursiveUpdate
 
 
@@ -9,7 +10,7 @@ class RecursiveUpdate:
             recursiveUpdate(self.opts, opts)
 
     def __init__(self, defaults, opts={}):
-        self.opts = defaults
+        self.opts = copy.deepcopy(defaults)  # ensure defaults not changed
         self.update(opts)
 
 
