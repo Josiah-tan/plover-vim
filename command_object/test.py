@@ -7,7 +7,7 @@ from command_object.util import mergeDictList
 ##
 
 @Test(flhs=mergeDictList)
-def mergeDictListsBshort():
+def mergeDictListsSuccess():
     a1 = {"-P": ["", "", "", "P"]}
     b1 = {"-P": "grave"}
     b2 = {"-P": ["grave"]}
@@ -21,6 +21,15 @@ def mergeDictListsBshort():
             ((a1, b3,), c3),
            )
 
+
+@Test(flhs=mergeDictList)
+def mergeDictListsFailure():
+    a1 = {"-P": ["P", "", "", "P"]}
+    b1 = {"-P": "grave"}
+    c1 = {'-P': ['grave', '', '', 'P']}
+    return (
+            ((a1, b1,), c1),
+           )
 
 # @Test(flhs=findLookup, frhs=addCommandSyntax)
 # def findLookupSuccess():
@@ -53,7 +62,8 @@ def mergeDictListsBshort():
 
 
 def testAll():
-    mergeDictListsBshort()
+    mergeDictListsSuccess()
+    mergeDictListsFailure()
     # findLookupSuccess()
     # findLookupFailure()
     # miscLookupSuccess()

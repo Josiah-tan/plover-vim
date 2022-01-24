@@ -33,7 +33,7 @@ def mergeDictList(a, b):
             for _ in range(len(b[i]), len(j)):
                 b[i].append("")
         for k in range(len(j)):
-            if j[k] != "":
+            if j[k] != "" and b[i][k] == "":
                 b[i][k] = j[k]
     return b
 
