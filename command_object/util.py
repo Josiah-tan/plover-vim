@@ -1,3 +1,4 @@
+from copy import deepcopy
 from shared.util.util import (
         spaceFormat,
         convert2Stroke,
@@ -21,10 +22,27 @@ stroke = context.stroke
 translation = context.translation
 
 
+def mergeDictList(a, b):
+    b = deepcopy(b)
+    for i, j in a.items():
+        if i not in b:
+            b[i] = j
+        if type(b[i]) == str:
+            b[i] = [b[i]]
+        if len(b[i]) < len(j):
+            for _ in range(len(b[i]), len(j)):
+                b[i].append("")
+        for k in range(len(j)):
+            if j[k] != "":
+                b[i][k] = j[k]
+    return b
+
+
 def getSymbols(symbols, objects, shifted):
-    symbols = s(convertShiftDict(symbols, shifted))
-    objects = s(convertShiftDict(objects, shifted))
-    symbols = (symbols | objects).named("symbol")
+    symbols = convertShiftDict(symbols, shifted)
+    objects = convertShiftDict(objects, shifted)
+    merged = mergeDictList(symbols, objects)
+    symbols = (s(merged)).named("symbol")
 
     symbol_variant = (
             s({"E": 1, "": 0}) * s({"U": 2, "": 0})

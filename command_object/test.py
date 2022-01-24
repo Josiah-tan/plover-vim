@@ -1,46 +1,63 @@
-from command_letter.builtins import findLookup, miscLookup
+# from command_letter.builtins import findLookup, miscLookup
 from shared.test.builtins import Test
 from shared.util.util import addCommandSyntax
+from command_object.util import mergeDictList
 
 
 ##
 
-
-@Test(flhs=findLookup, frhs=addCommandSyntax)
-def findLookupSuccess():
+@Test(flhs=mergeDictList)
+def mergeDictListsBshort():
+    a1 = {"-P": ["", "", "", "P"]}
+    b1 = {"-P": "grave"}
+    b2 = {"-P": ["grave"]}
+    b3 = {"-P": ['', "grave"]}
+    c1 = {'-P': ['grave', '', '', 'P']}
+    c2 = {'-P': ['grave', '', '', 'P']}
+    c3 = {'-P': ['', 'grave', '', 'P']}
     return (
-            ((("HR*RPBLTDZ",),), ("escape shift(t) shift(exclam)",)),
+            ((a1, b1,), c1),
+            ((a1, b2,), c2),
+            ((a1, b3,), c3),
            )
 
 
-@Test(flhs=findLookup)
-def findLookupFailure():
-    return (
-            ((("KWR-RBTZ",),), KeyError),
-           )
-
-
-@Test(flhs=miscLookup, frhs=addCommandSyntax)
-def miscLookupSuccess():
-    return (
-            ((("KWR-RBTZ",),), ("escape m shift(y)",)),
-           )
-
-
-@Test(flhs=miscLookup)
-def miscLookupFailure():
-    return (
-            ((("HR*RPBLTDZ",),), KeyError),
-           )
-
+# @Test(flhs=findLookup, frhs=addCommandSyntax)
+# def findLookupSuccess():
+#     return (
+#             ((("HR*RPBLTDZ",),), ("escape shift(t) shift(exclam)",)),
+#            )
+#
+#
+# @Test(flhs=findLookup)
+# def findLookupFailure():
+#     return (
+#             ((("KWR-RBTZ",),), KeyError),
+#            )
+#
+#
+# @Test(flhs=miscLookup, frhs=addCommandSyntax)
+# def miscLookupSuccess():
+#     return (
+#             ((("KWR-RBTZ",),), ("escape m shift(y)",)),
+#            )
+#
+#
+# @Test(flhs=miscLookup)
+# def miscLookupFailure():
+#     return (
+#             ((("HR*RPBLTDZ",),), KeyError),
+#            )
+#
 ##
 
 
 def testAll():
-    findLookupSuccess()
-    findLookupFailure()
-    miscLookupSuccess()
-    miscLookupFailure()
+    mergeDictListsBshort()
+    # findLookupSuccess()
+    # findLookupFailure()
+    # miscLookupSuccess()
+    # miscLookupFailure()
 
 ##
 
