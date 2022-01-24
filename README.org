@@ -15,11 +15,7 @@
 	- Symbols with full control over spacing, capitalization and repetition
 - User202729's [[https://github.com/user202729/plover-python-dictionary-lib][ultimate python dictionary library]] 
 	- Makes coding a python dictionary significantly easier
-	- Highly recommended you check this out if you want to create your own dictionaries
-
-* Will not be implemented:
-- control commands (Already done in Emily's symbol + modifier system)
-	- ctrl-A, alt-m, etc
+	- Highly recommended you check this out if you want to create your own dictionaries from scratch
 
 * Prerequisites
 - Install python-plover-dictionary from plover's plugins
@@ -51,6 +47,8 @@ git submodule update --init --recursive
 |                 |           | (characters same as Emily's symbols)                    |                       |
 |-----------------+-----------+---------------------------------------------------------+-----------------------|
 | easy motion     | 2         | command letter, but another stroke required for jumping | <leader><leader>fp st |
+|-----------------+-----------+---------------------------------------------------------+-----------------------|
+| emily modifier  | 1         | Emily's modifiers but for vim                           | esc ctrl ^            |
 |-----------------+-----------+---------------------------------------------------------+-----------------------|
 
 ** relative-number
@@ -187,9 +185,6 @@ git submodule update --init --recursive
 | -LTDZ        | -FB       | <leader><leader>f | Forward Backwards |
 |--------------+-----------+-------------------+-------------------|
 
-*** Problems
-- Can cause mental overhead when stroking to get to the location
-
 *** Usage
 - Put this somewhere in your vimrc
 #+BEGIN_SRC vim
@@ -198,6 +193,20 @@ let g:EasyMotion_keys = 'bdfgjklmnprstxz'
 - copy templates/easy\under{}motion/simple.py and add it to your dictionaries for default configuration
 - copy templates/easy\under{}motion/customised.py for a more customised experience
 	- see note on [[#Controlj][control(j)]]
+
+** emily-modifier
+*** How does this module improve upon the [[https://github.com/EPLHREU/emily-modifiers][original]]?
+- You can prepend an escape to the command
+- Commands like ctrl^ no longer require shift to be pressed [[https://github.com/openstenoproject/plover/issues/1465][related issue]] 
+
+*** Limitations
+- TODO
+
+*** Usage
+- copy templates/emily\under{}modifier/simple.py and add it to your dictionaries for a simple configuration
+- copy templates/emily\under{}modifier/customised.py for a more customised experience
+	- see note on [[#Controlj][control(j)]]
+
 * Customisation
 ** Control(J)
 - Allows you to execute any (most) commands as if you are from normal mode
