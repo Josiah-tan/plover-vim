@@ -17,5 +17,5 @@ def lookup(key):
 
 
 if __name__ == "__main__":
-    emilyLookup.generateJson()
-    # escapedLookup.generateJson()
+    # emilyLookup.generateJson()
+    escapedLookup.generateJson()
