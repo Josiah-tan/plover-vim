@@ -1,8 +1,14 @@
 from command_letter.defaults import shifted_symbols_aus
 
 objects = {
-        "-PG": ["p", "", "", ""],
-        "-RL": ["w", "shift(w)", "", ""],
+        # some ideas
+        "-PG": ["p", "", "", ""],  # deprecated
+        "-RL": ["w", "shift(w)", "", ""],  # deprecated
+        "-F": ["", "", "f", "s"],
+        "-FBG": ["", "", "", "c"],
+        # Realwrite/Realtime theory ideas (thanks abby)
+        "-P": ["", "", "", "p"],
+        "-FRP": ["w", "shift(w)", "", ""],
         }
 
 symbols = {
