@@ -5,7 +5,8 @@ shifted_symbols_aus = {
         "parenleft", "parenright", "underscore",
         "plus", "braceleft", "braceright",
         "bar", "colon", "quotedbl",
-        "less", "greater", "question"
+        # "less", "greater", "question" # shifting "<" => ">" which is weird, seems like "<" is fine without shifting
+        "greater", "question"
         }
 
 symbols = {
