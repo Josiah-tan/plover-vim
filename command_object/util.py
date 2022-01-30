@@ -58,8 +58,8 @@ def getStarters(starters):
     return convert2Stroke(starters)
 
 
-def getMiddle(middle):
-    return s(middle).map(spaceFormat)
+def getMiddles(middles):
+    return s(middles).map(spaceFormat)
 
 
 def combineModsStarters(mods, starters):

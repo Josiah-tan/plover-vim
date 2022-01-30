@@ -1,5 +1,6 @@
 {
 "STPHA*EUF": "{#control(j) shift(colon) w return}",
+"SKWR*FPB": "json",
 "SROEFD": "vscode",
 "TPWHR-LG": "{#control(j) space t m}",
 "TPWH*EUPL": "neovim",
@@ -10,6 +11,9 @@
 "PHRO*FPLT": "{#control(j) space p v}",
 "PHROFPLT": "{#control(j) space p s}",
 "PHROFBG": "{#escape space p p}",
+"PHRE/TPHAER": "plenary",
 "PAO*EUFPB": "python",
-"EFBG": "esc"
+"EFBG": "esc",
+"HRULTZ": "{#control(b) l}",
+"SREULTZ": "{#control(w) v}"
 }

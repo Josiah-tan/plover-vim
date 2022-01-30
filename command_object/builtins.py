@@ -4,7 +4,7 @@ from command_object.defaults import defaults
 from command_object.config import LONGEST_KEY
 from command_object.util import (
         getStarters, combineModsStarters,
-        getEscape, getMiddle, getSymbols
+        getEscape, getMiddles, getSymbols
         )
 
 
@@ -14,10 +14,10 @@ class SingleStrokeRight:
         starters = getStarters(system["unique_starter"] for system in self.opts["systems"])
         systems = combineModsStarters(mods, starters)
         escape = getEscape(self.opts["escape"])
-        middle = getMiddle(self.opts['middle'])
+        middles = getMiddles(self.opts['middles'])
         symbols = getSymbols(self.opts['symbols'], self.opts['objects'], self.opts['shifted'])
         # characters = getCasedCharacters(getCharacters(self.opts['spelling'], symbols))
-        return (escape * systems * middle * symbols)
+        return (escape * systems * middles * symbols)
 
 
 class Lookup(BaseLookup, SingleStrokeRight):

@@ -62,7 +62,7 @@ command_object_lookup = CommandObjectLookup({
     "symbols": {},  # dict: right hand symbols
     "objects": {},  # dict: right hand objects
     "shifted": {},  # set: any symbols that should be shifted
-    "middle": {},  # dict: middle parts of vim commands
+    "middles": {},  # dict: middle parts of vim commands
     "escape": "control(j)",  # default: "escape"
     "systems": [
         {

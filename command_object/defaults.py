@@ -41,7 +41,7 @@ symbols = {
         "-FPBG": ["asciitilde", "", "", ""],
         # "FPBL": ["↑", "←", "→", "↓"]
             }
-middle = {
+middles = {
         "O": "i",
         "A": "a",
         "": ""
@@ -53,7 +53,7 @@ defaults = {
     "symbols": symbols,  # dict: right hand symbols
     "objects": objects,  # dict: right hand objects
     "shifted": shifted_symbols_aus,
-    "middle": middle,  # dict: middle parts of vim commands
+    "middles": middles,  # dict: middle parts of vim commands
     "escape": "escape",  # default: "escape"
     "systems": [
         {
