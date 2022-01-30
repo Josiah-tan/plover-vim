@@ -26,7 +26,6 @@ class BaseLookup(RecursiveUpdate):
             raise KeyError
 
 
-
 def containsNumber(stroke):
     return any(k.isnumeric() for k in stroke)
 
