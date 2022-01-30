@@ -13,93 +13,122 @@ else:
 sys.path.append(repository_location)
 
 # import the modules that you want for your python experience here
-from command_letter.builtins import Lookup as CommandLetterLookup
-from command_object.builtins import Lookup as CommandObjectLookup
+# from command_letter.builtins import Lookup as CommandLetterLookup
+# from command_object.builtins import Lookup as CommandObjectLookup
+from command_letter_2.builtins import Lookup as CommandLetterLookup2
 from relative_number.builtins import Lookup as RelativeNumberLookup
+from josiah_modifier.builtins import Lookup as JosiahModifierLookup
 
 LONGEST_KEY = 1
 
 
-command_letter_lookup = CommandLetterLookup({
+find_lookup_2 = CommandLetterLookup2({
     "disable_defaults": False,
     # any dictionary entry overiddes the defaults
-    "spelling": {},  # dict: finger spelling
+    "spelling": {},  # dict: right finger spelling
     "symbols": {},  # dict: left hand symbols
     "shifted": {},  # set: any symbols that should be shifted
+    "middles": {
+        "E": "c",  # dElEtE
+        "EU": "y",  # yoInk
+        "U": "v",  # visUalise
+        "": ""
+        },  # dict: middles
     "escape": "control(j)",  # default: "escape"
     "systems": [
         {
-            "unique_ender": "LTDZ",
+            "unique_ender": "-LTDZ",
             # some ideas for others if you ever run out: -TZ, -SD, -TDZ, -SDZ, -TSZ, -TSD, or -TSDZ
             "mods": {
                 # "-FPB": "",  # left empty for you to customise!
                 # "-FP": "",  #
                 # "-FB": "space space f",  # Forward Back (moving this to another module)
-                "-PB": "shift(t)",  # Previous Backwards
-                "-F": "f",  # Forwards
-                "-P": "t",  # Previous
-                "-B": "shift(f)",  # Backwards
-                "": ""  # for normal commands
-                }
-            },
-        {
-            "unique_ender": "-TZ",
-            "mods": {
-                "-FPB": "q",  # liSten
-                "-FP": "shift(at)",  # @
-                # "-FB": "",
-                "-PB": "z",  # zeN
-                "-F": "g",  # the good Spot (primeagen youtube video on the g command)
-                "-P": "r",
-                "-B": "m"
+                "-PB": "<escape> <middles> shift(t) <objects>",  # Previous Backwards
+                "-F": "<escape> <middles> f <objects>",  # Forwards
+                "-P": "<escape> <middles> t <objects>",  # Previous
+                "-B": "<escape> <middles> shift(f) <objects>",  # Backwards
+                # "": ""  # for normal commands (done in josiah-modifers)
                 }
             }]
         })
 
-command_object_lookup = CommandObjectLookup({
+misc_lookup_2 = CommandLetterLookup2({
     "disable_defaults": False,
     # any dictionary entry overiddes the defaults
-    "symbols": {},  # dict: right hand symbols
-    "objects": {},  # dict: right hand objects
+    "spelling": {},  # dict: right finger spelling
+    "symbols": {},  # dict: left hand symbols
     "shifted": {},  # set: any symbols that should be shifted
-    "middles": {},  # dict: middle parts of vim commands
+    "middles": {},  # dict: middles
     "escape": "control(j)",  # default: "escape"
     "systems": [
         {
-            "unique_starter": "STPR",
-            "mods": {
-                "-T": "g c",  # tpope/vim-commenTary (for line comments)
-                "-D": "d",  # Delete
-                "-S": "y s",  # tpope/vim-Surround (for surrounding things)
-                "-Z": "y",  # yank? (plZ give ideas for this one)
-                "-TD": "",
-                "-DZ": "d s",
-                "-SZ": "v",  # ViSualiZe
-                "-TS": "",
-                "*T": "g b",  # numToStr/Comment.nvim (for block commenting)
-                "*D": "",
-                "*S": "shift(s)",
-                "*Z": "",
-                "*TD": "",
-                "*DZ": "",
-                "*SZ": "",
-                "*TS": "",
-                "": ""
+            "unique_ender": "-TZ",
+            "mods": {  # 64 total possibilities from #EURPB
+                "-FPB": "<escape> q <objects>",  # liSten
+                "-FP": "<escape> shift(at) <objects>",  # @
+                # "-FB": "",
+                "-PB": "<escape> z <objects>",  # zeN
+                "-F": "<escape> g <objects>",  # the good Spot (primeagen youtube video on the g command)
+                "-P": "<escape> r <objects>",
+                "-B": "<escape> m <objects>"
                 }
-            }
-        ]})
+            }]
+        })
+
+command_object_lookup_2 = CommandLetterLookup2({
+    "disable_defaults": False,
+    # any dictionary entry overiddes the defaults
+    "spelling": {},  # dict: right finger spelling
+    "symbols": {},  # dict: left hand symbols
+    "shifted": {},  # set: any symbols that should be shifted
+    "middles": {
+        "E": "i",  # physically located closer to keyboard centre
+        "EU": "O",  # used in Org mode?
+        "U": "a",  # physically localed away from the keyboard centre
+        "": ""
+        },  # dict: middles
+    "escape": "control(j)",  # default: "escape"
+    "systems": [
+        {
+            "unique_ender": "-TDZ",  # ring finger on T, pinky on DZ
+            # some ideas for others if you ever run out: -TZ, -SD, -TDZ, -SDZ, -TSZ, -TSD, or -TSDZ
+            "mods": {
+                "-FPB": "<escape> equal <middles> <objects>",
+                "-FP": "<escape> y s <middles> <objects>",  # coPy Furround
+                "-FB": "<escape> c s <objects>",  # Blot Furround
+                "-PB": "<escape> g c <middles> objects>",  # commeNt
+                "-F": "<escape> v <middles> <objects>",  # Fisualise
+                "-P": "<escape> y <middles> <objects>",  # coPy
+                "-B": "<escape> c <middles> <objects>",  # Blot
+                "": "",
+
+                "#-FPB": "",
+                "#-FP": "shift(s) <objects>",
+                "#-FB": "<escape> d s <objects>",
+                "#-PB": "<escape> g b <middles> <objects>",
+                "#-F": "<escape> v <middles> <objects> p",  # visualise and paste!
+                "#-P": "",
+                "#-B": "",
+                "#": ""
+                }
+            }]
+    })
 
 relative_number_lookup = RelativeNumberLookup({
     "up": "B",
     "down": "-R"
     })
 
+josiah_modifier_lookup = JosiahModifierLookup()
+
 
 def lookup(key):
     for look in [
-            command_letter_lookup,
-            command_object_lookup,
+            find_lookup_2,
+            misc_lookup_2,
+            command_object_lookup_2,
             relative_number_lookup,
+            josiah_modifier_lookup
             ]:
         with suppress(KeyError):
             return look(key)
