@@ -1,7 +1,7 @@
 from shared.util.util import getMods, addCommandSyntax
 from shared.builtins import BaseLookup
 from command_letter.defaults import (
-        defaults, spelling, symbols, shifted_symbols_aus
+        defaults  # , spelling , symbols, shifted_symbols_aus
         )
 from command_letter.config import LONGEST_KEY
 from command_letter.util import (
@@ -37,10 +37,10 @@ class Lookup(BaseLookup, SingleStrokeLeft):
 
 
 findLookup = Lookup({
-    "disable_defaults": True,
-    "spelling": spelling,
-    "symbols": symbols,
-    "shifted": shifted_symbols_aus,
+    # "disable_defaults": True,
+    # "spelling": spelling,
+    # "symbols": symbols,
+    # "shifted": shifted_symbols_aus,
     "escape": "escape",
     "systems": [
         {
@@ -61,10 +61,10 @@ findLookup = Lookup({
 
 
 miscLookup = Lookup({
-    "disable_defaults": True,
-    "spelling": spelling,
-    "symbols": symbols,
-    "shifted": shifted_symbols_aus,
+    # "disable_defaults": True,
+    # "spelling": spelling,
+    # "symbols": symbols,
+    # "shifted": shifted_symbols_aus,
     "escape": "escape",
     "systems": [
         {
