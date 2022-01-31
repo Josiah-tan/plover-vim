@@ -21,7 +21,8 @@ josiah_modifier_lookup = JosiahModifierLookup({
         "#": "control(j)",
         "E": "escape",  # EscapE
         "EU": "control(w)",  # vim splIt
-        "U": "control(b)"  # tmUx
+        "U": "control(b)",  # tmUx
+        "#E": "control(x)",  # Ex command
         }
     })
 

@@ -40,6 +40,7 @@ prefixes = {
         "E": "escape",  # EscapE
         "EU": "control(w)",  # vim splIt or wIn
         "U": "control(b)",  # tmUx
+        "#E": "control(x)",  # Ex command
         "": "",
         }
 
