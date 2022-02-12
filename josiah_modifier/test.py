@@ -32,9 +32,10 @@ def lookupSuccessControlJ():
 @Test(flhs=lookup, frhs=addCommandSyntax)
 def lookupSuccessSplits():
     return (
-            ((("OEULTZ",),), ("control(w) o",)),
-            ((("SREULTZ",),), ("control(w) v",)),
+            ((("OEULTZ",),), ("control(j) control(w) o",)),
+            ((("SREULTZ",),), ("control(j) control(w) v",)),
            )
+
 
 @Test(flhs=lookup, frhs=addCommandSyntax)
 def lookupSuccessTmux():
