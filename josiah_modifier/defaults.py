@@ -39,6 +39,7 @@ prefixes = {
         "#": "control(j)",
         "E": "escape",  # EscapE
         "EU": "control(j) control(w)",  # vim splIt or wIn
+        "#EU": "control(r)",  # regIster
         "U": "control(b)",  # tmUx
         "#E": "control(x)",  # Ex command
         "": "",
