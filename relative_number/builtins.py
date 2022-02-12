@@ -27,7 +27,7 @@ class Lookup(RecursiveUpdate):
 
         direction = assertGetDirection(
                 {"up": self.opts["up"], "down": self.opts["down"]},
-                start, end)
+                start, wild, end)
 
         isInverted = assertGetInversion(inversion)
         repeat = assertGetNumber(start, mid_left, isInverted, end)

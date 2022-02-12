@@ -115,7 +115,7 @@ command_object_lookup_2 = CommandLetterLookup2({
     })
 
 relative_number_lookup = RelativeNumberLookup({
-    "up": "B",
+    "up": "-B",
     "down": "-R"
     })
 

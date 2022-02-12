@@ -10,7 +10,7 @@ LONGEST_KEY = 1
 
 
 relative_number_lookup = RelativeNumberLookup({
-    "up": "B",
+    "up": "-B",
     "down": "-R"
     })
 
@@ -19,7 +19,7 @@ relative_number_lookup = RelativeNumberLookup({
 # relative_number_lookup = RelativeNumberLookup({
 #     "disable_defaults": True,
 #     "translations": {
-#         "up": "B",
+#         "up": "-B",
 #         "down": "-R"
 #         },
 #     "escape": {
@@ -31,7 +31,7 @@ relative_number_lookup = RelativeNumberLookup({
 # relative_number_lookup = RelativeNumberLookup({
 #     "disable_defaults": True,
 #     "translations": {
-#         "k": "B",
+#         "k": "-B",
 #         "j": "-R"
 #         },
 #     "use_escape": ["k", "j"],

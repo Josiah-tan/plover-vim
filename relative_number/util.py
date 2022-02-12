@@ -13,12 +13,14 @@ def removeDouble(s):
     return ''.join([i for i in s if i != "D"])
 
 
-def assertGetDirection(strokes, start, end):
+def assertGetDirection(strokes, start, wild, end):
     for direction, stroke in strokes.items():
         match = re.fullmatch('([KWR]*)([*-]?)([RBGSDZ]*)', stroke)
-        (lhs, _, rhs) = match.groups()
+        (lhs, mid, rhs) = match.groups()
         if lhs == removeNumbers(start) and \
-                rhs == removeDouble(removeNumbers(end)):
+                rhs == removeDouble(removeNumbers(end)) and \
+                (mid == wild or (mid == "-" and wild == "") or
+                (mid == "" and wild == "-")):
             return direction
     raise KeyError
 
