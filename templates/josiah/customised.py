@@ -107,7 +107,7 @@ command_object_lookup_2 = CommandLetterLookup2({
                 "#-FB": "<escape> d s <objects>",
                 "#-PB": "<escape> g b <middles> <objects>",
                 "#-F": "<escape> v <middles> <objects> p",  # visualise and paste!
-                "#-P": "",
+                "#-P": "<escape> shift(quotedbl) shift(plus) y <middles> <objects>",
                 "#-B": "",
                 "#": ""
                 }
