@@ -18,6 +18,18 @@ left_hand = {
         'T': 't',
         'KP': 'x',
         'STKPW': 'z',
+        #to complete left hand (thanks abby!)
+        'A': 'a',
+        'O': 'o',
+        'WR': 'u',
+        'SK': 'e',
+        'SKW': 'i',
+        'KR': 'c',
+        'H': 'h',
+        'KW': 'q',
+        'SR': 'v',
+        'W': 'w',
+        'KWR': 'y'
         }
 
 right_hand = {
@@ -37,6 +49,19 @@ right_hand = {
         '-T': 't',
         '-BGS': 'x',
         '-Z': 'z',
+        # to complete right hand! (thanks abby!)
+        '-EU': 'i',
+        '-E': 'e',
+        '-U': 'u',
+        '-RB': 'a',
+        '-SZ': 'c',
+        '-FD': 'h',
+        '-GS': 'o',
+        '-LGTS': 'q',
+        '-FB': 'v',
+        '-FRP': 'w',
+        '-FRPB': 'x',
+        '-FPL': 'y'
         }
 
 
