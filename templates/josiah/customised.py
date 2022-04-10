@@ -12,7 +12,7 @@ else:
 
 sys.path.append(repository_location)
 
-# import the modules that you want for your python experience here
+# import the modules that you want for your vim experience here
 # from command_letter.builtins import Lookup as CommandLetterLookup
 # from command_object.builtins import Lookup as CommandObjectLookup
 from command_letter_2.builtins import Lookup as CommandLetterLookup2

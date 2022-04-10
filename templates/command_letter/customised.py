@@ -3,7 +3,7 @@ import sys
 repository_location = "/home/josiah/.dotfiles/plover/.config/plover/vim"
 sys.path.append(repository_location)
 
-# import the modules that you want for your python experience here
+# import the modules that you want for your vim experience here
 from command_letter.builtins import Lookup as CommandLetterLookup
 
 LONGEST_KEY = 1
