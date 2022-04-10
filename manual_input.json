@@ -1,19 +1,24 @@
 {
 "STPHA*EUF": "{#control(j) shift(colon) w return}",
+"ST*R": "str",
 "SKWR*FPB": "json",
 "SROEFD": "vscode",
+"SREULTZ": "{#control(w) v}",
+"TKAO*URS": "{PLOVER:CUSTOM_ADD_TRANSLATION:user.json}",
 "TPWHR-LG": "{#control(j) space t m}",
 "TPWH*EUPL": "neovim",
 "THROBL": "togglable",
 "THROG": "toggle",
 "T*ERL": "terminal",
 "KR*L": "ctrl",
+"KUFPLZ": "customize",
 "PHRO*FPLT": "{#control(j) space p v}",
 "PHROFPLT": "{#control(j) space p s}",
 "PHROFBG": "{#escape space p p}",
 "PHRE/TPHAER": "plenary",
 "PAO*EUFPB": "python",
-"EFBG": "esc",
+"HRAEF": "elif",
 "HRULTZ": "{#control(b) l}",
-"SREULTZ": "{#control(w) v}"
+"AD/TAOEUS": "advertise",
+"EFBG": "esc"
 }
