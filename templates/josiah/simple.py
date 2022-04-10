@@ -36,3 +36,9 @@ def lookup(key):
             ]:
         with suppress(KeyError):
             return look(key)
+
+if __name__ == "__main__":
+    import json
+    dict = {**josiahLookup.dictionary.items_str_dict(),
+            }
+    json.dump(dict, sys.stdout, ensure_ascii=False, indent=0)
