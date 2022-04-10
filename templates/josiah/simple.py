@@ -1,14 +1,8 @@
 from contextlib import suppress
 import sys
-import platform
-
-linux_repository_location = "/home/josiah/.dotfiles/plover/.config/plover/vim"
-windows_repository_location = "c:\\users\\josia\\appdata\\local\\plover\\plover\\vim"
-on_wind = "windows" in platform.uname()[0].lower()
-if on_wind:
-    repository_location = windows_repository_location
-else:
-    repository_location = linux_repository_location
+import os.path
+from plover.oslayer.config import CONFIG_DIR
+repository_location = os.path.join(CONFIG_DIR, "vim")
 
 sys.path.append(repository_location)
 
