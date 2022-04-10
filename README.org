@@ -27,7 +27,7 @@
 - Update all git submodules
 
 #+BEGIN_SRC bash
-git clone https://github.com/Josiah-tan/plover-vim.git
+git clone https://github.com/Josiah-tan/plover-vim.git vim
 git submodule update --init --recursive
 #+END_SRC
 
