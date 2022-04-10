@@ -1,6 +1,8 @@
 from contextlib import suppress
 import sys
 import os.path
+
+# note that this assumes that you cloned this repository with the name "vim" in your config files, feel free to change this though!
 from plover.oslayer.config import CONFIG_DIR
 repository_location = os.path.join(CONFIG_DIR, "vim")
 
