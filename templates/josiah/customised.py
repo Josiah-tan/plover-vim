@@ -66,7 +66,12 @@ misc_lookup_2 = CommandLetterLookup2({
                 "-PB": "<escape> z <objects>",  # zeN
                 "-F": "<escape> g <objects>",  # the good Spot (primeagen youtube video on the g command)
                 "-P": "<escape> r <objects>",
-                "-B": "<escape> m <objects>"
+                "-B": "<escape> m <objects>",
+
+                "#-P": "<escape> <objects> <objects>", # repeat
+                "-E": "<escape> bracketleft <objects>", # ] unfortuately does not work in insert mode...
+                "-U": "<escape> bracketright <objects>", # [ unfortuately does not work in insert mode..
+
                 }
             }]
         })
