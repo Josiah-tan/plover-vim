@@ -97,7 +97,7 @@ command_object_lookup_2 = CommandLetterLookup2({
                 "-FPB": "<escape> equal <middles> <objects>",
                 "-FP": "<escape> y s <middles> <objects>",  # coPy Furround
                 "-FB": "<escape> c s <objects>",  # Blot Furround
-                "-PB": "<escape> g c <middles> <objects>",  # commeNt
+                "-PB": "escape g c <middles> <objects>",  # commeNt
                 "-F": "<escape> v <middles> <objects>",  # Fisualise
                 "-P": "<escape> y <middles> <objects>",  # coPy
                 "-B": "<escape> c <middles> <objects>",  # Blot
@@ -106,7 +106,7 @@ command_object_lookup_2 = CommandLetterLookup2({
                 "#-FPB": "",
                 "#-FP": "shift(s) <objects>",
                 "#-FB": "<escape> d s <objects>",
-                "#-PB": "<escape> g b <middles> <objects>",
+                "#-PB": "escape g b <middles> <objects>",
                 "#-F": "<escape> v <middles> <objects> p",  # visualise and paste!
                 "#-P": "<escape> shift(quotedbl) shift(plus) y <middles> <objects>",
                 "#-B": "",
