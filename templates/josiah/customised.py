@@ -101,16 +101,16 @@ command_object_lookup_2 = CommandLetterLookup2({
                 "-F": "<escape> v <middles> <objects>",  # Fisualise
                 "-P": "<escape> y <middles> <objects>",  # coPy
                 "-B": "<escape> c <middles> <objects>",  # Blot
-                "": "",
+                "": "<escape> g shift(u) <middles> <objects>",
 
-                "#-FPB": "",
+                "#-FPB": "<escape> v <middles> <objects> shift(asciitilde)",
                 "#-FP": "shift(s) <objects>",
                 "#-FB": "<escape> d s <objects>",
                 "#-PB": "escape g b <middles> <objects>",
                 "#-F": "<escape> v <middles> <objects> p",  # visualise and paste!
                 "#-P": "<escape> shift(quotedbl) shift(plus) y <middles> <objects>",
                 "#-B": "",
-                "#": ""
+                "#": "<escape> g u <middles> <objects>"
                 }
             }]
     })
