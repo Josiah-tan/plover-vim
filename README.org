@@ -35,21 +35,28 @@ git submodule update --init --recursive
 - This repository separates the different dictionaries available into different modules
 	- Therefore you have control over what you want to include
 ** Summary:
-|-----------------+-----------+---------------------------------------------------------+-----------------------|
-| module          | # strokes | short description                                       | examples              |
-|-----------------+-----------+---------------------------------------------------------+-----------------------|
-| relative number | 1         | jump to different lines (1 to 100)                      | 14j, 31k              |
-|-----------------+-----------+---------------------------------------------------------+-----------------------|
-| command letter  | 1         | any command followed by any character                   | fu, T?, @q, gv        |
-|                 |           | (characters same as Emily's modifiers)                  |                       |
-|-----------------+-----------+---------------------------------------------------------+-----------------------|
-| command object  | 1         | any command followed by any text object                 | ciw, gcip, yi(        |
-|                 |           | (characters same as Emily's symbols)                    |                       |
-|-----------------+-----------+---------------------------------------------------------+-----------------------|
-| easy motion     | 2         | command letter, but another stroke required for jumping | <leader><leader>fp st |
-|-----------------+-----------+---------------------------------------------------------+-----------------------|
-| emily modifier  | 1         | Emily's modifiers but for vim                           | esc ctrl ^            |
-|-----------------+-----------+---------------------------------------------------------+-----------------------|
+|------------------+-----------+---------------------------------------------------------+------------------------------------|
+| module           | # strokes | short description                                       | examples                           |
+|------------------+-----------+---------------------------------------------------------+------------------------------------|
+| relative number  | 1         | jump to different lines (1 to 100)                      | 14j, 31k                           |
+|------------------+-----------+---------------------------------------------------------+------------------------------------|
+| easy motion      | 2         | command letter, but another stroke required for jumping | <leader><leader>fp st              |
+|------------------+-----------+---------------------------------------------------------+------------------------------------|
+| Josiah modifier  | 1         | Emily's modifiers but only left hand fingerspelling     | ctrl-w ctrl-w (change vim window), |
+|                  |           |                                                         | ctrl-b w (tmux)                    |
+|------------------+-----------+---------------------------------------------------------+------------------------------------|
+| command letter 2 | 1         | any command followed by any text object                 | ciw, gcip, yii,                    |
+|                  |           | (characters same as Josiah's modifiers)                 | vif, dt(, zz, viwp                 |
+|------------------+-----------+---------------------------------------------------------+------------------------------------|
+| command letter   | 1         | any command followed by any character                   | fu, T?, @q, gv                     |
+| (deprecated)     |           | (characters same as Emily's modifiers)                  |                                    |
+|------------------+-----------+---------------------------------------------------------+------------------------------------|
+| command object   | 1         | any command followed by any text object                 | ciw, gcip, yi(                     |
+| (deprecated)     |           | (characters same as Emily's symbols)                    |                                    |
+|------------------+-----------+---------------------------------------------------------+------------------------------------|
+| emily modifier   | 1         | Emily's modifiers but for vim                           | esc ctrl ^                         |
+| (deprecated)     |           |                                                         |                                    |
+|------------------+-----------+---------------------------------------------------------+------------------------------------|
 
 ** relative-number
 *** What is relativenumbering in vim?
@@ -75,7 +82,165 @@ git submodule update --init --recursive
 - copy templates/relative\under{}number/customised.py for a more customised experience
 - I recommend remapping the top left S key as #
 
-** command-letter
+** easy-motion
+*** What is easy-motion in vim?
+- easy motion is a [[https://github.com/easymotion/vim-easymotion][plugin]] that enables "vim motions on speed!"
+- Aims to optimise text navigation
+*** How does this module improve vim? 
+- You can perform a search for a letter h as follows
+	- <leader><leader>fhtk => H-FBLTDZ/T-BG
+	- breaking it down: 
+		- H => h, using emily's modifier symbols for the left hand
+		- -FB => <leader><leader>f
+		- -LTDZ => unique ender for finders
+		- T-BG => tk, this is the second stroke that takes you to the location
+
+|--------------+-----------+-------------------+-------------------|
+| Unique Ender | Modifiers | Command           | How To Memorise   |
+|--------------+-----------+-------------------+-------------------|
+| -LTDZ        | -FB       | <leader><leader>f | Forward Backwards |
+|--------------+-----------+-------------------+-------------------|
+
+*** Usage
+- Put this somewhere in your vimrc
+#+BEGIN_SRC vim
+let g:EasyMotion_keys = 'bdfgjklmnprstxz'
+#+END_SRC
+- copy templates/easy\under{}motion/simple.py and add it to your dictionaries for default configuration
+- copy templates/easy\under{}motion/customised.py for a more customised experience
+	- see note on [[#Controlj][control(j)]]
+
+** Josiah-modifier
+*** How does this module work?
+- So basically we remap these right hand fingerspelling commands to left hand versions:
+|--------+-------------+--------------|
+| letter | old version | new remapped |
+|--------+-------------+--------------|
+| e      | E           | SK           |
+| i      | EU          | SKW          |
+| u      | U           | WR           |
+|--------+-------------+--------------|
+- this leaves more space for commands using the E and U keys
+- The number key is also used too to create more space for more options
+	- (8 altogether)
+*** What are some things you can do with this extra space?
+- So you can prepend a command before an Emily modifier command:
+	- ctrl-w ctrl-o = OUFLTZ
+	- breaking it down:
+		- OF = ctrl-o
+		- U = ctrl-w
+		- -LTZ = unique Emily modifier ender (ring finger on LT and pinky on Z)
+- The table below shows default settings
+|-------+-----------------------+----------------------------------|
+| Chord | Prefix Command        | How To Memorize                  |
+|-------+-----------------------+----------------------------------|
+| #     | control(j)            |                                  |
+| E     | escape                | EscapE                           |
+| EU    | control(j) control(w) | vim splIt or wIndow              |
+| #EU   | control(r)            | regIster                         |
+| U     | control(b)            | tmUx                             |
+| #E    | control(x)            | Ex command                       |
+| ""    | NA                    | (used in a normal Emily command) |
+| #U    | NA                    |                                  |
+|-------+-----------------------+----------------------------------|
+
+*** Limitations
+- you are limited to 8 times more combinations of commands compared to Emily's modifiers
+
+*** Usage
+- copy templates/josiah\under{}modifier/simple.py and add it to your dictionaries for a simple configuration
+- copy templates/josiah\under{}modifier/customised.py for a more customised experience
+	- see note on [[#Controlj][control(j)]]
+
+** command-letter-2
+*** How does this module improve on command-letter and command-object? 
+- Basically it replaces the need for either of them using Josiah's modifiers as a base.
+- It can perform a complex finder operation:
+	- df) = KWR*EFLTDZ
+	- breaking it down: 
+		- KWR* = ), using Josiah's modifier for the left hand
+		- F = f
+		- E = d
+		- -LTDZ = unique ender for finders (ring finger on LT and pinky on DZ)
+- It can perform a miscellaneous operation:
+	- [m = PHUTZ
+	- Breaking it down:
+		- PH = m, using Josiah's modifier for the left hand
+		- U = [, idea from tpope's unimpaired
+		- -TZ = unique ender for miscellaneous (ring finger on T and pinky on Z)
+- It can perform a "command-object" operation:
+	- caw = WUBTDZ
+	- Breaking it down:
+		- W = w, using Josiah's modifier for the left hand
+		- U = a, U is more "outside" in position than E, so we use E = i cause it is more "inner" in position
+		- B = c, "blot" hence delete
+		- TDZ = unique ender for command object (ring finger on T, pinky on DZ)
+- The table below shows default settings
+	- "Customisable" commands can be filled in for personal useage
+|----------------+--------------+-----------+--------------+------------------------|
+| category       | Unique Ender | Modifiers | Command      | How To Memorise        |
+|----------------+--------------+-----------+--------------+------------------------|
+| finders        | -LTDZ        | -FPB      | customisable |                        |
+|                |              | -FP       | customisable |                        |
+|                |              | -FB       |              | (used in easymotion)   |
+|                |              | -PB       | shift(t)     | Previous Backwards     |
+|                |              | -F        | f            | Forwards               |
+|                |              | -P        | t            | Previous               |
+|                |              | -B        | shift(f)     | Backwards              |
+|                |              |           | ""           | escaped commands       |
+|----------------+--------------+-----------+--------------+------------------------|
+|                | E            |           | c            | dElEtE                 |
+|                | EU           |           | y            | YoInk                  |
+|                | U            |           | v            | visUalise              |
+|                |              |           | ""           |                        |
+|----------------+--------------+-----------+--------------+------------------------|
+|----------------+--------------+-----------+--------------+------------------------|
+| miscallaneous  | -TZ          | -FPB      | q            | liSeN                  |
+|                |              | -FP       | shift(at)    | macros                 |
+|                |              | -FB       | customisable |                        |
+|                |              | -PB       | z            | zeN                    |
+|                |              | -F        | g            | the good Spot          |
+|                |              | -P        | r            | rePlace                |
+|                |              | -B        | m            | marBg                  |
+|                |              |           | customisable |                        |
+|                |              | #-B       | apostrophe   | similar to mark        |
+|                |              | #-P       | repeat       | rePeat                 |
+|                |              | -E        | [            | E is to the left of U  |
+|                |              | -U        | ]            | U is to the right of E |
+|----------------+--------------+-----------+--------------+------------------------|
+|----------------+--------------+-----------+--------------+------------------------|
+| command object | -TDZ         | -FPB      | equal        |                        |
+|                |              | -FP       | ys           | coPy Furround          |
+|                |              | -FB       | cs           | Blot Furround          |
+|                |              | -PB       | gc           | commeNt                |
+|                |              | -F        | v            | Fisualize              |
+|                |              | -P        | y            | coPy                   |
+|                |              | -B        | c            | Blot                   |
+|                |              | ""        | gU           |                        |
+|                |              | #-FPB     | v~           |                        |
+|                |              | #-FP      | S            |                        |
+|                |              | #-FB      | ds           |                        |
+|                |              | #-PB      | gb           |                        |
+|                |              | #-F       | vp           | visualize and paste!   |
+|                |              | #-P       | "+y          |                        |
+|                |              | #-B       | customisable |                        |
+|                |              | #         | gu           |                        |
+|----------------+--------------+-----------+--------------+------------------------|
+|                | E            |           | i            | Inner                  |
+|                | EU           |           | O            |                        |
+|                | U            |           | a            | Around                 |
+|                |              |           | ""           |                        |
+|----------------+--------------+-----------+--------------+------------------------|
+
+*** Limitations
+- Todo
+
+*** Usage
+- copy templates/command\under{}letter\under{}2/simple.py and add it to your dictionaries for default configuration
+- copy templates/command\under{}letter\under{}2/customised.py for a more customised experience
+	- note that (shift(at)) is required to output @ because raw keyboard input is [[https://github.com/openstenoproject/plover/issues/1465][weird]]
+	- See note on [[#Controlj][control(j)]]
+** command-letter (deprecated)
 *** How does this module improve vim? 
 - You can perform any command followed by a letter in a single stroke for example:
 	- f) = KWR*FLTDZ
@@ -115,7 +280,7 @@ git submodule update --init --recursive
 - copy templates/command\under{}letter/customised.py for a more customised experience
 	- note that (shift(at)) is required to output @ because raw keyboard input is [[https://github.com/openstenoproject/plover/issues/1465][weird]]
 	- See note on [[#Controlj][control(j)]]
-** command-object
+** command-object (deprecated)
 *** How does this module improve vim?
 - You can perform any command followed by a text "object" in a single stroke for example:
 	- daw = STPRARLD
@@ -166,35 +331,7 @@ git submodule update --init --recursive
 - copy templates/command\under{}object/customised.py for a more customised experience
 	- note that (shift(s)) is required to output S because raw keyboard input is [[https://github.com/openstenoproject/plover/issues/1465][weird]]
 	- See note on [[#Controlj][control(j)]]
-** easy-motion
-*** What is easy-motion in vim?
-- easy motion is a [[https://github.com/easymotion/vim-easymotion][plugin]] that enables "vim motions on speed!"
-- Aims to optimise text navigation
-*** How does this module improve vim? 
-- You can perform a search for a letter h as follows
-	- <leader><leader>fhtk => H-FBLTDZ/T-BG
-	- breaking it down: 
-		- H => h, using emily's modifier symbols for the left hand
-		- -FB => <leader><leader>f
-		- -LTDZ => unique ender for finders
-		- T-BG => tk, this is the second stroke that takes you to the location
-
-|--------------+-----------+-------------------+-------------------|
-| Unique Ender | Modifiers | Command           | How To Memorise   |
-|--------------+-----------+-------------------+-------------------|
-| -LTDZ        | -FB       | <leader><leader>f | Forward Backwards |
-|--------------+-----------+-------------------+-------------------|
-
-*** Usage
-- Put this somewhere in your vimrc
-#+BEGIN_SRC vim
-let g:EasyMotion_keys = 'bdfgjklmnprstxz'
-#+END_SRC
-- copy templates/easy\under{}motion/simple.py and add it to your dictionaries for default configuration
-- copy templates/easy\under{}motion/customised.py for a more customised experience
-	- see note on [[#Controlj][control(j)]]
-
-** emily-modifier
+** emily-modifier (deprecated)
 *** How does this module improve upon the [[https://github.com/EPLHREU/emily-modifiers][original]]?
 - You can prepend an escape to the command
 - Commands like ctrl^ no longer require shift to be pressed [[https://github.com/openstenoproject/plover/issues/1465][related issue]] 
