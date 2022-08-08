@@ -123,7 +123,25 @@ command_object_lookup_2 = CommandLetterLookup2({
 #     })
 
 # relative_number_lookup = OldRelativeNumberLookup()
-relative_number_lookup = RelativeNumberLookup()
+relative_number_lookup = RelativeNumberLookup({
+        "disable_defaults": False,
+        "systems": {
+            "triple": {
+                "stroke": "E",
+                "callback": lambda x: x*3,
+                "min_number": 0,
+                "max_number": 9,
+                },
+            "slash": {
+                "stroke": "E",
+                "callback": lambda x: x[0] + "/" + x[1:],
+                "dependencies": ["reverseU"],
+                "min_number": 10,
+                "max_number": 99,
+                }
+            }
+    
+    })
 
 josiah_modifier_lookup = JosiahModifierLookup()
 
