@@ -73,7 +73,7 @@ assert easy_motion_lookup.dictionary.longest_key == LONGEST_KEY
 def lookup(key):
     for look in [
             easy_motion_lookup,
-            chrome_lookup,
+            # chrome_lookup,
             ]:
         with suppress(KeyError):
             return look(key)
@@ -83,7 +83,7 @@ if __name__ == "__main__":
     # easy_motion_lookup.generateJson()
     # chrome_lookup.generateJson()
     import json
-    dict = {**chrome_lookup.dictionary.items_str_dict(),
-            }
+    # dict = {**chrome_lookup.dictionary.items_str_dict(),
+            # }
     with open("templates/josiah/easy_motion.json", "w") as f:
         json.dump(dict, f, ensure_ascii=False, indent=0)
