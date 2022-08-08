@@ -56,3 +56,29 @@ def assertDoubleValue(number, end):
             raise KeyError
         return number * 11
     return number
+
+
+class Zeroes:
+    def __init__(self, number_zeroes: int):
+        self.number_zeroes = number_zeroes
+    def excludeZeros(self, string: str):
+        return "0" in string
+    def __call__(self, string: str):
+        if self.excludeZeros(string):
+            return None
+        return string + self.number_zeroes * "0"
+
+def reverse(string: str):
+    return string[::-1]
+
+def double(string: str):
+    return string * 2
+
+def up(string: str):
+    return f"{{#up{' up' * (int(string) - 1)}}}"
+
+def down(string: str):
+    return f"{{#down{' down' * (int(string) - 1)}}}"
+
+def clock(string: str):
+    return string + ":00"

@@ -12,7 +12,8 @@ sys.path.append(repository_location)
 # from command_letter.builtins import Lookup as CommandLetterLookup
 # from command_object.builtins import Lookup as CommandObjectLookup
 from command_letter_2.builtins import Lookup as CommandLetterLookup2
-from relative_number.builtins import Lookup as RelativeNumberLookup
+from relative_number.builtins import Lookup as OldRelativeNumberLookup
+from relative_number.builtins import RelativeNumberLookup as RelativeNumberLookup
 from josiah_modifier.builtins import Lookup as JosiahModifierLookup
 
 LONGEST_KEY = 1
@@ -116,10 +117,13 @@ command_object_lookup_2 = CommandLetterLookup2({
             }]
     })
 
-relative_number_lookup = RelativeNumberLookup({
-    "up": "-B",
-    "down": "-R"
-    })
+# relative_number_lookup = RelativeNumberLookup({
+#     "up": "-B",
+#     "down": "-R"
+#     })
+
+# relative_number_lookup = OldRelativeNumberLookup()
+relative_number_lookup = RelativeNumberLookup()
 
 josiah_modifier_lookup = JosiahModifierLookup()
 

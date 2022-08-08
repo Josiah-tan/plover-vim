@@ -1,17 +1,80 @@
-from relative_number.builtins import Lookup
+from relative_number.builtins import Lookup, RelativeNumberLookup
 from shared.test.builtins import Test
+# from vim import relative_number
+
+relative_number_lookup = RelativeNumberLookup()
 
 
 def testLookup(chord, down, up):
+    # this is just there for compatibility with the old version
     return Lookup({"up": up, "down": down})(chord)
 
 ##
 
+@Test(flhs=relative_number_lookup)
+def testClock():
+    return(
+            ((("4-BG",),), "4:00"),
+            ((("1UBG",),), "11:00"),
+            ((("12UBG",),), "21:00"),
+            ((("13BG",),), "13:00"),
+            )
+
+
+@Test(flhs=relative_number_lookup)
+def testZerosPinky():
+    return(
+            ((("4-S",),), "40"),
+            ((("14-SZ",),), "1400"),
+            ((("1234-78Z",),), "123489000"),
+            ((("3-9S",),), "30000"),
+            ((("4-79SDZ",),), "4800000"),
+            ((("5DZ",),), "5000000"),
+            ((("789",),), "890000000"),
+            ((("U69D",),), "7700000000"),
+            ((("340U7D",),), "8643000000000"),
+            )
+
+
+@Test(flhs=relative_number_lookup)
+def relativeNumber():
+    return (
+            ((("1-6B",),), f"{{#up{' up' * 16}}}"),
+            ((("1-6R",),), f"{{#down{' down' * 16}}}"),
+            ((("4U6R",),), f"{{#down{' down' * 73}}}"),
+            ((("1-RS",),), f"{{#down{' down' * 9}}}"),
+            ((("2-RS",),), f"{{#down{' down' * 19}}}"),
+            )
+
+@Test(flhs=relative_number_lookup)
+def doubleUNumber():
+    return (
+            ((("4U",),), "44"),
+            ((("U6",),), "77"),
+            )
+    
+    
+@Test(flhs=relative_number_lookup)
+def normalNumber():
+    return (
+            ((("1340",),), "1346"),
+            ((("123478",),), "123489"),
+            )
+
+
+@Test(flhs=relative_number_lookup)
+def reverseUNumber():
+    return (
+            ((("1340U",),), "6431"),
+            ((("1234U78",),), "984321"),
+           )
+
+##
 
 @Test(flhs=testLookup)
 def singleDigitDown():
     return (
-            ((("-7R",), "-R", "-B"), f"{{#down{' down' * 6}}}"),
+            ((("-R7",), "-R", "-B"), f"{{#down{' down' * 6}}}"),
            )
 
 
@@ -88,8 +151,15 @@ def asterisk():
 
 ##
 
+def testRelativeNumber():
+    testClock()
+    testZerosPinky()
+    relativeNumber()
+    doubleUNumber()
+    normalNumber()
+    reverseUNumber()
 
-def testNoErrors():
+def testNoErrorsRelativeDeprecated():
     singleDigitDown()
     singleDigitUp()
     multipleDigit()
@@ -97,7 +167,7 @@ def testNoErrors():
     repeatDigit()
 
 
-def testKeyError():
+def testKeyErrorRelativeDeprecated():
     tooManyNumbers()
     incorrectChord()
     zeroes()
@@ -106,8 +176,9 @@ def testKeyError():
 
 
 def testAll():
-    testNoErrors()
-    testKeyError()
+    testRelativeNumber()
+    testNoErrorsRelativeDeprecated()
+    testKeyErrorRelativeDeprecated()
 
 ##
 
@@ -115,4 +186,3 @@ def testAll():
 if __name__ == "__main__":
     testAll()
 
-##
