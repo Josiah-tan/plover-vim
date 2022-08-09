@@ -4,12 +4,35 @@ from shared.test.builtins import Test
 
 relative_number_lookup = RelativeNumberLookup()
 
+# relative_number_lookup = RelativeNumberLookup({ #just for a small sample test
+#     "silence_warnings": False,
+#     "disable_defaults": True,
+#     "numbers": {'S-': '1', 'T-': '2'},
+#     "systems": {
+#         "0": {
+#             "stroke": "-S",
+#             "callback": Zeroes(1),
+#             "additional_map": "0",
+#             }
+#         }
+#     })
+# dict(relative_number_lookup.dictionary.items())
 
 def testLookup(chord, down, up):
     # this is just there for compatibility with the old version
     return Lookup({"up": up, "down": down})(chord)
 
 ##
+
+@Test(flhs=relative_number_lookup)
+def testAdditionalMap():
+    return(
+            ((("#-S",),), "0"),
+            ((("-9SDZ",),), "00000"),
+            ((("#-D",),), "000000000"),
+            ((("#-SZ",),), "00"),
+            )
+
 
 @Test(flhs=relative_number_lookup)
 def testClock():
@@ -152,6 +175,7 @@ def asterisk():
 ##
 
 def testRelativeNumber():
+    testAdditionalMap()
     testClock()
     testZerosPinky()
     relativeNumber()
