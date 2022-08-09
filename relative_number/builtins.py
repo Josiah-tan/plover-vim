@@ -83,6 +83,9 @@ class RelativeNumberLookup(BaseLookup):
                             """)
                 dictionary = s(dict(dictionary.items()))
                 dictionary *= stroke(properties["stroke"])
+        # NOTE: put this last, because dictionary *= stroke (from before), will make everything a pain, order actually matters
+        if properties.get("additional_map"):
+            dictionary |= stroke(self.number_key) * stroke(properties["stroke"]) * translation(properties["additional_map"])
         return dictionary
 
     def getBaseNumbers(self) -> SingleDictionary:
@@ -105,6 +108,9 @@ class RelativeNumberLookup(BaseLookup):
     
 
 relative_number_lookup = RelativeNumberLookup()
+# relative_number_lookup.dictionary.items()
+# for i, j in relative_number_lookup.dictionary.items():
+#     print(i, j)
 
 class Lookup(RecursiveUpdate):
     def __init__(self, opts={}):
