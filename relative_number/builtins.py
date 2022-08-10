@@ -2,7 +2,11 @@ from shared.builtins import BaseLookup
 
 from relative_number.config import LONGEST_KEY
 from relative_number.defaults import defaults_2
-from plover_python_dictionary_lib import get_context_from_system, SingleDictionary, Dictionary
+try:
+    from plover_python_dictionary_lib import get_context_from_system, SingleDictionary, Dictionary
+except ImportError:
+    from plover_python_dictionary_lib.plover_python_dictionary_lib import get_context_from_system, SingleDictionary, Dictionary
+# from plover_python_dictionary_lib import get_context_from_system, SingleDictionary, Dictionary
 
 # ======== Boilerplate to set up objects.
 from plover.system import english_stenotype as e
