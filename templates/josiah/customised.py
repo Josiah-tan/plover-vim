@@ -132,7 +132,6 @@ relative_number_lookup = RelativeNumberLookup({
         **up_down_system,
         **clock_system,
         ** classic_system,
-        # "zeros": {"dependencies": ["0" * i for i in range(1, 10)]},
         "0reverse": {
             "stroke": "U",
             "callback": lambda x: x[::-1] if x[-1] == "0" else None,
@@ -194,17 +193,17 @@ relative_number_lookup = RelativeNumberLookup({
                 "additional_map": "0" * 9,
                 "dependencies": ["reverseU", "doubleU"],
                 },
-        "triple": {
+        # "triple": {
+        #         "stroke": "E",
+        #         "callback": lambda x: x*3,
+        #         "min_number": 0,
+        #         "max_number": 9,
+        #         },
+        "decimal": {
                 "stroke": "E",
-                "callback": lambda x: x*3,
+                "callback": lambda x: x[0] + "." + x[1:],
+                "dependencies": ["reverseU", "doubleU", "0", "0reverse"],
                 "min_number": 0,
-                "max_number": 9,
-                },
-        "slash": {
-                "stroke": "E",
-                "callback": lambda x: x[0] + "/" + x[1:],
-                "dependencies": ["reverseU"],
-                "min_number": 10,
                 "max_number": 99,
                 }
         }
