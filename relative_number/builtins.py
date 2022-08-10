@@ -46,7 +46,12 @@ class RelativeNumberLookup(BaseLookup):
         dictionary = self.getBaseNumbers()
         for identity, properties in self.opts["systems"].items():
             # print(f"identity = {identity}")
+            # dictionary |= self.operateRecursively(identity, properties)
             dictionary |= self.operateRecursively(identity, properties)
+            # if self.opts.get("apply_glue") and identity in self.opts["apply_glue"]:
+            #     result = result.map(lambda x: f"{{&{x}}}")
+            # dictionary |= result
+        dictionary = dictionary.map(lambda x: x if x[0] == "{" else f"{{&{x}}}")
         return dictionary
     
     def filter(self, dictionary: dict, min_number: int, max_number: int) -> SingleDictionary:
