@@ -134,7 +134,7 @@ relative_number_lookup = RelativeNumberLookup({
         "reverseU": {
             "stroke": "-U",
             "callback": reverse,
-            "min_number": 12,
+            "min_number": 10,
             "dependencies": ["0" * i for i in range(1, 10)]
             },
         "doubleU": {
