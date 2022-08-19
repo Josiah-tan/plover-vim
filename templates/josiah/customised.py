@@ -131,67 +131,63 @@ relative_number_lookup = RelativeNumberLookup({
     "systems": {
         **up_down_system,
         **clock_system,
-        ** classic_system,
-        "0reverse": {
-            "stroke": "U",
-            "callback": lambda x: x[::-1] if x[-1] == "0" else None,
-            "min_number": 10,
-            "max_number": 90,
+        "reverseU": {
+            "stroke": "-U",
+            "callback": reverse,
+            "min_number": 12,
+            "dependencies": ["0" * i for i in range(1, 10)]
+            },
+        "doubleU": {
+            "stroke": "-U",
+            "callback": double,
+            "min_number": 1,
+            "max_number": 9,
             "dependencies": ["0"]
             },
         "0": {
             "stroke": "-S",
             "callback": Zeroes(1),
             "additional_map": "0",
-            "dependencies": ["reverseU"]
             },
         "0" * 2: {
                 "stroke": "-SZ",
                 "callback": Zeroes(2),
                 "additional_map": "0" * 2,
-                "dependencies": ["reverseU", "doubleU"]
                 },
         "0" * 3: {
                 "stroke": "-Z",
                 "callback": Zeroes(3),
                 "additional_map": "0" * 3,
-                "dependencies": ["reverseU", "doubleU"]
                 },
         "0" * 4: {
                 "stroke": "-TS",
                 "callback": Zeroes(4),
                 "additional_map": "0" * 4,
-                "dependencies": ["reverseU", "doubleU"]
                 },
         "0" * 5: {
                 "stroke": "-TSDZ",
                 "callback": Zeroes(5),
                 "additional_map": "0" * 5,
-                "dependencies": ["reverseU", "doubleU"]
                 },
         "0" * 6: {
                 "stroke": "-DZ",
                 "callback": Zeroes(6),
                 "additional_map": "0" * 6,
-                "dependencies": ["reverseU", "doubleU"]
                 },
         "0" * 7: {
                 "stroke": "-T",
                 "callback": Zeroes(7),
                 "additional_map": "0" * 7,
-                "dependencies": ["reverseU", "doubleU"]
                 },
         "0" * 8: {
                 "stroke": "-TD",
                 "callback": Zeroes(8),
                 "additional_map": "0" * 8,
-                "dependencies": ["reverseU", "doubleU"]
                 },
         "0" * 9: {
                 "stroke": "-D",
                 "callback": Zeroes(9),
                 "additional_map": "0" * 9,
-                "dependencies": ["reverseU", "doubleU"],
                 },
         # "triple": {
         #         "stroke": "E",
@@ -202,9 +198,9 @@ relative_number_lookup = RelativeNumberLookup({
         "decimal": {
                 "stroke": "E",
                 "callback": lambda x: x[0] + "." + x[1:],
-                "dependencies": ["reverseU", "doubleU", "0", "0reverse"],
+                "dependencies": ["reverseU", "doubleU"],
                 "min_number": 0,
-                "max_number": 99,
+                # "max_number": 99,
                 }
         }
     })
