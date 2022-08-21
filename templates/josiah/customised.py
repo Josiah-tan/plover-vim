@@ -198,7 +198,7 @@ relative_number_lookup = RelativeNumberLookup({
         "decimal": {
                 "stroke": "E",
                 "callback": lambda x: x[0] + "." + x[1:],
-                "dependencies": ["reverseU", "doubleU"],
+                "dependencies": ["reverseU", "doubleU", *["0" * i for i in range(1, 10)]],
                 "min_number": 0,
                 # "max_number": 99,
                 }
