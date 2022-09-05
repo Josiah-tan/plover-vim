@@ -1,6 +1,5 @@
+import unittest
 from relative_number.builtins import Lookup, RelativeNumberLookup
-from shared.test.builtins import Test
-# from vim import relative_number
 
 relative_number_lookup = RelativeNumberLookup()
 
@@ -18,192 +17,92 @@ relative_number_lookup = RelativeNumberLookup()
 #     })
 # dict(relative_number_lookup.dictionary.items())
 
-def testLookup(chord, down, up):
-    # this is just there for compatibility with the old version
-    return Lookup({"up": up, "down": down})(chord)
+sample_lookup = Lookup({"up": "-B", "down": "-R"})
 
-##
-
-@Test(flhs=relative_number_lookup)
-def testAdditionalMap():
-    return(
-            ((("#-S",),), "{&0}"),
-            ((("-9SDZ",),), "{&00000}"),
-            ((("#-D",),), "{&000000000}"),
-            ((("#-SZ",),), "{&00}"),
-            )
-
-@Test(flhs=relative_number_lookup)
-def testClock():
-    return(
-            ((("4-BG",),), "{&4:00}"),
-            ((("1UBG",),), "{&11:00}"),
-            ((("12UBG",),), "{&21:00}"),
-            ((("13BG",),), "{&13:00}"),
-            )
-
-@Test(flhs=relative_number_lookup)
-def testZerosPinky():
-    return(
-            ((("4-S",),), "{&40}"),
-            ((("14-SZ",),), "{&1400}"),
-            ((("1234-78Z",),), "{&123489000}"),
-            ((("3-9S",),), "{&30000}"),
-            ((("4-79SDZ",),), "{&4800000}"),
-            ((("5DZ",),), "{&5000000}"),
-            ((("789",),), "{&890000000}"),
-            ((("U69D",),), "{&7700000000}"),
-            ((("340U7D",),), "{&8643000000000}"),
-            )
-
-@Test(flhs=relative_number_lookup)
-def relativeNumber():
-    return (
-            ((("1-6B",),), f"{{#up{' up' * 16}}}"),
-            ((("1-6R",),), f"{{#down{' down' * 16}}}"),
-            ((("4U6R",),), f"{{#down{' down' * 73}}}"),
-            ((("1-RS",),), f"{{#down{' down' * 9}}}"),
-            ((("2-RS",),), f"{{#down{' down' * 19}}}"),
-            )
-
-@Test(flhs=relative_number_lookup)
-def doubleUNumber():
-    return (
-            ((("4U",),), "{&44}"),
-            ((("U6",),), "{&77}"),
-            )
+class TestRelativeNumberLookup(unittest.TestCase):
+    def test_additional_map(self):
+        self.assertEqual(relative_number_lookup(("#-S",)), "{&0}")
+        self.assertEqual(relative_number_lookup(("-9SDZ",)), "{&00000}")
+        self.assertEqual(relative_number_lookup(("#-D",)), "{&000000000}")
+        self.assertEqual(relative_number_lookup(("#-SZ",)), "{&00}")
     
+    def test_clock(self):
+        self.assertEqual(relative_number_lookup(("4-BG",)), "{&4:00}")
+        self.assertEqual(relative_number_lookup(("1UBG",)), "{&11:00}")
+        self.assertEqual(relative_number_lookup(("12UBG",)), "{&21:00}")
+        self.assertEqual(relative_number_lookup(("13BG",)), "{&13:00}")
+
+    def test_zeros_pinky(self):
+        self.assertEqual(relative_number_lookup(("4-S",)), "{&40}")
+        self.assertEqual(relative_number_lookup(("14-SZ",)), "{&1400}")
+        self.assertEqual(relative_number_lookup(("1234-78Z",)), "{&123489000}")
+        self.assertEqual(relative_number_lookup(("3-9S",)), "{&30000}")
+        self.assertEqual(relative_number_lookup(("4-79SDZ",)), "{&4800000}")
+        self.assertEqual(relative_number_lookup(("5DZ",)), "{&5000000}")
+        self.assertEqual(relative_number_lookup(("789",)), "{&890000000}")
+        self.assertEqual(relative_number_lookup(("U69D",)), "{&7700000000}")
+        self.assertEqual(relative_number_lookup(("340U7D",)), "{&8643000000000}")
+
+    def test_relative_number(self):
+        self.assertEqual(relative_number_lookup(("1-6B",)), f"{{#up{' up' * 16}}}")
+        self.assertEqual(relative_number_lookup(("1-6R",)), f"{{#down{' down' * 16}}}")
+        self.assertEqual(relative_number_lookup(("4U6R",)), f"{{#down{' down' * 73}}}")
+        self.assertEqual(relative_number_lookup(("1-RS",)), f"{{#down{' down' * 9}}}")
+        self.assertEqual(relative_number_lookup(("2-RS",)), f"{{#down{' down' * 19}}}")
     
-@Test(flhs=relative_number_lookup)
-def normalNumber():
-    return (
-            ((("1340",),), "{&1346}"),
-            ((("123478",),), "{&123489}"),
-            )
+    def test_double_U_number(self):
+        self.assertEqual(relative_number_lookup(("4U",)), "{&44}")
+        self.assertEqual(relative_number_lookup(("U6",)), "{&77}")
+    
+    def test_normal_number(self):
+        self.assertEqual(relative_number_lookup(("1340",)), "{&1346}")
+        self.assertEqual(relative_number_lookup(("123478",)), "{&123489}")
+    
+    def test_reverse_number(self):
+        self.assertEqual(relative_number_lookup(("1340U",)), "{&6431}")
+        self.assertEqual(relative_number_lookup(("1234U78",)), "{&984321}")
 
 
-@Test(flhs=relative_number_lookup)
-def reverseUNumber():
-    return (
-            ((("1340U",),), "{&6431}"),
-            ((("1234U78",),), "{&984321}"),
-           )
+class TestLookup(unittest.TestCase):
+    def test_single_digit_down(self):
+        self.assertEqual(sample_lookup(("-R7",)), f"{{#down{' down' * 6}}}")
+    
+    def test_single_digit_up(self):
+        self.assertEqual(sample_lookup(("2B",)), "{#up up}")
+        self.assertEqual(sample_lookup(("5B",)), "{#up up up up up}")
+    
+    def test_multiple_digit(self):
+        self.assertEqual(sample_lookup(("1-6B",)), f"{{#up{' up' * 15}}}")
 
-##
+    def test_reverse_down(self):
+        self.assertEqual(sample_lookup(("1EUR7",)), f"{{#down{' down' * 70}}}")
 
-@Test(flhs=testLookup)
-def singleDigitDown():
-    return (
-            ((("-R7",), "-R", "-B"), f"{{#down{' down' * 6}}}"),
-           )
+    def repeat_digit(self):
+        self.assertEqual(sample_lookup(("-R7D",)), f"{{#down{' down' * 76}}}")
+        self.assertEqual(sample_lookup(("-3BD",)), f"{{#up{' up' * 32}}}")
 
+    def test_too_many_numbers(self):
+        with self.assertRaises(KeyError):
+            sample_lookup(("10R789",))
 
-@Test(flhs=testLookup)
-def singleDigitUp():
-    return (
-            ((("2B",), "-R", "-B"), "{#up up}"),
-            ((("5B",), "-R", "-B"), "{#up up up up up}"),
-           )
+    def test_incorrect_chord(self):
+        with self.assertRaises(KeyError):
+            sample_lookup(("1R-6",))
+            sample_lookup(("1-RB8",))
+    
+    def test_zeros(self):
+        with self.assertRaises(KeyError):
+            sample_lookup(("0R",))
+            sample_lookup(("0B",))
 
-
-@Test(flhs=testLookup)
-def multipleDigit():
-    return (
-            ((("1-6B",), "-R", "-B"), f"{{#up{' up' * 15}}}"),
-            ((("1R-6",), "R", "-B"), f"{{#down{' down' * 15}}}"),
-           )
-
-
-@Test(flhs=testLookup)
-def reverseDown():
-    return (
-            ((("1EUR7",), "-R", "-B"), f"{{#down{' down' * 70}}}"),
-           )
-
-
-@Test(flhs=testLookup)
-def repeatDigit():
-    return (
-            ((("-R7D",), "-R", "-B"), f"{{#down{' down' * 76}}}"),
-            ((("3-BD",), "-R", "-B"), f"{{#up{' up' * 32}}}"),
-           )
-
-
-##
-
-
-@Test(flhs=testLookup)
-def tooManyNumbers():
-    return (
-            ((("10R789",), "-R", "-B"), KeyError),
-           )
-
-
-@Test(flhs=testLookup)
-def incorrectChord():
-    return (
-            ((("1R-6",), "-R", "-B"), KeyError),
-            ((("1-RB8",), "-R", "-B"), KeyError),
-           )
-
-
-@Test(flhs=testLookup)
-def zeroes():
-    return (
-            ((("0R",), "-R", "-B"), KeyError),
-            ((("0B",), "-R", "-B"), KeyError),
-           )
-
-
-@Test(flhs=testLookup)
-def tooManyRepeatDigit():
-    return (
-            ((("14-RD",), "-R", "-B"), KeyError),
-           )
-
-
-@Test(flhs=testLookup)
-def asterisk():
-    return (
-            ((("14*R",), "-R", "-B"), KeyError),
-           )
-
-
-##
-
-def testRelativeNumber():
-    testAdditionalMap()
-    testClock()
-    testZerosPinky()
-    relativeNumber()
-    doubleUNumber()
-    normalNumber()
-    reverseUNumber()
-
-def testNoErrorsRelativeDeprecated():
-    singleDigitDown()
-    singleDigitUp()
-    multipleDigit()
-    reverseDown()
-    repeatDigit()
-
-
-def testKeyErrorRelativeDeprecated():
-    tooManyNumbers()
-    incorrectChord()
-    zeroes()
-    tooManyRepeatDigit()
-    asterisk()
-
-
-def testAll():
-    testRelativeNumber()
-    testNoErrorsRelativeDeprecated()
-    testKeyErrorRelativeDeprecated()
-
-##
+    def test_too_many_repeat_digit(self):
+        with self.assertRaises(KeyError):
+            sample_lookup(("14-RD",))
+    
+    def test_asterisk(self):
+        with self.assertRaises(KeyError):
+            sample_lookup(("14*R",))
 
 
 if __name__ == "__main__":
-    testAll()
-
+    unittest.main()
