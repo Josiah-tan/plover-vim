@@ -214,7 +214,7 @@ def lookup(key):
             find_lookup_2,
             misc_lookup_2,
             command_object_lookup_2,
-            relative_number_lookup,
+            # relative_number_lookup,
             josiah_modifier_lookup
             ]:
         with suppress(KeyError):
