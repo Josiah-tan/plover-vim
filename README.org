@@ -18,18 +18,9 @@
 	- Highly recommended you check this out if you want to create your own dictionaries from scratch
 
 * Prerequisites
-- Install python-plover-dictionary from plover's plugins
+- Install plover_vim from plover's plugins
 	- Aerick has a [[https://www.youtube.com/watch?v=uQZp7RX-h6o][video]] on this
-	- (just open up the latest build of plover, goto plugins manager and find "python-plover-dictionary" in the list)
-
-* Installation
-- Clone this repository (recommended putting it where you store your Plover dictionaries)
-- Update all git submodules
-
-#+BEGIN_SRC bash
-git clone https://github.com/Josiah-tan/plover-vim.git vim
-git submodule update --init --recursive
-#+END_SRC
+	- (just open up the latest build of plover, goto plugins manager and find "plover_vim" in the list)
 
 * Modules:
 - This repository separates the different dictionaries available into different modules
@@ -364,3 +355,13 @@ else
 	tnoremap <c-j> <C-\><C-n>
 endif
 #+END_SRC
+
+* Developers
+- Clone this repository
+- Activate the plover environment, and install it into the environment
+#+BEGIN_SRC bash
+git clone https://github.com/Josiah-tan/plover-vim.git plover_vim
+source path/to/plover/.tox/bin/dev/activate 
+pip3 install -e plover_vim
+#+END_SRC
+
