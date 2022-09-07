@@ -1,25 +1,16 @@
 from contextlib import suppress
-import sys
-import os.path
-
-# note that this assumes that you cloned this repository with the name "vim" in your config files, feel free to change this though!
-from plover.oslayer.config import CONFIG_DIR
-repository_location = os.path.join(CONFIG_DIR, "vim")
-
-sys.path.append(repository_location)
 
 # import the modules that you want for your vim experience here
 # from command_letter.builtins import Lookup as CommandLetterLookup
 # from command_object.builtins import Lookup as CommandObjectLookup
-from command_letter_2.builtins import Lookup as CommandLetterLookup2
-from relative_number.builtins import Lookup as OldRelativeNumberLookup
-from relative_number.util import Zeroes, reverse, double
-from relative_number.defaults import up_down_system, clock_system, classic_system
-from relative_number.builtins import RelativeNumberLookup as RelativeNumberLookup
-from josiah_modifier.builtins import Lookup as JosiahModifierLookup
+
+from plover_vim.command_letter_2.builtins import Lookup as CommandLetterLookup2
+from plover_vim.relative_number.util import Zeroes, reverse, double
+from plover_vim.relative_number.defaults import up_down_system, clock_system, classic_system
+from plover_vim.relative_number.builtins import RelativeNumberLookup as RelativeNumberLookup
+from plover_vim.Josiah_modifier.builtins import Lookup as JosiahModifierLookup
 
 LONGEST_KEY = 1
-
 
 find_lookup_2 = CommandLetterLookup2({
     "disable_defaults": False,
@@ -47,35 +38,6 @@ find_lookup_2 = CommandLetterLookup2({
                 "-P": "<escape> <middles> t <objects>",  # Previous
                 "-B": "<escape> <middles> shift(f) <objects>",  # Backwards
                 # "": ""  # for normal commands (done in josiah-modifers)
-                }
-            }]
-        })
-
-misc_lookup_2 = CommandLetterLookup2({
-    "disable_defaults": False,
-    # any dictionary entry overiddes the defaults
-    "spelling": {},  # dict: right finger spelling
-    "symbols": {},  # dict: left hand symbols
-    "shifted": {},  # set: any symbols that should be shifted
-    "middles": {},  # dict: middles
-    "escape": "control(j)",  # default: "escape"
-    "systems": [
-        {
-            "unique_ender": "-TZ",
-            "mods": {  # 64 total possibilities from #EURPB
-                "-FPB": "<escape> q <objects>",  # liSten
-                "-FP": "<escape> shift(at) <objects>",  # @
-                # "-FB": "",
-                "-PB": "<escape> z <objects>",  # zeN
-                "-F": "<escape> g <objects>",  # the good Spot (primeagen youtube video on the g command)
-                "-P": "<escape> r <objects>",
-                "-B": "<escape> m <objects>",
-                "#-B": "<escape> apostrophe <objects>",
-
-                "#-P": "<escape> <objects> <objects>", # repeat
-                "-E": "<escape> bracketleft <objects>", # ] unfortuately does not work in insert mode...
-                "-U": "<escape> bracketright <objects>", # [ unfortuately does not work in insert mode..
-
                 }
             }]
         })
@@ -118,11 +80,6 @@ command_object_lookup_2 = CommandLetterLookup2({
                 }
             }]
     })
-
-# relative_number_lookup = RelativeNumberLookup({
-#     "up": "-B",
-#     "down": "-R"
-#     })
 
 # relative_number_lookup = OldRelativeNumberLookup()
 relative_number_lookup = RelativeNumberLookup({
@@ -204,9 +161,37 @@ relative_number_lookup = RelativeNumberLookup({
                 }
         }
     })
-dict(relative_number_lookup.dictionary.items())
 
-josiah_modifier_lookup = JosiahModifierLookup()
+misc_lookup_2 = CommandLetterLookup2({
+    "disable_defaults": False,
+    # any dictionary entry overiddes the defaults
+    "spelling": {},  # dict: right finger spelling
+    "symbols": {},  # dict: left hand symbols
+    "shifted": {},  # set: any symbols that should be shifted
+    "middles": {},  # dict: middles
+    "escape": "control(j)",  # default: "escape"
+    "systems": [
+        {
+            "unique_ender": "-TZ",
+            "mods": {  # 64 total possibilities from #EURPB
+                "-FPB": "<escape> q <objects>",  # liSten
+                "-FP": "<escape> shift(at) <objects>",  # @
+                # "-FB": "",
+                "-PB": "<escape> z <objects>",  # zeN
+                "-F": "<escape> g <objects>",  # the good Spot (primeagen youtube video on the g command)
+                "-P": "<escape> r <objects>",
+                "-B": "<escape> m <objects>",
+                "#-B": "<escape> apostrophe <objects>",
+
+                "#-P": "<escape> <objects> <objects>", # repeat
+                "-E": "<escape> bracketleft <objects>", # ] unfortuately does not work in insert mode...
+                "-U": "<escape> bracketright <objects>", # [ unfortuately does not work in insert mode..
+
+                }
+            }]
+        })
+
+Josiah_modifier_lookup = JosiahModifierLookup()
 
 
 def lookup(key):
@@ -214,9 +199,10 @@ def lookup(key):
             find_lookup_2,
             misc_lookup_2,
             command_object_lookup_2,
-            # relative_number_lookup,
-            josiah_modifier_lookup
+            relative_number_lookup,
+            Josiah_modifier_lookup
             ]:
         with suppress(KeyError):
             return look(key)
     raise KeyError
+

@@ -1,14 +1,6 @@
 from contextlib import suppress
-import sys
-import os.path
-
-# note that this assumes that you cloned this repository with the name "vim" in your config files, feel free to change this though!
-from plover.oslayer.config import CONFIG_DIR
-repository_location = os.path.join(CONFIG_DIR, "vim")
-sys.path.append(repository_location)
-
 # import the modules that you want for your vim experience here
-from emily_modifier.builtins import Lookup as EmilyModifierLookup
+from plover_vim.Emily_modifier.builtins import Lookup as EmilyModifierLookup
 
 
 LONGEST_KEY = 1

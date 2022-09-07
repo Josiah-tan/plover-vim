@@ -1,14 +1,7 @@
 from contextlib import suppress
-import sys
-import os.path
-
-# note that this assumes that you cloned this repository with the name "vim" in your config files, feel free to change this though!
-from plover.oslayer.config import CONFIG_DIR
-repository_location = os.path.join(CONFIG_DIR, "vim")
-sys.path.append(repository_location)
 
 # import the modules that you want for your vim experience here
-from easy_motion.builtins import Lookup as EasyMotionLookup
+from plover_vim.easy_motion.builtins import Lookup as EasyMotionLookup
 
 LONGEST_KEY = 2
 
