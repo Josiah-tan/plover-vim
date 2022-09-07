@@ -139,8 +139,8 @@ let g:EasyMotion_keys = 'bdfgjklmnprstxz'
 - you are limited to 8 times more combinations of commands compared to Emily's modifiers
 
 *** Usage
-- copy templates/josiah\under{}modifier/simple.py and add it to your dictionaries for a simple configuration
-- copy templates/josiah\under{}modifier/customised.py for a more customised experience
+- copy templates/Josiah\under{}modifier/simple.py and add it to your dictionaries for a simple configuration
+- copy templates/Josiah\under{}modifier/customised.py for a more customised experience
 	- see note on [[#Controlj][control(j)]]
 
 ** command-letter-2
@@ -322,7 +322,7 @@ let g:EasyMotion_keys = 'bdfgjklmnprstxz'
 - copy templates/command\under{}object/customised.py for a more customised experience
 	- note that (shift(s)) is required to output S because raw keyboard input is [[https://github.com/openstenoproject/plover/issues/1465][weird]]
 	- See note on [[#Controlj][control(j)]]
-** emily-modifier (deprecated)
+** Emily-modifier (deprecated)
 *** How does this module improve upon the [[https://github.com/EPLHREU/emily-modifiers][original]]?
 - You can prepend an escape to the command
 - Commands like ctrl^ no longer require shift to be pressed [[https://github.com/openstenoproject/plover/issues/1465][related issue]] 
@@ -331,8 +331,8 @@ let g:EasyMotion_keys = 'bdfgjklmnprstxz'
 - TODO
 
 *** Usage
-- copy templates/emily\under{}modifier/simple.py and add it to your dictionaries for a simple configuration
-- copy templates/emily\under{}modifier/customised.py for a more customised experience
+- copy templates/Emily\under{}modifier/simple.py and add it to your dictionaries for a simple configuration
+- copy templates/Emily\under{}modifier/customised.py for a more customised experience
 	- see note on [[#Controlj][control(j)]]
 
 * Customisation
@@ -364,4 +364,3 @@ git clone https://github.com/Josiah-tan/plover-vim.git plover_vim
 source path/to/plover/.tox/bin/dev/activate 
 pip3 install -e plover_vim
 #+END_SRC
-
