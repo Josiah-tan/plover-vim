@@ -26,7 +26,7 @@
 
 - Now run this command to install the library
 ``` bash
-plover -s plover_plugins install plover_vim
+<plover_executable> -s plover_plugins install plover_vim
 ```
 
 # Modules
@@ -112,7 +112,260 @@ let g:EasyMotion_keys = 'bdfgjklmnprstxz'
 
 - copy [templates/easy_motion/simple.py](templates/easy_motion/simple.py) and add it to your dictionaries for a simple configuration
 - copy [templates/easy_motion/customised.py](templates/easy_motion/customised.py) and add it to your dictionaries for a customisable configuration
-- see note on [control(j)](#control(j))
+- see note on [Control(j)](#Control(J))
+
+## Josiah_modifier
+
+### how does this module work?
+- so basically we remap these right hand fingerspelling commands it to left hand versions:
+
+| Letter | Old Version | New Remapped |
+|--------|-------------|--------------|
+| e      | E           | SK           |
+| i      | EU          | SKW          |
+| u      | U           | WR           |
+
+- This leaves more space for commands using the E and U keys
+- The number key is also used to create more space for more options (8 altogether)
+
+### Some ideas of what you can do with this extra space
+
+- So you can prepend a command before an Emily modifier command:
+	- ctrl-w ctrl-o = OULTZ
+	- breaking it down:
+		- OF = ctrl-o
+		- U = ctrl-w
+		- -LTZ = unique Emily modifier ender (ring finger on LT and pinky on Z)
+- the table below shows default settings
+
+| Chord | Prefix Command        | How To Memorize                  |
+|-------|-----------------------|----------------------------------|
+| #     | control(j)            |                                  |
+| E     | escape                | EscapE                           |
+| EU    | control(j) control(w) | vim splIt or wIndow              |
+| #EU   | control(r)            | regIster                         |
+| U     | control(b)            | tmUx                             |
+| #E    | control(x)            | Ex command                       |
+| NA    | NA                    | (used in a normal Emily command) |
+| #U    | NA                    |                                  |
+
+### Usage
+
+- copy [templates/Josiah_modifier/simple.py](templates/Josiah_modifier/simple.py) and add it to your dictionaries for a simple configuration
+- copy [templates/Josiah_modifier/customised.py](templates/Josiah_modifier/customised.py) and add it to your dictionaries for a customisable configuration
+- see note on [Control(j)](#Control(j))
+
+## Command_letter_2
+
+### How does this module improve on command_letter and command_object?
+
+- Basically it replaces the need for either of them using Josiah's modifiers as a base.
+-   It can perform a complex finder operation:
+    -   df) = KWR\*EFLTDZ
+    -   breaking it down:
+        -   KWR\* = ), using Josiah\'s modifier for the left hand
+        -   F = f
+        -   E = d
+        -   -LTDZ = unique ender for finders (ring finger on LT and
+            pinky on DZ)
+-   It can perform a miscellaneous operation:
+    -   \[m = PHUTZ
+    -   Breaking it down:
+        -   PH = m, using Josiah\'s modifier for the left hand
+        -   U = \[, idea from tpope\'s unimpaired
+        -   -TZ = unique ender for miscellaneous (ring finger on T and
+            pinky on Z)
+-   It can perform a \"command-object\" operation:
+    -   caw = WUBTDZ
+    -   Breaking it down:
+        -   W = w, using Josiah\'s modifier for the left hand
+        -   U = a, U is more \"outside\" in position than E, so we use E
+            = i cause it is more \"inner\" in position
+        -   B = c, \"blot\" hence delete
+        -   TDZ = unique ender for command object (ring finger on T,
+            pinky on DZ)
+-   The table below shows default settings
+    -   \"Customisable\" commands can be filled in for personal useage
+
+| category         | Unique Ender   | Modifiers   | Command        | How To Memorise          |
+| ---------------- | -------------- | ----------- | -------------- | ------------------------ |
+| finders          | -LTDZ          | -FPB        | customisable   |                          |
+|                  |                | -FP         | customisable   |                          |
+|                  |                | -FB         |                | (used in easymotion)     |
+|                  |                | -PB         | shift(t)       | Previous Backwards       |
+|                  |                | -F          | f              | Forwards                 |
+|                  |                | -P          | t              | Previous                 |
+|                  |                | -B          | shift(f)       | Backwards                |
+|                  |                |             | ""             | escaped commands         |
+|                  | E              |             | c              | dElEtE                   |
+|                  | EU             |             | y              | YoInk                    |
+|                  | U              |             | v              | visUalise                |
+|                  |                |             | ""             |                          |
+| miscallaneous    | -TZ            | -FPB        | q              | liSeN                    |
+|                  |                | -FP         | shift(at)      | macros                   |
+|                  |                | -FB         | customisable   |                          |
+|                  |                | -PB         | z              | zeN                      |
+|                  |                | -F          | g              | the good Spot            |
+|                  |                | -P          | r              | rePlace                  |
+|                  |                | -B          | m              | marBg                    |
+|                  |                |             | customisable   |                          |
+|                  |                | #-B         | apostrophe     | similar to mark          |
+|                  |                | #-P         | repeat         | rePeat                   |
+|                  |                | -E          | [              | E is to the left of U    |
+|                  |                | -U          | ]              | U is to the right of E   |
+| command object   | -TDZ           | -FPB        | equal          |                          |
+|                  |                | -FP         | ys             | coPy Furround            |
+|                  |                | -FB         | cs             | Blot Furround            |
+|                  |                | -PB         | gc             | commeNt                  |
+|                  |                | -F          | v              | Fisualize                |
+|                  |                | -P          | y              | coPy                     |
+|                  |                | -B          | c              | Blot                     |
+|                  |                | ""          | gU             |                          |
+|                  |                | #-FPB       | v~             |                          |
+|                  |                | #-FP        | S              |                          |
+|                  |                | #-FB        | ds             |                          |
+|                  |                | #-PB        | gb             |                          |
+|                  |                | #-F         | vp             | visualize and paste!     |
+|                  |                | #-P         | "              | y                        |
+|                  |                | #-B         | customisable   |                          |
+|                  |                | #           | gu             |                          |
+|                  | E              |             | i              | Inner                    |
+|                  | EU             |             | O              |                          |
+|                  | U              |             | a              | Around                   |
+|                  |                |             | ""             |                          |
+
+### Usage
+- First, make sure to install plover_vim into plover
+	- see [Installation](#Installation) for more instructions
+- copy [templates/command_letter_2/simple.py](templates/command_letter_2/simple.py) and add it to your dictionaries for a simple configuration
+- copy [templates/command_letter_2/customised.py](templates/command_letter_2/customised.py) and add it to your dictionaries for a customisable configuration
+- It is recommended to remap top left S key as #
+
+## Command-letter (deprecated)
+
+### How does this module improve vim?
+
+-   You can perform any command followed by a letter in a single stroke
+    for example:
+    -   f\) = KWR\*FLTDZ
+    -   breaking it down:
+        -   KWR\* = ), using emily\'s modifier symbols for the left hand
+        -   F = f
+        -   -LTDZ = unique ender for finders (ring finger on LT and
+            pinky on DZ)
+-   The table below shows default settings
+    -   \"Customisable\" commands can be filled in for personal useage
+
+| category        | Unique Ender   | Modifiers   | Command        | How To Memorise        |
+| --------------- | -------------- | ----------- | -------------- | ---------------------- |
+| finders         | -LTDZ          | -FPB        | customisable   |                        |
+|                 |                | -FP         | customisable   |                        |
+|                 |                | -FB         |                | (used in easymotion)   |
+|                 |                | -PB         | shift(t)       | Previous Backwards     |
+|                 |                | -F          | f              | Forwards               |
+|                 |                | -P          | t              | Previous               |
+|                 |                | -B          | shift(f)       | Backwards              |
+|                 |                |             | ""             | escaped commands       |
+| miscallaneous   | -TZ            | -FPB        | q              | liSeN                  |
+|                 |                | -FP         | shift(at)      | macros                 |
+|                 |                | -FB         | customisable   |                        |
+|                 |                | -PB         | z              | zeN                    |
+|                 |                | -F          | g              | the good Spot          |
+|                 |                | -P          | r              | rePlace                |
+|                 |                | -B          | m              | marBg                  |
+|                 |                |             | customisable   |                        |
+
+### Usage
+
+-   copy templates/command_letter/simple.py and add it to your
+    dictionaries for default configuration
+-   copy templates/command_letter/customised.py for a more
+    customised experience
+    -   note that (shift(at)) is required to output @ because raw
+        keyboard input is
+        [weird](https://github.com/openstenoproject/plover/issues/1465)
+    -   See note on [control(j)](#Control(j))
+
+## command-object (deprecated)
+
+### How does this module improve vim?
+
+-   You can perform any command followed by a text \"object\" in a
+    single stroke for example:
+    -   daw = STPRARLD
+    -   breaking it down:
+        -   STPR = unique starter
+        -   A = a
+        -   -RL = w, (see \"objects\" in
+            command_object/defaults.py)
+        -   -D = d
+    -   yi( = STPROFPLZ
+        -   STPR = unique starter
+        -   O = i
+        -   -FPL = (, using emily\'s symbols for the right hand
+        -   -Z = y
+-   The table below shows the default mappings
+    -   \"Customisable\" commands can be filled in for personal useage
+    -   note: AO combinations can be combined with other modifiers
+
+| Unique starter | Modifiers | Command      | How To Memorise | Plugin Requirements   |
+|----------------|-----------|--------------|-----------------|-----------------------|
+| STPR           | -T        | g c          | commenTary      | tpope/vim-commentary  |
+|                | -D        | d            | Delete          |                       |
+|                | -S        | y s          | Surround        | tpope/vim-surround    |
+|                | -Z        | y            | xyZ             |                       |
+|                | -TD       | customisable |                 |                       |
+|                | -DZ       | d s          | Delete Surround | tpope/vim-surround    |
+|                | -SZ       | v            | viSualiZe       |                       |
+|                | -TS       | customisable |                 |                       |
+|                | *T        | g b          | commenTary      | numToStr/Comment.nvim |
+|                | *D        | customisable |                 |                       |
+|                | *S        | shift(s)     | Surround        | tpope/vim-surround    |
+|                | *Z        | customisable |                 |                       |
+|                | *TD       | customisable |                 |                       |
+|                | *DZ       | customisable |                 |                       |
+|                | *SZ       | customisable |                 |                       |
+|                | *TS       | customisable |                 |                       |
+|                |           | customisable |                 |                       |
+|                | A         | a            | around          |                       |
+|                | O         | i            |                 |                       |
+|                | AO        | customisable |                 |                       |
+|                |           | ""           |                 |                       |
+
+
+### Limitations
+
+-   some command + motion combinations must be stroked in two, for
+    example:
+    -   ct=
+
+### Usage
+
+-   copy templates/command_object/simple.py and add it to your
+    dictionaries for default configuration
+-   copy templates/command_object/customised.py for a more
+    customised experience
+    -   note that (shift(s)) is required to output S because raw
+        keyboard input is
+        [weird](https://github.com/openstenoproject/plover/issues/1465)
+    -   See note on [control(j)](#Controlj)
+
+## Emily-modifier (deprecated)
+
+### How does this module improve upon the [original](https://github.com/EPLHREU/emily-modifiers)?
+
+-   You can prepend an escape to the command
+-   Commands like ctrl\^ no longer require shift to be pressed [related
+    issue](https://github.com/openstenoproject/plover/issues/1465)
+
+### Usage
+
+-   copy templates/Emily_modifier/simple.py and add it to your
+    dictionaries for a simple configuration
+-   copy templates/Emily_modifier/customised.py for a more
+    customised experience
+    -   see note on [control(j)](#Control(J))
+
 
 # Control(J)
 -   Allows you to execute any (most) commands as if you are from normal
@@ -137,4 +390,20 @@ else
 endif
 ```
 
+# Developers
 
+- This section shows how you can have an editable version of this project
+
+``` bash
+git clone https://github.com/Josiah-tan/plover_vim
+```
+
+- cd into this repo
+- Then install for use!
+	- Note that "plover" is the executable that you downloaded to make Plover work in the first place
+	- See this [[https://plover.readthedocs.io/en/latest/cli_reference.html][website]] for the different locations depending on which platform you are using (Linux, Windows, etc)
+
+``` bash
+cd plover_vim
+plover -s plover_plugins install -e .
+```
