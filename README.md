@@ -4,7 +4,7 @@
 
 # Aims:
 - highly extensible and customisable commands and translations
-- (mostly) single chords for virtually everything of every vim command combination
+- (mostly) single chords for virtually every vim command combination
 - Ability to do everything in insert mode (doesn't matter if you are in normal mode)
 
 # Motivation
