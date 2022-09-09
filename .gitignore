@@ -162,3 +162,4 @@ cython_debug/
 # extra things
 *.json
 !manual_input.json
+*.pdf
