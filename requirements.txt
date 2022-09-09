@@ -1,3 +1,3 @@
-plover-python-dictionary-lib==0.4.2
-plover==4.0.0.dev12
+plover-python-dictionary-lib~=0.4
+plover>=4.0.0.dev12
 twine
