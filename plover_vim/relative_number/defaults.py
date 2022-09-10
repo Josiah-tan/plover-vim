@@ -12,13 +12,15 @@ classic_system = {
         "reverseU": {
             "stroke": "-U",
             "callback": reverse,
-            "min_number": 12,
+            "min_number": 10,
+            "dependencies": ["0" * i for i in range(1, 10)]
             },
         "doubleU": {
             "stroke": "-U",
             "callback": double,
             "min_number": 1,
             "max_number": 9,
+            "dependencies": ["0"]
             },
         }
 
@@ -56,56 +58,47 @@ zeroes_system = {
             "stroke": "-S",
             "callback": Zeroes(1),
             "additional_map": "0",
-            "dependencies": ["reverseU", "doubleU"]
             },
         "0" * 2: {
-            "stroke": "-SZ",
-            "callback": Zeroes(2),
-            "additional_map": "0" * 2,
-            "dependencies": ["reverseU", "doubleU"]
-            },
+                "stroke": "-SZ",
+                "callback": Zeroes(2),
+                "additional_map": "0" * 2,
+                },
         "0" * 3: {
-            "stroke": "-Z",
-            "callback": Zeroes(3),
-            "additional_map": "0" * 3,
-            "dependencies": ["reverseU", "doubleU"]
-            },
+                "stroke": "-Z",
+                "callback": Zeroes(3),
+                "additional_map": "0" * 3,
+                },
         "0" * 4: {
-            "stroke": "-TS",
-            "callback": Zeroes(4),
-            "additional_map": "0" * 4,
-            "dependencies": ["reverseU", "doubleU"]
-            },
+                "stroke": "-TS",
+                "callback": Zeroes(4),
+                "additional_map": "0" * 4,
+                },
         "0" * 5: {
-            "stroke": "-TSDZ",
-            "callback": Zeroes(5),
-            "additional_map": "0" * 5,
-            "dependencies": ["reverseU", "doubleU"]
-            },
+                "stroke": "-TSDZ",
+                "callback": Zeroes(5),
+                "additional_map": "0" * 5,
+                },
         "0" * 6: {
-            "stroke": "-DZ",
-            "callback": Zeroes(6),
-            "additional_map": "0" * 6,
-            "dependencies": ["reverseU", "doubleU"]
-            },
+                "stroke": "-DZ",
+                "callback": Zeroes(6),
+                "additional_map": "0" * 6,
+                },
         "0" * 7: {
-            "stroke": "-T",
-            "callback": Zeroes(7),
-            "additional_map": "0" * 7,
-            "dependencies": ["reverseU", "doubleU"]
-            },
+                "stroke": "-T",
+                "callback": Zeroes(7),
+                "additional_map": "0" * 7,
+                },
         "0" * 8: {
-            "stroke": "-TD",
-            "callback": Zeroes(8),
-            "additional_map": "0" * 8,
-            "dependencies": ["reverseU", "doubleU"]
-            },
+                "stroke": "-TD",
+                "callback": Zeroes(8),
+                "additional_map": "0" * 8,
+                },
         "0" * 9: {
-            "stroke": "-D",
-            "callback": Zeroes(9),
-            "additional_map": "0" * 9,
-            "dependencies": ["reverseU", "doubleU"]
-            },
+                "stroke": "-D",
+                "callback": Zeroes(9),
+                "additional_map": "0" * 9,
+                },
         }
 
 default_system = {

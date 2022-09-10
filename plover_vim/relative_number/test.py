@@ -40,8 +40,8 @@ class TestRelativeNumberLookup(unittest.TestCase):
         self.assertEqual(relative_number_lookup(("4-79SDZ",)), "{&4800000}")
         self.assertEqual(relative_number_lookup(("5DZ",)), "{&5000000}")
         self.assertEqual(relative_number_lookup(("789",)), "{&890000000}")
-        self.assertEqual(relative_number_lookup(("U69D",)), "{&7700000000}")
-        self.assertEqual(relative_number_lookup(("340U7D",)), "{&8643000000000}")
+        self.assertEqual(relative_number_lookup(("U69D",)), "{&000000007}")
+        self.assertEqual(relative_number_lookup(("340U7D",)), "{&0000000008643}")
 
     def test_relative_number(self):
         self.assertEqual(relative_number_lookup(("1-6B",)), f"{{#up{' up' * 16}}}")
