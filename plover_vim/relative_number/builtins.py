@@ -38,7 +38,6 @@ class RelativeNumberLookup(BaseLookup):
         self.keys = e.KEYS
         self.number_key = e.NUMBER_KEY
         if self.opts.get("numbers") is None or self.opts["numbers"] == {}:
-            print("hello world this is Josiah")
             self.numbers = {k: v.strip("-") for k, v in e.NUMBERS.items()}
         else:
             self.numbers = self.opts["numbers"]
@@ -75,19 +74,19 @@ class RelativeNumberLookup(BaseLookup):
                 dictionary, properties.get("min_number"), properties.get("max_number"))
         if properties.get("stroke") and properties.get("callback"):
             dictionary = dictionary.map(properties["callback"])
-            try:
-                dictionary *= stroke(properties["stroke"])
-            except AssertionError as assertion_error:
-                silence_warnings = self.opts.get("silence_warnings")
-                if silence_warnings is None or silence_warnings == False:
-                    print(assertion_error)
-                    print("""
-                            even though there was an assertion error,
-                            we will still try and continue,
-                            see https://github.com/user202729/plover-python-dictionary-lib/issues/3 for more details
-                            """)
-                dictionary = s(dict(dictionary.items()))
-                dictionary *= stroke(properties["stroke"])
+            # try:
+            #     dictionary *= stroke(properties["stroke"])
+            # except AssertionError as assertion_error:
+            #     silence_warnings = self.opts.get("silence_warnings")
+            #     if silence_warnings is None or silence_warnings == False:
+            #         print(assertion_error)
+            #         print("""
+            #                 even though there was an assertion error,
+            #                 we will still try and continue,
+            #                 see https://github.com/user202729/plover-python-dictionary-lib/issues/3 for more details
+            #                 """)
+            dictionary = s(dict(dictionary.items()))
+            dictionary *= stroke(properties["stroke"])
         # NOTE: put this last, because dictionary *= stroke (from before), will make everything a pain, order actually matters
         if properties.get("additional_map"):
             dictionary |= stroke(self.number_key) * stroke(properties["stroke"]) * translation(properties["additional_map"])
