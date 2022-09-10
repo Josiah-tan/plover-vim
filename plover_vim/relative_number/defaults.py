@@ -49,6 +49,7 @@ clock_system = {
             "dependencies": ["reverseU", "doubleU"],
             "min_number": 1,
             "max_number": 24,
+            "post_callback": (lambda x: x)
             }
         }
 

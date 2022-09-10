@@ -27,10 +27,10 @@ class TestRelativeNumberLookup(unittest.TestCase):
         self.assertEqual(relative_number_lookup(("#-SZ",)), "{&00}")
     
     def test_clock(self):
-        self.assertEqual(relative_number_lookup(("4-BG",)), "{&4:00}")
-        self.assertEqual(relative_number_lookup(("1UBG",)), "{&11:00}")
-        self.assertEqual(relative_number_lookup(("12UBG",)), "{&21:00}")
-        self.assertEqual(relative_number_lookup(("13BG",)), "{&13:00}")
+        self.assertEqual(relative_number_lookup(("4-BG",)), "4:00")
+        self.assertEqual(relative_number_lookup(("1UBG",)), "11:00")
+        self.assertEqual(relative_number_lookup(("12UBG",)), "21:00")
+        self.assertEqual(relative_number_lookup(("13BG",)), "13:00")
 
     def test_zeros_pinky(self):
         self.assertEqual(relative_number_lookup(("4-S",)), "{&40}")

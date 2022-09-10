@@ -37,14 +37,14 @@ class RelativeNumberLookup(BaseLookup):
             self.numbers = {k: v.strip("-") for k, v in e.NUMBERS.items()}
         else:
             self.numbers = self.opts["numbers"]
-        dictionary = self.postDefault(self.getBaseNumbers())
+        dictionary = self.getBaseNumbers().map(self.postDefault)
         for identity, properties in self.opts["systems"].items():
             if properties.get("stroke"):  # e.g. handle the "zeros" case, where there is no additional entry
                 _dictionary = self.operateRecursively(identity, properties)
-                if properties.get("post_processing"):
-                    dictionary |= properties["post_processing"](_dictionary)
+                if properties.get("post_callback"):
+                    dictionary |= properties["post_callback"](_dictionary)
                 else:  # default behaviour: adds a "&" using command syntax
-                    dictionary |= self.postDefault(_dictionary)
+                    dictionary |= _dictionary.map(self.postDefault)
         return dictionary
     
     def filter(self, dictionary: dict, min_number: int, max_number: int) -> SingleDictionary:
@@ -89,8 +89,8 @@ class RelativeNumberLookup(BaseLookup):
         return self._cache_base_numbers
         
     @staticmethod
-    def postDefault(dictionary: dict) -> SingleDictionary:
-        return dictionary.map(lambda x: x if x[0] == "{" else f"{{&{x}}}")
+    def postDefault(x: str) -> str:
+        return x if x[0] == "{" else f"{{&{x}}}"
             
     @staticmethod
     def expand(dictionary: dict) -> SingleDictionary:
