@@ -72,25 +72,34 @@ class RelativeNumberLookup(BaseLookup):
                         dependency, self.opts["systems"][dependency])
         dictionary = self.filter(
                 dictionary, properties.get("min_number"), properties.get("max_number"))
-        if properties.get("stroke") and properties.get("callback"):
-            dictionary = dictionary.map(properties["callback"])
-            # try:
-            #     dictionary *= stroke(properties["stroke"])
-            # except AssertionError as assertion_error:
-            #     silence_warnings = self.opts.get("silence_warnings")
-            #     if silence_warnings is None or silence_warnings == False:
-            #         print(assertion_error)
-            #         print("""
-            #                 even though there was an assertion error,
-            #                 we will still try and continue,
-            #                 see https://github.com/user202729/plover-python-dictionary-lib/issues/3 for more details
-            #                 """)
-            dictionary = s(dict(dictionary.items()))
-            dictionary *= stroke(properties["stroke"])
-        # NOTE: put this last, because dictionary *= stroke (from before), will make everything a pain, order actually matters
-        if properties.get("additional_map"):
-            dictionary |= stroke(self.number_key) * stroke(properties["stroke"]) * translation(properties["additional_map"])
+        if properties.get("stroke"):
+            if properties.get("callback"):
+                dictionary = dictionary.map(properties["callback"])
+            if properties.get("additional_map"):
+                dictionary |= stroke(self.number_key) * translation(properties["additional_map"])
+            dictionary = s(dict(dictionary.items())) * stroke(properties["stroke"])
         return dictionary
+        # if properties.get("stroke") and properties.get("callback"):
+        #     # dictionary = dictionary.map(properties["callback"])
+        #     dictionary_callback = dictionary.map(properties["callback"])
+        #
+        #     # try:
+        #     #     dictionary *= stroke(properties["stroke"])
+        #     # except AssertionError as assertion_error:
+        #     #     silence_warnings = self.opts.get("silence_warnings")
+        #     #     if silence_warnings is None or silence_warnings == False:
+        #     #         print(assertion_error)
+        #     #         print("""
+        #     #                 even though there was an assertion error,
+        #     #                 we will still try and continue,
+        #     #                 see https://github.com/user202729/plover-python-dictionary-lib/issues/3 for more details
+        #     #                 """)
+        #     dictionary = s(dict(dictionary.items()))
+        #     dictionary *= stroke(properties["stroke"])
+        # # NOTE: put this last, because dictionary *= stroke (from before), will make everything a pain, order actually matters
+        # if properties.get("additional_map"):
+        #     dictionary |= stroke(self.number_key) * stroke(properties["stroke"]) * translation(properties["additional_map"])
+        # return dictionary
 
     def getBaseNumbers(self) -> SingleDictionary:
         dict = None
@@ -268,3 +277,4 @@ lookup = Lookup()
 # # adding the K back in (doesn't work)
 # dictionary.print_items()
 #
+
