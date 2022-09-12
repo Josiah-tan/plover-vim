@@ -159,6 +159,7 @@ class TestClock(unittest.TestCase):
         self.assertEqual(relative_number_lookup(("13BG",)), "13:00")
     
     def test_clock_append(self):
+        self.assertEqual(relative_number_lookup(("3-RBG",)), "{^}:03")
         self.assertEqual(relative_number_lookup(("3-RB8G",)), "{^}:39")
         self.assertEqual(relative_number_lookup(("2URBG",)), "{^}:22")
         self.assertEqual(relative_number_lookup(("35URBG",)), "{^}:53")
