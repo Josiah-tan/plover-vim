@@ -137,19 +137,19 @@ class TestVimUpDownSystem(unittest.TestCase):
         self.assertEqual(relative_number_lookup(("K4-B",)), "{#escape y 4 k}")
     
     def test_yank_down(self):
-        self.assertEqual(relative_number_lookup(("K4UR",)), "{#escape y 44 j}")
+        self.assertEqual(relative_number_lookup(("K4UR",)), "{#escape y 4 4 j}")
     
     def test_visualize_up(self):
-        self.assertEqual(relative_number_lookup(("W4-B",)), "{#escape v 4 k}")
+        self.assertEqual(relative_number_lookup(("W4-B",)), "{#escape V 4 k}")
     
     def test_visualize_down(self):
-        self.assertEqual(relative_number_lookup(("W4UR",)), "{#escape v 44 j}")
+        self.assertEqual(relative_number_lookup(("W4UR",)), "{#escape V 4 4 j}")
     
     def test_remove_up(self):
         self.assertEqual(relative_number_lookup(("4R-B",)), "{#escape c 4 k}")
     
     def test_remove_down(self):
-        self.assertEqual(relative_number_lookup(("4RUR",)), "{#escape c 44 j}")
+        self.assertEqual(relative_number_lookup(("4RUR",)), "{#escape c 4 4 j}")
 
 class TestClock(unittest.TestCase):
     def test_clock(self):

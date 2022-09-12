@@ -82,3 +82,6 @@ def down(string: str):
 
 def clock(string: str):
     return string + ":00"
+
+def addWhitespace(string: str):
+    return " ".join([i for i in string])

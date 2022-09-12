@@ -5,7 +5,7 @@ defaults = {
 
 from plover_vim.relative_number.util import reverse, double, Zeroes
 # from plover.system import english_stenotype as e
-from plover_vim.relative_number.util import down, up, clock
+from plover_vim.relative_number.util import down, up, clock, addWhitespace
 from plover_vim.relative_number.Roman_numeral import number2Roman
 
 
@@ -46,42 +46,42 @@ up_down_system = {
 vim_up_down_system = {
         "up_yank": {
             "stroke": "K-B",
-            "callback": lambda x: f"{{#escape y {x} k}}",
+            "callback": lambda x: f"{{#escape y {addWhitespace(x)} k}}",
             "dependencies": ["reverseU", "doubleU", "0"],
             "min_number": 1,
             "max_number": 99,
             },
         "down_yank": {
             "stroke": "K-R",
-            "callback": lambda x: f"{{#escape y {x} j}}",
+            "callback": lambda x: f"{{#escape y {addWhitespace(x)} j}}",
             "dependencies": ["reverseU", "doubleU", "0"],
             "min_number": 1,
             "max_number": 99,
             },
         "up_visualize": {
             "stroke": "W-B",
-            "callback": lambda x: f"{{#escape v {x} k}}",
+            "callback": lambda x: f"{{#escape V {addWhitespace(x)} k}}",
             "dependencies": ["reverseU", "doubleU", "0"],
             "min_number": 1,
             "max_number": 99,
             },
         "down_visualize": {
             "stroke": "W-R",
-            "callback": lambda x: f"{{#escape v {x} j}}",
+            "callback": lambda x: f"{{#escape V {addWhitespace(x)} j}}",
             "dependencies": ["reverseU", "doubleU", "0"],
             "min_number": 1,
             "max_number": 99,
             },
         "up_remove": {
             "stroke": "R-B",
-            "callback": lambda x: f"{{#escape c {x} k}}",
+            "callback": lambda x: f"{{#escape c {addWhitespace(x)} k}}",
             "dependencies": ["reverseU", "doubleU", "0"],
             "min_number": 1,
             "max_number": 99,
             },
         "down_remove": {
             "stroke": "R-R",
-            "callback": lambda x: f"{{#escape c {x} j}}",
+            "callback": lambda x: f"{{#escape c {addWhitespace(x)} j}}",
             "dependencies": ["reverseU", "doubleU", "0"],
             "min_number": 1,
             "max_number": 99,

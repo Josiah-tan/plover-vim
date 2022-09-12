@@ -5,7 +5,7 @@ from contextlib import suppress
 # from command_object.builtins import Lookup as CommandObjectLookup
 
 from plover_vim.command_letter_2.builtins import Lookup as CommandLetterLookup2
-from plover_vim.relative_number.util import Zeroes, reverse, double
+from plover_vim.relative_number.util import Zeroes, reverse, double, addWhitespace
 from plover_vim.relative_number.defaults import classic_system, zeroes_system, up_down_system, clock_system, Roman_system, symbol_system
 from plover_vim.relative_number.builtins import RelativeNumberLookup as RelativeNumberLookup
 from plover_vim.Josiah_modifier.builtins import Lookup as JosiahModifierLookup
@@ -95,42 +95,42 @@ relative_number_lookup = RelativeNumberLookup({
         # **vim_up_down_system
         "up_yank": {
             "stroke": "K-B",
-            "callback": lambda x: f"{{#control(j) y {x} k}}",
+            "callback": lambda x: f"{{#control(j) y {addWhitespace(x)} k}}",
             "dependencies": ["reverseU", "doubleU", "0"],
             "min_number": 1,
             "max_number": 99,
             },
         "down_yank": {
             "stroke": "K-R",
-            "callback": lambda x: f"{{#control(j) y {x} j}}",
+            "callback": lambda x: f"{{#control(j) y {addWhitespace(x)} j}}",
             "dependencies": ["reverseU", "doubleU", "0"],
             "min_number": 1,
             "max_number": 99,
             },
         "up_visualize": {
             "stroke": "W-B",
-            "callback": lambda x: f"{{#control(j) v {x} k}}",
+            "callback": lambda x: f"{{#control(j) V {addWhitespace(x)} k}}",
             "dependencies": ["reverseU", "doubleU", "0"],
             "min_number": 1,
             "max_number": 99,
             },
         "down_visualize": {
             "stroke": "W-R",
-            "callback": lambda x: f"{{#control(j) v {x} j}}",
+            "callback": lambda x: f"{{#control(j) V {addWhitespace(x)} j}}",
             "dependencies": ["reverseU", "doubleU", "0"],
             "min_number": 1,
             "max_number": 99,
             },
         "up_remove": {
             "stroke": "R-B",
-            "callback": lambda x: f"{{#control(j) c {x} k}}",
+            "callback": lambda x: f"{{#control(j) c {addWhitespace(x)} k}}",
             "dependencies": ["reverseU", "doubleU", "0"],
             "min_number": 1,
             "max_number": 99,
             },
         "down_remove": {
             "stroke": "R-R",
-            "callback": lambda x: f"{{#control(j) c {x} j}}",
+            "callback": lambda x: f"{{#control(j) c {addWhitespace(x)} j}}",
             "dependencies": ["reverseU", "doubleU", "0"],
             "min_number": 1,
             "max_number": 99,
