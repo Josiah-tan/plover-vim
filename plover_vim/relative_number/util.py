@@ -61,10 +61,10 @@ def assertDoubleValue(number, end):
 class Zeroes:
     def __init__(self, number_zeroes: int):
         self.number_zeroes = number_zeroes
-    def excludeZeros(self, string: str):
+    def excludezeroes(self, string: str):
         return "0" in string
     def __call__(self, string: str):
-        if self.excludeZeros(string):
+        if self.excludezeroes(string):
             return None
         return string + self.number_zeroes * "0"
 

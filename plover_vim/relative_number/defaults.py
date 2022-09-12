@@ -6,6 +6,7 @@ defaults = {
 from plover_vim.relative_number.util import reverse, double, Zeroes
 # from plover.system import english_stenotype as e
 from plover_vim.relative_number.util import down, up, clock
+from plover_vim.relative_number.Roman_numeral import number2Roman
 
 
 classic_system = {
@@ -13,7 +14,7 @@ classic_system = {
             "stroke": "-U",
             "callback": reverse,
             "min_number": 10,
-            "dependencies": ["0" * i for i in range(1, 10)]
+            "dependencies": ["zeroes"]
             },
         "doubleU": {
             "stroke": "-U",
@@ -54,7 +55,7 @@ clock_system = {
         }
 
 zeroes_system = {
-        "zeros": {"dependencies": ["0" * i for i in range(1, 10)]},
+        "zeroes": {"dependencies": ["0" * i for i in range(1, 10)]},
         "0": {
             "stroke": "-S",
             "callback": Zeroes(1),
@@ -102,8 +103,38 @@ zeroes_system = {
                 },
         }
 
+Roman_system = {
+        "Roman" : {
+            "stroke": "R",
+            "callback": number2Roman,
+            "dependencies": ["reverseU", "doubleU", "zeroes"],
+            "min_number": 1,
+            "max_number": 3999,
+            "post_callback": lambda x: x
+            }
+        }
+
+symbol_system = {
+        "decimal": {
+            "stroke": "E",
+            "callback": lambda x: x[0] + "." + x[1:],
+            "dependencies": ["reverseU", "doubleU", "zeroes"],
+            "min_number": 0
+            },
+        "percentage": {
+            "stroke": "-G",
+            "callback": lambda x: x + "%",
+            "dependencies": ["reverseU", "doubleU", "zeroes", "decimal"]
+            },
+        "dollar": {
+            "stroke": "KW",
+            "callback": lambda x: "$" + x,
+            "dependencies": ["reverseU", "doubleU", "zeroes", "decimal"]
+            }
+        }
+
 default_system = {
-        **classic_system, **zeroes_system, **up_down_system, **clock_system
+        **classic_system, **zeroes_system, **up_down_system, **clock_system, **Roman_system, **symbol_system
         }
 
 defaults_2 = {

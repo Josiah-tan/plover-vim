@@ -39,7 +39,7 @@ class RelativeNumberLookup(BaseLookup):
             self.numbers = self.opts["numbers"]
         dictionary = self.getBaseNumbers().map(self.postDefault)
         for identity, properties in self.opts["systems"].items():
-            if properties.get("stroke"):  # e.g. handle the "zeros" case, where there is no additional entry
+            if properties.get("stroke"):  # e.g. handle the "zeroes" case, where there is no additional entry
                 _dictionary = self.operateRecursively(identity, properties)
                 if properties.get("post_callback"):
                     dictionary |= properties["post_callback"](_dictionary)

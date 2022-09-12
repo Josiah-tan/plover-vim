@@ -1,5 +1,6 @@
 import unittest
 from plover_vim.relative_number.builtins import Lookup, RelativeNumberLookup
+from plover_vim.relative_number.Roman_numeral import number2Roman
 
 relative_number_lookup = RelativeNumberLookup()
 
@@ -32,7 +33,7 @@ class TestRelativeNumberLookup(unittest.TestCase):
         self.assertEqual(relative_number_lookup(("12UBG",)), "21:00")
         self.assertEqual(relative_number_lookup(("13BG",)), "13:00")
 
-    def test_zeros_pinky(self):
+    def test_zeroes_pinky(self):
         self.assertEqual(relative_number_lookup(("4-S",)), "{&40}")
         self.assertEqual(relative_number_lookup(("14-SZ",)), "{&1400}")
         self.assertEqual(relative_number_lookup(("1234-78Z",)), "{&123489000}")
@@ -90,7 +91,7 @@ class TestLookup(unittest.TestCase):
             sample_lookup(("1R-6",))
             sample_lookup(("1-RB8",))
     
-    def test_zeros(self):
+    def test_zeroes(self):
         with self.assertRaises(KeyError):
             sample_lookup(("0R",))
             sample_lookup(("0B",))
@@ -103,6 +104,40 @@ class TestLookup(unittest.TestCase):
         with self.assertRaises(KeyError):
             sample_lookup(("14*R",))
 
+class TestRomanNumerals(unittest.TestCase):
+    def test_default(self):
+        self.assertEqual(number2Roman(35), "XXXV")
+        self.assertEqual(number2Roman(994), "CMXCIV")
+        self.assertEqual(number2Roman(1995), "MCMXCV")
+        self.assertEqual(number2Roman(2015), "MMXV")
+    
+    def test_zeros(self):
+        self.assertEqual(relative_number_lookup(("4R-S",)), "XL")
+        self.assertEqual(relative_number_lookup(("34R-S",)), "CCCXL")
+    
+    def test_reverseU(self):
+        self.assertEqual(relative_number_lookup(("12RU",)), "XXI")
+        self.assertEqual(relative_number_lookup(("13RU",)), "XXXI")
+   
+    def test_doubleU(self):
+        self.assertEqual(relative_number_lookup(("4RU",)), "XLIV")
+        self.assertEqual(relative_number_lookup(("RU8",)), "XCIX")
 
+class TestSymbols(unittest.TestCase):
+    def test_decimal(self):
+        self.assertEqual(relative_number_lookup(("4ES",)), "{&4.0}")
+        self.assertEqual(relative_number_lookup(("34E7",)), "{&3.48}")
+    
+    def test_dollar(self):
+        self.assertEqual(relative_number_lookup(("KW4ES",)), "{&$4.0}")
+        self.assertEqual(relative_number_lookup(("K3W4E78",)), "{&$3.489}")
+
+    def test_percentage(self):
+        self.assertEqual(relative_number_lookup(("4-G",)), "{&4%}")
+        self.assertEqual(relative_number_lookup(("23-G",)), "{&23%}")
+        self.assertEqual(relative_number_lookup(("4UG",)), "{&44%}")
+        self.assertEqual(relative_number_lookup(("4EUG",)), "{&4.4%}")
+
+# relative_number_lookup(("4ES",))
 if __name__ == "__main__":
     unittest.main()
