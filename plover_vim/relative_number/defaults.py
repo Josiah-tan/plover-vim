@@ -43,6 +43,51 @@ up_down_system = {
             }
         }
 
+vim_up_down_system = {
+        "up_yank": {
+            "stroke": "K-B",
+            "callback": lambda x: f"{{#escape y {x} k}}",
+            "dependencies": ["reverseU", "doubleU", "0"],
+            "min_number": 1,
+            "max_number": 99,
+            },
+        "down_yank": {
+            "stroke": "K-R",
+            "callback": lambda x: f"{{#escape y {x} j}}",
+            "dependencies": ["reverseU", "doubleU", "0"],
+            "min_number": 1,
+            "max_number": 99,
+            },
+        "up_visualize": {
+            "stroke": "W-B",
+            "callback": lambda x: f"{{#escape v {x} k}}",
+            "dependencies": ["reverseU", "doubleU", "0"],
+            "min_number": 1,
+            "max_number": 99,
+            },
+        "down_visualize": {
+            "stroke": "W-R",
+            "callback": lambda x: f"{{#escape v {x} j}}",
+            "dependencies": ["reverseU", "doubleU", "0"],
+            "min_number": 1,
+            "max_number": 99,
+            },
+        "up_remove": {
+            "stroke": "R-B",
+            "callback": lambda x: f"{{#escape c {x} k}}",
+            "dependencies": ["reverseU", "doubleU", "0"],
+            "min_number": 1,
+            "max_number": 99,
+            },
+        "down_remove": {
+            "stroke": "R-R",
+            "callback": lambda x: f"{{#escape c {x} j}}",
+            "dependencies": ["reverseU", "doubleU", "0"],
+            "min_number": 1,
+            "max_number": 99,
+            }
+        }
+
 clock_system = {
         "clock": {
             "stroke": "-BG",
@@ -134,7 +179,7 @@ symbol_system = {
         }
 
 default_system = {
-        **classic_system, **zeroes_system, **up_down_system, **clock_system, **Roman_system, **symbol_system
+        **classic_system, **zeroes_system, **up_down_system, **clock_system, **Roman_system, **symbol_system, **vim_up_down_system
         }
 
 defaults_2 = {

@@ -138,6 +138,26 @@ class TestSymbols(unittest.TestCase):
         self.assertEqual(relative_number_lookup(("4UG",)), "{&44%}")
         self.assertEqual(relative_number_lookup(("4EUG",)), "{&4.4%}")
 
+class TestVimUpDownSystem(unittest.TestCase):
+    def test_yank_up(self):
+        self.assertEqual(relative_number_lookup(("K4-B",)), "{#escape y 4 k}")
+    
+    def test_yank_down(self):
+        self.assertEqual(relative_number_lookup(("K4UR",)), "{#escape y 44 j}")
+    
+    def test_visualize_up(self):
+        self.assertEqual(relative_number_lookup(("W4-B",)), "{#escape v 4 k}")
+    
+    def test_visualize_down(self):
+        self.assertEqual(relative_number_lookup(("W4UR",)), "{#escape v 44 j}")
+    
+    def test_remove_up(self):
+        self.assertEqual(relative_number_lookup(("4R-B",)), "{#escape c 4 k}")
+    
+    def test_remove_down(self):
+        self.assertEqual(relative_number_lookup(("4RUR",)), "{#escape c 44 j}")
+    
+relative_number_lookup(("K4-B",))
 # relative_number_lookup(("4ES",))
 if __name__ == "__main__":
     unittest.main()
