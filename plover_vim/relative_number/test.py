@@ -27,12 +27,6 @@ class TestRelativeNumberLookup(unittest.TestCase):
         self.assertEqual(relative_number_lookup(("#-D",)), "{&000000000}")
         self.assertEqual(relative_number_lookup(("#-SZ",)), "{&00}")
     
-    def test_clock(self):
-        self.assertEqual(relative_number_lookup(("4-BG",)), "4:00")
-        self.assertEqual(relative_number_lookup(("1UBG",)), "11:00")
-        self.assertEqual(relative_number_lookup(("12UBG",)), "21:00")
-        self.assertEqual(relative_number_lookup(("13BG",)), "13:00")
-
     def test_zeroes_pinky(self):
         self.assertEqual(relative_number_lookup(("4-S",)), "{&40}")
         self.assertEqual(relative_number_lookup(("14-SZ",)), "{&1400}")
@@ -156,8 +150,24 @@ class TestVimUpDownSystem(unittest.TestCase):
     
     def test_remove_down(self):
         self.assertEqual(relative_number_lookup(("4RUR",)), "{#escape c 44 j}")
+
+class TestClock(unittest.TestCase):
+    def test_clock(self):
+        self.assertEqual(relative_number_lookup(("4-BG",)), "4:00")
+        self.assertEqual(relative_number_lookup(("1UBG",)), "11:00")
+        self.assertEqual(relative_number_lookup(("12UBG",)), "21:00")
+        self.assertEqual(relative_number_lookup(("13BG",)), "13:00")
     
-relative_number_lookup(("K4-B",))
+    def test_clock_append(self):
+        self.assertEqual(relative_number_lookup(("3-RB8G",)), "{^}:39")
+        self.assertEqual(relative_number_lookup(("2URBG",)), "{^}:22")
+        self.assertEqual(relative_number_lookup(("35URBG",)), "{^}:53")
+    
+    def test_clock_append_failure(self):
+        with self.assertRaises(KeyError):
+            sample_lookup(("3URB8G",))
+
+    
 # relative_number_lookup(("4ES",))
 if __name__ == "__main__":
     unittest.main()

@@ -96,6 +96,14 @@ clock_system = {
             "min_number": 1,
             "max_number": 24,
             "post_callback": (lambda x: x)
+            },
+        "clock_append": {
+            "stroke": "-RBG",
+            "callback": lambda x: f"{{^}}:{x}",
+            "dependencies": ["reverseU", "doubleU"],
+            "min_number": 0,
+            "max_number": 60,
+            "post_callback": (lambda x: x)
             }
         }
 
