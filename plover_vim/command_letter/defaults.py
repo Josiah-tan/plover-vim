@@ -22,7 +22,8 @@ symbols = {
         "KPWH": ["dollar", "euro", "yen", "sterling"],
         "PWHR": ["percent", "", "", ""],
         "SKP": ["ampersand", "", "", ""],
-        "H": ["apostrophe", "", "", ""],
+        # "H": ["apostrophe", "", "", ""],
+        "H": ["quoteright", "", "", ""],
         "TPH": ["parenleft", "less", "bracketleft", "braceleft"],
         "KWR": ["parenright", "greater", "bracketright", "braceright"],
         "T": ["asterisk", "section", "", "multiply"],
@@ -39,7 +40,8 @@ symbols = {
         "PR": ["backslash", "", "", ""],
         "KPR": ["asciicircum", "guillemotleft", "guillemotright", "degree"],
         "KW": ["underscore", "", "", "mu"],
-        "P": ["grave", "", "", ""],
+        # "P": ["grave", "", "", ""],
+        "P": ["quoteleft", "", "", ""],
         "PW": ["bar", "", "", "brokenbar"],
         "TPWR": ["asciitilde", "", "", ""]
         }
