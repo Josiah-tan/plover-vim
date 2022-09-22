@@ -441,9 +441,10 @@ endif
 # Developers
 
 - This section shows how you can have an editable version of this project
+- Firstly, fork this repository (in GitHub), then clone it:
 
 ``` bash
-git clone https://github.com/Josiah-tan/plover_vim
+git clone https://github.com/your_user_name/plover_vim
 ```
 
 - cd into this repo
