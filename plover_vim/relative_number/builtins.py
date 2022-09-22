@@ -69,7 +69,7 @@ class RelativeNumberLookup(BaseLookup):
                     dictionary = dictionary.map(properties["callback"])
                 if properties.get("additional_map"):
                     dictionary |= stroke(self.number_key) * translation(properties["additional_map"])
-                dictionary = self.expand(dictionary) * stroke(properties["stroke"])
+                dictionary = dictionary * stroke(properties["stroke"])
             self._identity2dictionary[identity] = dictionary
         return self._identity2dictionary[identity]
 
