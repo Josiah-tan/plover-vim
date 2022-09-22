@@ -165,7 +165,9 @@ let g:EasyMotion_keys = 'abcdefghijklmnopqrstuvwxyz'
 ## Josiah_modifier
 
 ### how does this module work?
-- so basically we remap these right hand fingerspelling commands it to left hand versions:
+
+- This is basically Emily modifiers, but it supports extra functionality
+- The main idea is to remap these right hand fingerspelling commands to the left hand versions:
 
 | Letter | Old Version | New Remapped |
 |--------|-------------|--------------|
