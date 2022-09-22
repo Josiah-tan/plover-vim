@@ -101,10 +101,20 @@
 
 | Unique Ender | Modifiers | Command           | How To Memorize   |
 |--------------|-----------|-------------------|-------------------|
-| -LTDZ        | -FB       | <leader><leader>f | forward backwards |
+| -LTDZ        | -FB       | <leader><leader>f | Forward Backwards |
 
-### Usage
+### How does the double sided fingerspelling work?
 
+- This plugin activates double sided fingerspelling after you stroke the starter, for a single stroke
+- Here are some examples (see [plover_vim/easy_motion/defaults.py](plover_vim/easy_motion/defaults.py) for the full list):
+
+| letter | right hand | left hand |
+|--------|------------|-----------|
+| b      | PW         | -B        |
+| x      | KP         | -BGS      |
+| j      | SKWR       | -PBLG     |
+
+### Usage:
 - put this line of code somewhere in your vimrc
 
 ``` vim
@@ -114,6 +124,43 @@ let g:EasyMotion_keys = 'bdfgjklmnprstxz'
 - copy [templates/easy_motion/simple.py](templates/easy_motion/simple.py) and add it to your dictionaries for a simple configuration
 - copy [templates/easy_motion/customised.py](templates/easy_motion/customised.py) and add it to your dictionaries for a customisable configuration
 - see note on [Control(j)](#Control(J))
+
+
+### Easy_motion (Advanced):
+
+- You can use the left hand versions of the right hand vowels as follows:
+- (Recommended by Abby)
+
+| Letter | Old Version | New Remapped |
+|--------|-------------|--------------|
+| e      | E           | SK           |
+| i      | EU          | SKW          |
+| u      | U           | WR           |
+
+- You can also use right hand fingerspelling
+- This will require some time to memorize
+- (ideas originate from realtime/realwrite and Magnum)
+
+| Letter | Map   |
+|--------|-------|
+| a      | -RB   |
+| c      | -SZ   |
+| h      | -FD   |
+| o      | -GS   |
+| q      | -LGTS |
+| v      | -FB   |
+| w      | -FRP  |
+| y      | -FPL  |
+
+### Usage (Advanced)
+
+- Put this line of code somewhere in your vimrc 
+	- If you want to take advantage of the full alphabet
+
+``` vim
+let g:EasyMotion_keys = 'abcdefghijklmnopqrstuvwxyz'
+```
+
 
 ## Josiah_modifier
 
