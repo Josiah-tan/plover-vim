@@ -60,14 +60,14 @@ vim_up_down_system = {
             },
         "up_visualize": {
             "stroke": "W-B",
-            "callback": lambda x: f"{{#escape V {addWhitespace(x)} k}}",
+            "callback": lambda x: f"{{#escape shift(V) {addWhitespace(x)} k}}",
             "dependencies": ["reverseU", "doubleU", "0"],
             "min_number": 1,
             "max_number": 99,
             },
         "down_visualize": {
             "stroke": "W-R",
-            "callback": lambda x: f"{{#escape V {addWhitespace(x)} j}}",
+            "callback": lambda x: f"{{#escape shift(V) {addWhitespace(x)} j}}",
             "dependencies": ["reverseU", "doubleU", "0"],
             "min_number": 1,
             "max_number": 99,
