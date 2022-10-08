@@ -19,10 +19,11 @@ find_lookup_2 = CommandLetterLookup2({
     "symbols": {},  # dict: left hand symbols
     "shifted": {},  # set: any symbols that should be shifted
     "middles": {
-        "E": "c",  # dElEtE
-        "EU": "y",  # yoInk
-        "U": "v",  # visUalise
-        "": ""
+        "#E": "shift(t)",  
+        "#U": "t",  
+        # "EU": "y",  
+        "E": "shift(f)",  
+        "U": "f",  
         },  # dict: middles
     "escape": "control(j)",  # default: "escape"
     "systems": [
@@ -33,10 +34,14 @@ find_lookup_2 = CommandLetterLookup2({
                 # "-FPB": "",  # left empty for you to customise!
                 # "-FP": "",  #
                 # "-FB": "space space f",  # Forward Back (moving this to another module)
-                "-PB": "<escape> <middles> shift(t) <objects>",  # Previous Backwards
-                "-F": "<escape> <middles> f <objects>",  # Forwards
-                "-P": "<escape> <middles> t <objects>",  # Previous
-                "-B": "<escape> <middles> shift(f) <objects>",  # Backwards
+                # "-PB": "<escape> <middles> shift(t) <objects>",  # Previous Backwards
+                # "-F": "<escape> <middles> f <objects>",  # Forwards
+                # "-P": "<escape> <middles> t <objects>",  # Previous
+                # "-B": "<escape> <middles> shift(f) <objects>",  # Backwards
+                "-F": "<escape> v <middles> <objects>",  # Fisualise
+                "-P": "<escape> y <middles> <objects>",  # coPy
+                "-B": "<escape> c <middles> <objects>",  # Blot
+                "": "<escape> <middles> <objects>",
                 # "": ""  # for normal commands (done in josiah-modifers)
                 }
             }]

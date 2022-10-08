@@ -2,18 +2,19 @@ from contextlib import suppress
 # import the modules that you want for your vim experience here
 from plover_vim.easy_motion.builtins import Lookup as EasyMotionLookup
 from plover_vim.Josiah_modifier.defaults import spelling
+from plover_vim.easy_motion.builtins import symbols, shifted_symbols_aus, right_hand, left_hand
 
 LONGEST_KEY = 2
 
 easy_motion_lookup = EasyMotionLookup({
-    "disable_defaults": False,
+    "disable_defaults": True,
     # any dictionary entry overiddes the defaults
     "spelling": spelling,  # dict: right handed only finger spelling
-    "symbols": {},  # dict: left hand symbols
-    "shifted": {},  # set: any symbols that should be shifted
+    "symbols": symbols,  # dict: left hand symbols
+    "shifted": shifted_symbols_aus,  # set: any symbols that should be shifted
     "escape": "control(j)",  # default: "escape"
-    "right_hand": {},  # dict: easymotion finger spelling (right hand)
-    "left_hand": {},  # dict: easymotion finger spelling (left hand)
+    "right_hand": right_hand,  # dict: easymotion finger spelling (right hand)
+    "left_hand": left_hand,  # dict: easymotion finger spelling (left hand)
     "systems": [
         {
             "unique_ender": "LTDZ",
@@ -21,7 +22,7 @@ easy_motion_lookup = EasyMotionLookup({
             "mods": {
                 # "-FPB": "",  #
                 # "-FP": "",  # CHrome
-                "-FB": "space space f",  # Forward Back
+                "-EU": "space space f",  # Forward Back
                 # "-PB": "shift(t)",  # Previous Backwards (in command_letter)
                 # "-F": "f",  # Forwards (in command_letter)
                 # "-P": "t",  # Previous (in command_letter)
