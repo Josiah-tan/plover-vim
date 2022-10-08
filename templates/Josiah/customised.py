@@ -114,14 +114,14 @@ relative_number_lookup = RelativeNumberLookup({
             },
         "up_visualize": {
             "stroke": "W-B",
-            "callback": lambda x: f"{{#control(j) V {addWhitespace(x)} k}}",
+            "callback": lambda x: f"{{#control(j) shift(V) {addWhitespace(x)} k}}",
             "dependencies": ["reverseU", "doubleU", "0"],
             "min_number": 1,
             "max_number": 99,
             },
         "down_visualize": {
             "stroke": "W-R",
-            "callback": lambda x: f"{{#control(j) V {addWhitespace(x)} j}}",
+            "callback": lambda x: f"{{#control(j) shift(V) {addWhitespace(x)} j}}",
             "dependencies": ["reverseU", "doubleU", "0"],
             "min_number": 1,
             "max_number": 99,

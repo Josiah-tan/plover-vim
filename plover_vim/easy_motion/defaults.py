@@ -56,9 +56,10 @@ right_hand = {
         '-RB': 'a',
         '-SZ': 'c',
         '-FD': 'h',
+        '-PZ': 'h',  # Kaoffie gave me the idea for this one
         '-GS': 'o',
         '-LGTS': 'q',
-        '-FB': 'v',
+        '-FB': 'v',  # magnum
         '-FRP': 'w',
         '-FRPB': 'x',
         '-FPL': 'y'
