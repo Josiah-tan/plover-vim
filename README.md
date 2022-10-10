@@ -211,11 +211,11 @@ let g:EasyMotion_keys = 'abcdefghijklmnopqrstuvwxyz'
 
 - Basically it replaces the need for either of them using Josiah's modifiers as a base.
 -   It can perform a complex finder operation:
-    -   df) = KWR\*EFLTDZ
+    -   df) = KWR\*UBLTDZ
     -   breaking it down:
-        -   KWR\* = ), using Josiah\'s modifier for the left hand
-        -   F = f
-        -   E = d
+        -   KWR\* = ), using Josiah\'s / Emily's modifier for the left hand
+        -   U = f (because it is the right key for the right thumb)
+        -   B = c (B -> "blot", and hence delete)
         -   -LTDZ = unique ender for finders (ring finger on LT and
             pinky on DZ)
 -   It can perform a miscellaneous operation:
@@ -241,16 +241,18 @@ let g:EasyMotion_keys = 'abcdefghijklmnopqrstuvwxyz'
 | ---------------- | -------------- | ----------- | -------------- | ------------------------ |
 | finders          | -LTDZ          | -FPB        | customisable   |                          |
 |                  |                | -FP         | customisable   |                          |
-|                  |                | -FB         |                | (used in easymotion)     |
-|                  |                | -PB         | shift(t)       | Previous Backwards       |
-|                  |                | -F          | f              | Forwards                 |
-|                  |                | -P          | t              | Previous                 |
-|                  |                | -B          | shift(f)       | Backwards                |
-|                  |                |             | ""             | escaped commands         |
-|                  | E              |             | c              | dElEtE                   |
-|                  | EU             |             | y              | YoInk                    |
-|                  | U              |             | v              | visUalise                |
-|                  |                |             | ""             |                          |
+|                  |                | -FB         | customisable   |                          |
+|                  |                | -PB         | customisable   |                          |
+|                  |                | -F          | v              | Visualize                |
+|                  |                | -P          | y              | coPy                     |
+|                  |                | -B          | c              | Blot                     |
+|                  | U              |             | f              | the right key            |
+|                  | E              |             | shift(F)       | the left key             |
+|                  | EU             |             | customisable   |                          |
+|                  | #E             |             | shift(T)       | the left key with #      |
+|                  | #U             |             | t              | the right key with #     |
+|                  | #EU            |             | customisable   |                          |
+|                  | #              |             | customisable   |                          |
 | miscallaneous    | -TZ            | -FPB        | q              | liSeN                    |
 |                  |                | -FP         | shift(at)      | macros                   |
 |                  |                | -FB         | customisable   |                          |

@@ -6,8 +6,11 @@ from plover_vim.command_letter_2.builtins import (
 
 class TestFindLookup2(unittest.TestCase):
     def test_lookup_success(self):
-        self.assertEqual(findLookup2(("HR*ERPBLTDZ",)), '{#escape c shift(t) shift(exclam)}{^}')
-        self.assertEqual(findLookup2(("HR*RPBLTDZ",)), '{#escape shift(t) shift(exclam)}{^}')
+        self.assertEqual(findLookup2(("WRULTDZ",)), '{#escape f u}{^}')
+        self.assertEqual(findLookup2(("WR*ULTDZ",)), '{#escape f semicolon}{^}')
+        self.assertEqual(findLookup2(("WR*UBLTDZ",)), '{#escape c f semicolon}{^}')
+        self.assertEqual(findLookup2(("WR*UPLTDZ",)), '{#escape y f semicolon}{^}')
+        self.assertEqual(findLookup2(("WR*UFLTDZ",)), '{#escape v f semicolon}{^}')
 
 class TestMiscLookup2(unittest.TestCase):
     def test_lookup_success(self):

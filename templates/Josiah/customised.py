@@ -19,11 +19,10 @@ find_lookup_2 = CommandLetterLookup2({
     "symbols": {},  # dict: left hand symbols
     "shifted": {},  # set: any symbols that should be shifted
     "middles": {
-        "#E": "shift(t)",  
+        "#E": "shift(t)",  # "#" to denote go to just before the letter
         "#U": "t",  
-        # "EU": "y",  
-        "E": "shift(f)",  
-        "U": "f",  
+        "E": "shift(f)",    # E (because it is more to the left)
+        "U": "f",    # U (because it is more to the right)
         },  # dict: middles
     "escape": "control(j)",  # default: "escape"
     "systems": [
@@ -32,12 +31,9 @@ find_lookup_2 = CommandLetterLookup2({
             # some ideas for others if you ever run out: -TZ, -SD, -TDZ, -SDZ, -TSZ, -TSD, or -TSDZ
             "mods": {
                 # "-FPB": "",  # left empty for you to customise!
-                # "-FP": "",  #
-                # "-FB": "space space f",  # Forward Back (moving this to another module)
-                # "-PB": "<escape> <middles> shift(t) <objects>",  # Previous Backwards
-                # "-F": "<escape> <middles> f <objects>",  # Forwards
-                # "-P": "<escape> <middles> t <objects>",  # Previous
-                # "-B": "<escape> <middles> shift(f) <objects>",  # Backwards
+                # "-FP": "",
+                # "-FB": "",
+                # "-PB": "",
                 "-F": "<escape> v <middles> <objects>",  # Fisualise
                 "-P": "<escape> y <middles> <objects>",  # coPy
                 "-B": "<escape> c <middles> <objects>",  # Blot
