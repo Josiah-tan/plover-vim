@@ -123,8 +123,8 @@ class TestSymbols(unittest.TestCase):
         self.assertEqual(relative_number_lookup(("34E7",)), "{&3.48}")
     
     def test_dollar(self):
-        self.assertEqual(relative_number_lookup(("KW4ES",)), "{&$4.0}")
-        self.assertEqual(relative_number_lookup(("K3W4E78",)), "{&$3.489}")
+        self.assertEqual(relative_number_lookup(("K4RES",)), "{&$4.0}")
+        self.assertEqual(relative_number_lookup(("K34RE78",)), "{&$3.489}")
 
     def test_percentage(self):
         self.assertEqual(relative_number_lookup(("4-G",)), "{&4%}")

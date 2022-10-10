@@ -180,7 +180,7 @@ symbol_system = {
             "dependencies": ["reverseU", "doubleU", "zeroes", "decimal"]
             },
         "dollar": {
-            "stroke": "KW",
+            "stroke": "KR",
             "callback": lambda x: "$" + x,
             "dependencies": ["reverseU", "doubleU", "zeroes", "decimal"]
             }
