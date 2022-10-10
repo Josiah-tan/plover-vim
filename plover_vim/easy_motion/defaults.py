@@ -1,4 +1,4 @@
-from plover_vim.command_letter.defaults import (
+from plover_vim.Josiah_modifier.defaults import (
         spelling, symbols, shifted_symbols_aus
         )
 
@@ -78,14 +78,7 @@ defaults = {
             {
                 "unique_ender": "LTDZ",
                 "mods": {
-                    # "-FPB": "",  # left empty for you to customise!
-                    # "-FP": "",  #
-                    "-FB": "space space f",  # Forward Back (moving this to another module)
-                    # "-PB": "shift(t)",  # Previous Backwards
-                    # "-F": "f",  # Forwards
-                    # "-P": "t",  # Previous
-                    # "-B": "shift(f)",  # Backwards
-                    # "": ""  # for normal commands
+                    "-EU": "space space f",  # Forward Back (moving this to another module)
                     }
                 }
             ]

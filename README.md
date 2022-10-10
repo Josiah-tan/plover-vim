@@ -93,7 +93,7 @@
 -   You can perform a search for a letter h as follows
     -   \<leader\>\<leader\>fhtk =\> H-FBLTDZ/T-BG
     -   breaking it down:
-        -   H =\> h, using emily\'s modifier symbols for the left hand
+        -   H =\> h, using Josiah\'s modifier symbols for the left hand
         -   -FB =\> \<leader\>\<leader\>f
         -   -LTDZ =\> unique ender for finders
         -   T-BG =\> tk, this is the second stroke that takes you to the
@@ -101,7 +101,7 @@
 
 | Unique Ender | Modifiers | Command           | How To Memorize   |
 |--------------|-----------|-------------------|-------------------|
-| -LTDZ        | -FB       | <leader><leader>f | Forward Backwards |
+| -LTDZ        | -EU       | <leader><leader>f | Forward Backwards |
 
 ### How does the double sided fingerspelling work?
 

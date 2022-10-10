@@ -1,12 +1,10 @@
 from plover_vim.shared.util import addCommandSyntax
 from plover_vim.shared.builtins import BaseLookup
-from plover_vim.command_letter.defaults import (
-        spelling, symbols, shifted_symbols_aus
-        )
 from plover_vim.command_letter.builtins import SingleStrokeLeft
 from plover_vim.easy_motion.util import getLeftRightHandLetters, combineStrokes
 from plover_vim.easy_motion.defaults import (
-        defaults, left_hand, right_hand
+        defaults, left_hand, right_hand,
+        spelling, symbols, shifted_symbols_aus
         )
 from plover_vim.easy_motion.config import LONGEST_KEY
 

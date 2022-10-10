@@ -1,8 +1,7 @@
 from contextlib import suppress
 # import the modules that you want for your vim experience here
 from plover_vim.easy_motion.builtins import Lookup as EasyMotionLookup
-from plover_vim.Josiah_modifier.defaults import spelling
-from plover_vim.easy_motion.builtins import symbols, shifted_symbols_aus, right_hand, left_hand
+from plover_vim.easy_motion.builtins import symbols, shifted_symbols_aus, right_hand, left_hand, spelling
 
 LONGEST_KEY = 2
 
@@ -20,14 +19,7 @@ easy_motion_lookup = EasyMotionLookup({
             "unique_ender": "LTDZ",
             # some ideas for others if you ever run out: -TZ, -SD, -TDZ, -SDZ, -TSZ, -TSD, or -TSDZ
             "mods": {
-                # "-FPB": "",  #
-                # "-FP": "",  # CHrome
                 "-EU": "space space f",  # Forward Back
-                # "-PB": "shift(t)",  # Previous Backwards (in command_letter)
-                # "-F": "f",  # Forwards (in command_letter)
-                # "-P": "t",  # Previous (in command_letter)
-                # "-B": "shift(f)",  # Backwards (in command_letter)
-                # "": ""  # for normal commands (in command_letter)
                 }
             },
         ]})
