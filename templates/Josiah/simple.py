@@ -10,7 +10,7 @@ from plover_vim.command_letter_2.builtins import (
 
 from plover_vim.Josiah_modifier.builtins import lookup as JosiahLookup
 
-from plover_vim.relative_number.builtins import lookup as relative_number_lookup
+from plover_vim.relative_number.builtins import relative_number_lookup as relative_number_lookup
 
 LONGEST_KEY = 1
 
