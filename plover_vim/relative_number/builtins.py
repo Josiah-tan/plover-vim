@@ -75,17 +75,20 @@ class RelativeNumberLookup(BaseLookup):
 
     def getBaseNumbers(self) -> SingleDictionary:
         if self._cache_base_numbers is None:
-            dict = None
-            for k in self.keys:
-                if self.numbers.get(k):
-                    new = s({k: self.numbers[k]})
-                    if dict:
-                        combined = dict * new
-                        dict |= new
-                        dict |= combined
-                    else:
-                        dict = new
-            self._cache_base_numbers = dict * stroke(self.number_key)
+            if type(self.numbers) == SingleDictionary:
+                dictionary = self.numbers
+            elif type(self.numbers) is type({}):  # probably a dict
+                dictionary = None
+                for k in self.keys:
+                    if self.numbers.get(k):
+                        new = s({k: self.numbers[k]})
+                        if dictionary:
+                            combined = dictionary * new
+                            dictionary |= new
+                            dictionary |= combined
+                        else:
+                            dictionary = new
+            self._cache_base_numbers = dictionary * stroke(self.number_key)
         return self._cache_base_numbers
         
     @staticmethod

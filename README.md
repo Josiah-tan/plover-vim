@@ -76,8 +76,9 @@
 - First, make sure to install plover_vim into plover
 	- see [Installation](#Installation) for more instructions
 - copy [templates/relative_number/simple.py](templates/relative_number/simple.py) and add it to your dictionaries for a simple configuration
-- copy [templates/relative_number/customised.py](templates/relative_number/customised.py) and add it to your dictionaries for a customisable configuration
 - It is recommended to remap top left S key as #
+- note there is a version 2 of this currently in the making
+    - see [templates/Aerick/customised.py](templates/Aerick/customised.py) and [templates/Josiah/customised.py](templates/Josiah/customised.py) for examples of this new version
 
 ## Easy_motion
 
