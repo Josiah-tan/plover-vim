@@ -1,6 +1,7 @@
 # 0.5.0
 
-Added {plover:clear_trans_state} as requirement
+Added {plover:clear_trans_state} as default state
+this means that output → start attached is required (to ensure that attachment works)
 
 handles edge cases where:
 
