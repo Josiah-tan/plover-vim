@@ -4,7 +4,7 @@ from plover_vim.command_letter.builtins import findLookup, miscLookup
 
 class TestFindLookup(unittest.TestCase):
     def test_lookup_success(self):
-        self.assertEqual(findLookup(("HR*RPBLTDZ",)), '{#escape shift(t) shift(exclam)}{^}')
+        self.assertEqual(findLookup(("HR*RPBLTDZ",)), '{#escape shift(t) shift(exclam)}{plover:clear_trans_state}')
     
     def test_lookup_failure(self):
         with self.assertRaises(KeyError):
@@ -12,7 +12,7 @@ class TestFindLookup(unittest.TestCase):
 
 class TestMiscLookup(unittest.TestCase):
     def test_lookup_success(self):
-        self.assertEqual(miscLookup(("KWR-RBTZ",)), '{#escape m shift(y)}{^}')
+        self.assertEqual(miscLookup(("KWR-RBTZ",)), '{#escape m shift(y)}{plover:clear_trans_state}')
     
     def test_lookup_failure(self):
         with self.assertRaises(KeyError):

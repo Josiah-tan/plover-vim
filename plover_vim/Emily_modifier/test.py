@@ -8,13 +8,13 @@ from plover_vim.Emily_modifier.builtins import EmilyLookup, escapedLookup
 
 class TestEmilyLookup(unittest.TestCase):
     def test_success(self):
-        self.assertEqual(EmilyLookup(("KPR*FLTZ",)), "{#control(shift(asciicircum))}{^}")
-        self.assertEqual(EmilyLookup(("KPR*FRLTZ",)), "{#control(shift(asciicircum))}{^}")
+        self.assertEqual(EmilyLookup(("KPR*FLTZ",)), "{#control(shift(asciicircum))}{plover:clear_trans_state}")
+        self.assertEqual(EmilyLookup(("KPR*FRLTZ",)), "{#control(shift(asciicircum))}{plover:clear_trans_state}")
 
 class TestEscapedLookup(unittest.TestCase):
     def test_success(self):
-        self.assertEqual(escapedLookup(("K3R*6R89Z",)), "{#escape control(shift(asciicircum))}{^}")
-        self.assertEqual(escapedLookup(("K3R*689Z",)), "{#escape control(shift(asciicircum))}{^}")
+        self.assertEqual(escapedLookup(("K3R*6R89Z",)), "{#escape control(shift(asciicircum))}{plover:clear_trans_state}")
+        self.assertEqual(escapedLookup(("K3R*689Z",)), "{#escape control(shift(asciicircum))}{plover:clear_trans_state}")
 
 if __name__ == "__main__":
     unittest.main()

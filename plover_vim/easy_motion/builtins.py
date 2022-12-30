@@ -1,4 +1,5 @@
-from plover_vim.shared.util import addCommandSyntax
+# from plover_vim.shared.util import addCommandSyntax
+from collections.abc import Callable
 from plover_vim.shared.builtins import BaseLookup
 from plover_vim.command_letter.builtins import SingleStrokeLeft
 from plover_vim.easy_motion.util import getLeftRightHandLetters, combineStrokes
@@ -8,6 +9,17 @@ from plover_vim.easy_motion.defaults import (
         )
 from plover_vim.easy_motion.config import LONGEST_KEY
 
+
+# def addCommandSyntax(command_suffix = "") -> Callable[[str], str]:
+#     def _addCommandSyntax(combo: str) -> str:
+#         return f"{{#{combo}}}{command_suffix}"
+#     return _addCommandSyntax
+#     # return "{#" + combo + "}{plover:clear_trans_state}"
+# # addCommandSyntax
+def addCommandSyntax(command_suffix):
+    def _addCommandSyntax(combo):
+        return f"{{#{combo}}}{command_suffix}"
+    return _addCommandSyntax
 
 class Lookup(BaseLookup, SingleStrokeLeft):
     def __init__(self, opts={}):
@@ -20,7 +32,8 @@ class Lookup(BaseLookup, SingleStrokeLeft):
         letters = getLeftRightHandLetters(
                 self.opts['left_hand'],
                 self.opts['right_hand'])
-        return combineStrokes(single_stroke, letters).map(addCommandSyntax)
+        # print(f"self.opts = {self.opts}")
+        return single_stroke.map(addCommandSyntax("{^}")) | combineStrokes(single_stroke, letters).map(addCommandSyntax(self.opts["command_suffix"]))
 
     def __call__(self, chord):
         assert len(chord) <= LONGEST_KEY
@@ -28,3 +41,6 @@ class Lookup(BaseLookup, SingleStrokeLeft):
 
 
 lookup = Lookup()
+# for i, j in lookup.dictionary.items():
+#     if len(i) == 1:
+#         print(i, j)

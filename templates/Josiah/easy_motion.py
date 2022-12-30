@@ -7,6 +7,7 @@ LONGEST_KEY = 2
 
 easy_motion_lookup = EasyMotionLookup({
     "disable_defaults": True,
+    "command_suffix": "{plover:clear_trans_state}",
     # any dictionary entry overiddes the defaults
     "spelling": spelling,  # dict: right handed only finger spelling
     "symbols": symbols,  # dict: left hand symbols

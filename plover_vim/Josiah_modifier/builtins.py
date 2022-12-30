@@ -26,7 +26,7 @@ class Lookup(BaseLookup):
         return (prefixes * unique_ender * characters)
 
     def getDictionary(self):
-        return self.getLeftCommands().map(addCommandSyntax)
+        return self.getLeftCommands().map(addCommandSyntax(self.opts["command_suffix"]))
 
     def __call__(self, chord):
         assert len(chord) <= LONGEST_KEY

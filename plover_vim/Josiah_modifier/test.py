@@ -5,20 +5,20 @@ from plover_vim.Josiah_modifier.builtins import lookup
 
 class TestJosiahModifierLookup(unittest.TestCase):
     def test_lookup_success(self):
-        self.assertEqual(lookup(("KPR*FLTZ",)), "{#control(shift(asciicircum))}{^}")
-        self.assertEqual(lookup(("KPR*FRLTZ",)), "{#control(shift(asciicircum))}{^}")
+        self.assertEqual(lookup(("KPR*FLTZ",)), "{#control(shift(asciicircum))}{plover:clear_trans_state}")
+        self.assertEqual(lookup(("KPR*FRLTZ",)), "{#control(shift(asciicircum))}{plover:clear_trans_state}")
     
     def test_lookup_success_control_J(self):
-        self.assertEqual(lookup(("K3R*6R89Z",)), "{#control(j) control(shift(asciicircum))}{^}")
-        self.assertEqual(lookup(("K3R*689Z",)), "{#control(j) control(shift(asciicircum))}{^}")
+        self.assertEqual(lookup(("K3R*6R89Z",)), "{#control(j) control(shift(asciicircum))}{plover:clear_trans_state}")
+        self.assertEqual(lookup(("K3R*689Z",)), "{#control(j) control(shift(asciicircum))}{plover:clear_trans_state}")
 
     def test_lookup_success_splits(self):
-        self.assertEqual(lookup(("OEULTZ",)), "{#control(j) control(w) o}{^}")
-        self.assertEqual(lookup(("SREULTZ",)), "{#control(j) control(w) v}{^}")
+        self.assertEqual(lookup(("OEULTZ",)), "{#control(j) control(w) o}{plover:clear_trans_state}")
+        self.assertEqual(lookup(("SREULTZ",)), "{#control(j) control(w) v}{plover:clear_trans_state}")
     
     def test_lookup_success_tmux(self):
-        self.assertEqual(lookup(("HRULTZ",)), "{#control(b) l}{^}")
-        self.assertEqual(lookup(("WULTZ",)), "{#control(b) w}{^}")
+        self.assertEqual(lookup(("HRULTZ",)), "{#control(b) l}{plover:clear_trans_state}")
+        self.assertEqual(lookup(("WULTZ",)), "{#control(b) w}{plover:clear_trans_state}")
 
 
 # @Test(flhs=lookup, frhs=addCommandSyntax)

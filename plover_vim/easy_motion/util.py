@@ -21,4 +21,4 @@ def getLeftRightHandLetters(left_hand, right_hand):
 
 def combineStrokes(first, second):
     combine = first.named("first") / second.named("second")
-    return first | combine.map(lambda first, second: second)
+    return combine.map(lambda first, second: second)

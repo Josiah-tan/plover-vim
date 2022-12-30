@@ -35,7 +35,7 @@ class Lookup(BaseLookup, SingleStrokeLeft):
         assert self.dictionary.longest_key == LONGEST_KEY
 
     def getDictionary(self):
-        return self.getLeftCommands().map(addCommandSyntax)
+        return self.getLeftCommands().map(addCommandSyntax(self.opts["command_suffix"]))
 
     def __call__(self, chord):
         assert len(chord) <= LONGEST_KEY

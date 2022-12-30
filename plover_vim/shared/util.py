@@ -42,15 +42,18 @@ def applyModifiers(character: str, mods: List[str]) -> str:
     return combo
 
 
-def addCommandSyntax(combo: str) -> str:
-    return "{#" + combo + "}{^}"
+# def addCommandSyntax(combo: str) -> str:
+#     return "{#" + combo + "}{plover:clear_trans_state}"
+def addCommandSyntax(command_suffix):
+    def _addCommandSyntax(combo):
+        return f"{{#{combo}}}{command_suffix}"
+    return _addCommandSyntax
 
-
-def accumulateModifiers(character: str, mods: List[str]) -> str:
-    combo = applyModifiers(character, mods)
-    # package it up with the syntax
-    # all done! :D
-    return addCommandSyntax(combo)
+# def accumulateModifiers(character: str, mods: List[str]) -> str:
+#     combo = applyModifiers(character, mods)
+#     # package it up with the syntax
+#     # all done! :D
+#     return addCommandSyntax(combo)
 
 
 def getShifted(s):
