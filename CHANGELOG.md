@@ -1,3 +1,7 @@
+# 0.6.0
+
+added official support for marks, unimpaired, repeat (miscellaneous category)
+
 # 0.5.0
 
 Added {plover:clear_trans_state} as default state

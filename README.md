@@ -264,8 +264,8 @@ let g:EasyMotion_keys = 'abcdefghijklmnopqrstuvwxyz'
 |                  |                |             | customisable   |                          |
 |                  |                | #-B         | apostrophe     | similar to mark          |
 |                  |                | #-P         | repeat         | rePeat                   |
-|                  |                | -E          | [              | E is to the left of U    |
-|                  |                | -U          | ]              | U is to the right of E   |
+|                  |                | -EFP        | [              | E is to the left of U    |
+|                  |                | -UFP        | ]              | U is to the right of E   |
 | command object   | -TDZ           | -FPB        | equal          |                          |
 |                  |                | -FP         | ys             | coPy Furround            |
 |                  |                | -FB         | cs             | Blot Furround            |

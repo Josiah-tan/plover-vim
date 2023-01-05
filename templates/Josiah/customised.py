@@ -162,8 +162,8 @@ misc_lookup_2 = CommandLetterLookup2({
                 "#-B": "<escape> apostrophe <objects>",
 
                 "#-P": "<escape> <objects> <objects>", # repeat
-                "-EFP": "<escape> bracketleft <objects>", # ] unfortuately does not work in insert mode...
-                "-UFP": "<escape> bracketright <objects>", # [ unfortuately does not work in insert mode..
+                "-EFP": "<escape> bracketleft <objects>", # ] 
+                "-UFP": "<escape> bracketright <objects>", # [ 
                 }
             }]
         })

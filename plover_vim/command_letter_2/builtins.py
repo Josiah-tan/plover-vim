@@ -92,7 +92,11 @@ miscLookup2 = Lookup({
                 "-PB": "<escape> z <objects>",  # zeN
                 "-F": "<escape> g <objects>",  # the good Spot (primeagen youtube video on the g command)
                 "-P": "<escape> r <objects>",
-                "-B": "<escape> m <objects>"
+                "-B": "<escape> m <objects>",  # set marBg
+                "#-B": "<escape> apostrophe <objects>",  # go to marBg
+                "#-P": "<escape> <objects> <objects>", # repeat
+                "-EFP": "<escape> bracketleft <objects>", # ] 
+                "-UFP": "<escape> bracketright <objects>", # [ 
                 }
             }]
         })
