@@ -1,7 +1,7 @@
 import collections
 
 from typing import List
-from plover.system import english_stenotype as e
+import plover.system as e
 
 from plover_python_dictionary_lib import get_context_from_system
 

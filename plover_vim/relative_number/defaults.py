@@ -4,7 +4,7 @@ defaults = {
         }
 
 from plover_vim.relative_number.util import reverse, double, Zeroes
-# from plover.system import english_stenotype as e
+import plover.system as e
 from plover_vim.relative_number.util import down, up, clock, addWhitespace
 from plover_vim.relative_number.Roman_numeral import number2Roman
 

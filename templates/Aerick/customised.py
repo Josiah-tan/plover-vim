@@ -4,7 +4,7 @@ from plover_vim.relative_number.util import down, up
 from plover_python_dictionary_lib import get_context_from_system
 
 # ======== Boilerplate to set up objects.
-from plover.system import english_stenotype as e
+import plover.system as e
 context = get_context_from_system(e)
 s = context.SingleDictionary
 stroke = context.stroke

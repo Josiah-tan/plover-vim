@@ -1,3 +1,10 @@
+# 0.6.1
+
+added support for other systems other than english stenotype
+-from plover.system import english_stenotype as e
++import plover.system as e
+
+
 # 0.6.0
 
 added official support for marks, unimpaired, repeat (miscellaneous category)
