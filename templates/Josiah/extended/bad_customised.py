@@ -119,6 +119,7 @@ def lookup(key):
             relative_number_lookup,
             JosiahLookup(
                 {
+                    "unique_ender": "@",
                     "prefixes": {
                         "#": "escape"
                         }
