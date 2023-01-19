@@ -2,6 +2,7 @@
 - This is an ambitious project that aims to make vim faster and more ergonomic for plover users
 - A Python library to create custom dictionaries for generating (mostly) single stroke vim commands
 	- e.g. ciw, gcip, ya}
+- videos coming soon!
 
 # Aims:
 - highly extensible and customisable commands and translations
@@ -254,10 +255,12 @@ let g:EasyMotion_keys = 'abcdefghijklmnopqrstuvwxyz'
 |                  | #U             |             | t              | the right key with #     |
 |                  | #EU            |             | customisable   |                          |
 |                  | #              |             | customisable   |                          |
-| miscallaneous    | -TZ            | -FPB        | q              | liSeN                    |
-|                  |                | -FP         | shift(at)      | macros                   |
+| miscallaneous    | -TZ            | -FP         | shift(at)      | macros                   |
+|                  |                | #-FP        | q              | record macros            |
 |                  |                | -FB         | customisable   |                          |
-|                  |                | -PB         | z              | zeN                      |
+|                  |                | -FPB        | z              | zeN                      |
+|                  |                | -PB         | gl             | lioN                     |
+|                  |                | #-PB        | gL             | lioN                     |
 |                  |                | -F          | g              | the good Spot            |
 |                  |                | -P          | r              | rePlace                  |
 |                  |                | -B          | m              | marBg                    |
