@@ -124,7 +124,7 @@ commandObjectLookup2 = Lookup({
             "mods": {
                 "-FPB": "<escape> equal <middles> <objects>",
                 "-FP": "<escape> y s <middles> <objects>",  # coPy Furround
-                "-FB": "<escape> c s <objects>",  # Blot Furround
+                "-FB": "",
                 "-PB": "<escape> g c <middles> objects>",  # commeNt
                 "-F": "<escape> v <middles> <objects>",  # Fisualise
                 "-P": "<escape> y <middles> <objects>",  # coPy
@@ -132,8 +132,8 @@ commandObjectLookup2 = Lookup({
                 "": "",
 
                 "#-FPB": "",
-                "#-FP": "shift(s) <objects>",
-                "#-FB": "<escape> d s <objects>",
+                "#-FP": "",
+                "#-FB": "",
                 "#-PB": "<escape> g b <middles> <objects>",
                 "#-F": "<escape> v <middles> <objects> p",  # visualise and paste!
                 "#-P": "",

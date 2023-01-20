@@ -63,7 +63,7 @@ command_object_lookup_2 = CommandLetterLookup2({
             "mods": {
                 "-FPB": "<escape> equal <middles> <objects>",
                 "-FP": "<escape> y s <middles> <objects>",  # coPy Furround
-                "-FB": "<escape> c s <objects>",  # Blot Furround
+                "-FB": "",  # Blot Furround
                 "-PB": "escape g c <middles> <objects>",  # commeNt
                 "-F": "<escape> v <middles> <objects>",  # Fisualise
                 "-P": "<escape> y <middles> <objects>",  # coPy
@@ -71,8 +71,8 @@ command_object_lookup_2 = CommandLetterLookup2({
                 "": "<escape> g shift(u) <middles> <objects>",
 
                 "#-FPB": "<escape> v <middles> <objects> shift(asciitilde)",
-                "#-FP": "shift(s) <objects>",
-                "#-FB": "<escape> d s <objects>",
+                "#-FP": "",
+                "#-FB": "",
                 "#-PB": "escape g b <middles> <objects>",
                 "#-F": "<escape> v <middles> <objects> p",  # visualise and paste!
                 "#-P": "<escape> shift(quotedbl) shift(plus) y <middles> <objects>",
@@ -154,16 +154,18 @@ misc_lookup_2 = CommandLetterLookup2({
             "mods": {  # 64 total possibilities from #EURPB
                 "-FP": "<escape> shift(at) <objects>",  # @
                 "#-FP": "<escape> q <objects>",  # liSten
-                # "-FB": "",
+                "-FB": "<escape> c s <objects>",  # Blot Furround
+                "#-FB": "<escape> d s <objects>", # Blot Surround
                 "-FPB": "<escape> z <objects>",  # ZeN
                 "-PB": "<escape> g l <objects>",  # lioN
                 "#-PB": "<escape> g shift(L) <objects>",  # lioN
                 "-F": "<escape> g <objects>",  # the good Spot (primeagen youtube video on the g command)
+                "#-F": "shift(s) <objects>", # Furround
                 "-P": "<escape> r <objects>",
+                "#-P": "<escape> <objects> <objects>", # repeat
                 "-B": "<escape> m <objects>",
                 "#-B": "<escape> apostrophe <objects>",
 
-                "#-P": "<escape> <objects> <objects>", # repeat
                 "-EFP": "<escape> bracketleft <objects>", # ] 
                 "-UFP": "<escape> bracketright <objects>", # [ 
                 }

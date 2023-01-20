@@ -56,15 +56,20 @@ miscLookup2 = Lookup({
         {
             "unique_ender": "@G",
             "mods": {  # 64 total possibilities from #EURPB
-                "-FPB": "<escape> q <objects>",  # liSten
                 "-FP": "<escape> shift(at) <objects>",  # @
-                # "-FB": "",
-                "-PB": "<escape> z <objects>",  # zeN
+                "#-FP": "<escape> q <objects>",  # liSten
+                "-FB": "<escape> c s <objects>",  # Blot Furround
+                "#-FB": "<escape> d s <objects>", # Blot Surround
+                "-FPB": "<escape> z <objects>",  # ZeN
+                "-PB": "<escape> g l <objects>",  # lioN
+                "#-PB": "<escape> g shift(L) <objects>",  # lioN
                 "-F": "<escape> g <objects>",  # the good Spot (primeagen youtube video on the g command)
+                "#-F": "shift(s) <objects>", # Furround
                 "-P": "<escape> r <objects>",
-                "-B": "<escape> m <objects>",  # set marBg
-                "#-B": "<escape> apostrophe <objects>",  # go to marBg
                 "#-P": "<escape> <objects> <objects>", # repeat
+                "-B": "<escape> m <objects>",
+                "#-B": "<escape> apostrophe <objects>",
+
                 "-EFP": "<escape> bracketleft <objects>", # ] 
                 "-UFP": "<escape> bracketright <objects>", # [ 
                 }
