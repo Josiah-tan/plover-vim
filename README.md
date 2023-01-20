@@ -257,11 +257,13 @@ let g:EasyMotion_keys = 'abcdefghijklmnopqrstuvwxyz'
 |                  | #              |             | customisable   |                          |
 | miscallaneous    | -TZ            | -FP         | shift(at)      | macros                   |
 |                  |                | #-FP        | q              | record macros            |
-|                  |                | -FB         | customisable   |                          |
+|                  |                | -FB         | cs             | blot Furround            |
+|                  |                | #-FB        | ds             | blot Furround            |
 |                  |                | -FPB        | z              | zeN                      |
 |                  |                | -PB         | gl             | lioN                     |
 |                  |                | #-PB        | gL             | lioN                     |
 |                  |                | -F          | g              | the good Spot            |
+|                  |                | #-F         | shift(S)       | Furround                 |
 |                  |                | -P          | r              | rePlace                  |
 |                  |                | -B          | m              | marBg                    |
 |                  |                |             | customisable   |                          |
@@ -271,15 +273,15 @@ let g:EasyMotion_keys = 'abcdefghijklmnopqrstuvwxyz'
 |                  |                | -UFP        | ]              | U is to the right of E   |
 | command object   | -TDZ           | -FPB        | equal          |                          |
 |                  |                | -FP         | ys             | coPy Furround            |
-|                  |                | -FB         | cs             | Blot Furround            |
+|                  |                | -FB         | customisable   |                          |
 |                  |                | -PB         | gc             | commeNt                  |
 |                  |                | -F          | v              | Fisualize                |
 |                  |                | -P          | y              | coPy                     |
 |                  |                | -B          | c              | Blot                     |
 |                  |                | ""          | gU             |                          |
 |                  |                | #-FPB       | v~             |                          |
-|                  |                | #-FP        | S              |                          |
-|                  |                | #-FB        | ds             |                          |
+|                  |                | #-FP        | customisable   |                          |
+|                  |                | #-FB        | customisable   |                          |
 |                  |                | #-PB        | gb             |                          |
 |                  |                | #-F         | vp             | visualize and paste!     |
 |                  |                | #-P         | "              | y                        |

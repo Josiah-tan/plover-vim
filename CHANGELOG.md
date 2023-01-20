@@ -1,3 +1,15 @@
+# 0.8.0
+
+these commands moved from command_object (old) → miscellaneous (new):
+-FB (change surround)
+#-FB (change surround)
+#-FP → #-F (surround)
+
+moved several commands from command object to miscellaneous
+The command object system is designed with middles in mind, if these aren't used, then they should be placed in miscellaneous instead, to save space...
+
+fixed test suite (was broken in 0.7)
+
 # 0.7.1
 
 I literally can't code, forgot to add spaces between gl and gL... Sigh
