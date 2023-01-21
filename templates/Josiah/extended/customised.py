@@ -62,9 +62,10 @@ command_object_lookup_2 = CommandLetterLookup2({
             "unique_ender": "@L",  # ring finger on T, pinky on DZ
             # some ideas for others if you ever run out: -TZ, -SD, -TDZ, -SDZ, -TSZ, -TSD, or -TSDZ
             "mods": {
+                
                 "-FPB": "<escape> equal <middles> <objects>",
                 "-FP": "<escape> y s <middles> <objects>",  # coPy Furround
-                "-FB": "",  
+                "-FB": "<escape> shift(greater) <middles> <objects>",  # FB looks like half an > arrow
                 "-PB": "escape g c <middles> <objects>",  # commeNt
                 "-F": "<escape> v <middles> <objects>",  # Fisualise
                 "-P": "<escape> y <middles> <objects>",  # coPy
@@ -72,13 +73,13 @@ command_object_lookup_2 = CommandLetterLookup2({
                 "": "<escape> g shift(u) <middles> <objects>",
 
                 "#-FPB": "<escape> v <middles> <objects> shift(asciitilde)",
-                "#-FP": "",
-                "#-FB": "",
+                "#-FP": "escape c x <middles> <objects>",  # vim exFPange
+                "#-FB": "<escape> less <middles> <objects>",
                 "#-PB": "escape g b <middles> <objects>",
                 "#-F": "<escape> v <middles> <objects> p",  # visualise and paste!
                 "#-P": "<escape> shift(quotedbl) shift(plus) y <middles> <objects>",
-                "#-B": "",
-                "#": "<escape> g u <middles> <objects>"
+                "#-B": "<escape> g shift(question) <middles> <objects>", # Bguestion
+                "#": "<escape> g u <middles> <objects>",
                 }
             }]
     })
