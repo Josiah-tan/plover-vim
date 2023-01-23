@@ -1,3 +1,8 @@
+# 0.9.0
+
+switching from `-TDZ` to `-TSZ` for command object
+added plover-vim tutor
+
 # 0.8.0
 
 these commands moved from command_object (old) → miscellaneous (new):
