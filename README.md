@@ -271,7 +271,7 @@ let g:EasyMotion_keys = 'abcdefghijklmnopqrstuvwxyz'
 |                  |                | #-P         | repeat         | rePeat                   |
 |                  |                | -EFP        | [              | E is to the left of U    |
 |                  |                | -UFP        | ]              | U is to the right of E   |
-| command object   | -TDZ           | -FPB        | equal          |                          |
+| command object   | -TSZ           | -FPB        | equal          |                          |
 |                  |                | -FP         | ys             | coPy Furround            |
 |                  |                | -FB         | customisable   |                          |
 |                  |                | -PB         | gc             | commeNt                  |
