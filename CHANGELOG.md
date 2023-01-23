@@ -1,5 +1,9 @@
 # 0.9.0
 
+switching from `-TSZ` to `-LTSZ` for command object
+
+# 0.9.0
+
 switching from `-TDZ` to `-TSZ` for command object
 added plover-vim tutor
 

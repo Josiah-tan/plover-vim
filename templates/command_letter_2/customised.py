@@ -83,7 +83,7 @@ command_object_lookup_2 = CommandLetterLookup2({
     "escape": "control(j)",  # default: "escape"
     "systems": [
         {
-            "unique_ender": "-TSZ",  # ring finger on TS, pinky on D
+            "unique_ender": "-LTSZ",  # ring finger on TS, pinky on D
             # some ideas for others if you ever run out: -TZ, -SD, -TDZ, -SDZ, -TSZ, -TSD, or -TSDZ
             "mods": {
                 "-FPB": "<escape> equal <middles> <objects>",

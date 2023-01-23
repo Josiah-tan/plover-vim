@@ -24,7 +24,8 @@ def lookup(key):
             JosiahLookup(
                 {
                     "prefixes": {
-                        "#": "escape"
+                        "#": "escape",
+                        "EU": "escape control(w)",  # vim splIt or wIn
                         }
                     }
                 )
@@ -35,7 +36,7 @@ def lookup(key):
 if __name__ == "__main__":
     import json
     import sys
-    dict = {**JosiahLookup.dictionary.items_str_dict(),
+    dict = {**JosiahLookup().dictionary.items_str_dict(),
             }
     json.dump(dict, sys.stdout, ensure_ascii=False, indent=0)
 
