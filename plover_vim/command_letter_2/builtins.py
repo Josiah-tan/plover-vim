@@ -94,8 +94,8 @@ miscLookup2 = Lookup({
                 "#-PB": "<escape> g shift(L) <objects>",  # lioN
                 "-F": "<escape> g <objects>",  # the good Spot (primeagen youtube video on the g command)
                 "-P": "<escape> r <objects>",
-                "-B": "<escape> m <objects>",  # set marBg
-                "#-B": "<escape> apostrophe <objects>",  # go to marBg
+                "-B": "<escape> apostrophe <objects>",  # set marBg
+                "#-B": "<escape> m <objects>",  # go to marBg
                 "#-P": "<escape> <objects> <objects>", # repeat
                 "-EFP": "<escape> bracketleft <objects>", # ] 
                 "-UFP": "<escape> bracketright <objects>", # [ 

@@ -144,8 +144,8 @@ miscLookup2 = Lookup({
                 "#-F": "shift(s) <objects>", # Furround
                 "-P": "<escape> r <objects>",
                 "#-P": "<escape> <objects> <objects>", # repeat
-                "-B": "<escape> m <objects>",
-                "#-B": "<escape> apostrophe <objects>",
+                "-B": "<escape> apostrophe <objects>",
+                "#-B": "<escape> m <objects>",
 
                 "-EFP": "<escape> bracketleft <objects>", # ] 
                 "-UFP": "<escape> bracketright <objects>", # [ 

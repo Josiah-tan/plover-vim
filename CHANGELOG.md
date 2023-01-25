@@ -1,6 +1,8 @@
 # 0.9.0
 
 switching from `-TSZ` to `-LTSZ` for command object
+added `#EU` register for miscellaneous
+switched to `-B` → ```, `#-B` → `q`, because `@` → `FP` and `q` → `#FP` (idea of playback verses making)
 
 # 0.9.0
 

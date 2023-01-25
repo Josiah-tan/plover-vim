@@ -265,9 +265,9 @@ let g:EasyMotion_keys = 'abcdefghijklmnopqrstuvwxyz'
 |                  |                | -F          | g              | the good Spot            |
 |                  |                | #-F         | shift(S)       | Furround                 |
 |                  |                | -P          | r              | rePlace                  |
-|                  |                | -B          | m              | marBg                    |
+|                  |                | -B          | apostrophe     | go marBg                    |
 |                  |                |             | customisable   |                          |
-|                  |                | #-B         | apostrophe     | similar to mark          |
+|                  |                | #-B         | m              | similar to mark          |
 |                  |                | #-P         | repeat         | rePeat                   |
 |                  |                | -EFP        | [              | E is to the left of U    |
 |                  |                | -UFP        | ]              | U is to the right of E   |
