@@ -97,8 +97,8 @@ miscLookup2 = Lookup({
                 "-B": "<escape> apostrophe <objects>",  # set marBg
                 "#-B": "<escape> m <objects>",  # go to marBg
                 "#-P": "<escape> <objects> <objects>", # repeat
-                "-EFP": "<escape> bracketleft <objects>", # ] 
-                "-UFP": "<escape> bracketright <objects>", # [ 
+                "-EFP": "<escape> bracketleft <objects>", # [ 
+                "-UFP": "<escape> bracketright <objects>", # ] 
                 "#EU": "<escape> shift(quotedbl) <objects>", # regIster
                 }
             }]

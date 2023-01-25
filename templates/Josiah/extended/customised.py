@@ -167,8 +167,8 @@ misc_lookup_2 = CommandLetterLookup2({
                 "#-P": "<escape> <objects> <objects>", # repeat
                 "-B": "<escape> apostrophe <objects>",
                 "#-B": "<escape> m <objects>",
-                "-EFP": "<escape> bracketleft <objects>", # ] 
-                "-UFP": "<escape> bracketright <objects>", # [ 
+                "-EFP": "<escape> bracketleft <objects>", # [ 
+                "-UFP": "<escape> bracketright <objects>", # ] 
                 "#EU": "<escape> shift(quotedbl) <objects>", # regIster
                 }
             }]

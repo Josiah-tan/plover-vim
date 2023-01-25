@@ -187,8 +187,8 @@ misc_lookup_2 = CommandLetterLookup2({
                 "-B": "<escape> apostrophe <objects>",
                 "#-B": "<escape> m <objects>",
 
-                "-EFP": "<escape> bracketleft <objects>", # ] 
-                "-UFP": "<escape> bracketright <objects>", # [ 
+                "-EFP": "<escape> bracketleft <objects>", # [ 
+                "-UFP": "<escape> bracketright <objects>", # ] 
                 }
             }]
         })
