@@ -1,3 +1,4 @@
 plover-python-dictionary-lib~=0.4
 plover>=4.0.0.dev12
 twine
+num2words

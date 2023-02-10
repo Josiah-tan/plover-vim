@@ -14,13 +14,13 @@ class TestFindLookup2(unittest.TestCase):
 
 class TestMiscLookup2(unittest.TestCase):
     def test_lookup_success(self):
-        self.assertEqual(miscLookup2(("KWR-RBTZ",)), '{#escape m shift(y)}{plover:clear_trans_state}')
+        self.assertEqual(miscLookup2(("KWR-RBTZ",)), '{#escape apostrophe shift(y)}{plover:clear_trans_state}')
 
 class TestCommandObjectLookup2(unittest.TestCase):
     def test_lookup_success(self):
-        self.assertEqual(commandObjectLookup2(("WBTDZ",)), "{#escape c w}{plover:clear_trans_state}")
-        self.assertEqual(commandObjectLookup2(("#PEFTDZ",)), "{#escape v i p p}{plover:clear_trans_state}")
-        self.assertEqual(commandObjectLookup2(("TPUFPBTDZ",)), "{#escape equal a f}{plover:clear_trans_state}")
+        self.assertEqual(commandObjectLookup2(("WBLTSZ",)), "{#escape c w}{plover:clear_trans_state}")
+        self.assertEqual(commandObjectLookup2(("#PEFLTSZ",)), "{#escape v i p p}{plover:clear_trans_state}")
+        self.assertEqual(commandObjectLookup2(("TPUFPBLTSZ",)), "{#escape equal a f}{plover:clear_trans_state}")
 
 # ##
 #

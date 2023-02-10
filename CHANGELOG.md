@@ -1,11 +1,15 @@
+# 0.10.0
+
+adjustments to number system:
+removed zero numbers from 4-9 (too much overhead)
+changed KR → K for dollar
+added num2word W → to convert number to word
+
 # 0.9.0
 
 switching from `-TSZ` to `-LTSZ` for command object
 added `#EU` register for miscellaneous
 switched to `-B` → ```, `#-B` → `q`, because `@` → `FP` and `q` → `#FP` (idea of playback verses making)
-
-# 0.9.0
-
 switching from `-TDZ` to `-TSZ` for command object
 added plover-vim tutor
 

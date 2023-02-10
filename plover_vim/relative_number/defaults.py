@@ -3,6 +3,7 @@ defaults = {
         "down": "-R",
         }
 
+from num2words import num2words
 from plover_vim.relative_number.util import reverse, double, Zeroes
 import plover.system as e
 from plover_vim.relative_number.util import down, up, clock, addWhitespace
@@ -25,6 +26,13 @@ classic_system = {
             },
         }
 
+word_system = {
+        "words": {
+            "stroke": "W",
+            "callback": lambda x: num2words(x),
+            "dependencies": ["reverseU", "doubleU", "zeroes"]
+            }
+        }
 
 up_down_system = {
         "up": {
@@ -108,7 +116,7 @@ clock_system = {
         }
 
 zeroes_system = {
-        "zeroes": {"dependencies": ["0" * i for i in range(1, 10)]},
+        "zeroes": {"dependencies": ["0" * i for i in range(1, 4)]},
         "0": {
             "stroke": "-S",
             "callback": Zeroes(1),
@@ -124,36 +132,36 @@ zeroes_system = {
                 "callback": Zeroes(3),
                 "additional_map": "0" * 3,
                 },
-        "0" * 4: {
-                "stroke": "-TS",
-                "callback": Zeroes(4),
-                "additional_map": "0" * 4,
-                },
-        "0" * 5: {
-                "stroke": "-TSDZ",
-                "callback": Zeroes(5),
-                "additional_map": "0" * 5,
-                },
-        "0" * 6: {
-                "stroke": "-DZ",
-                "callback": Zeroes(6),
-                "additional_map": "0" * 6,
-                },
-        "0" * 7: {
-                "stroke": "-T",
-                "callback": Zeroes(7),
-                "additional_map": "0" * 7,
-                },
-        "0" * 8: {
-                "stroke": "-TD",
-                "callback": Zeroes(8),
-                "additional_map": "0" * 8,
-                },
-        "0" * 9: {
-                "stroke": "-D",
-                "callback": Zeroes(9),
-                "additional_map": "0" * 9,
-                },
+        # "0" * 4: {
+        #         "stroke": "-TS",
+        #         "callback": Zeroes(4),
+        #         "additional_map": "0" * 4,
+        #         },
+        # "0" * 5: {
+        #         "stroke": "-TSDZ",
+        #         "callback": Zeroes(5),
+        #         "additional_map": "0" * 5,
+        #         },
+        # "0" * 6: {
+        #         "stroke": "-DZ",
+        #         "callback": Zeroes(6),
+        #         "additional_map": "0" * 6,
+        #         },
+        # "0" * 7: {
+        #         "stroke": "-T",
+        #         "callback": Zeroes(7),
+        #         "additional_map": "0" * 7,
+        #         },
+        # "0" * 8: {
+        #         "stroke": "-TD",
+        #         "callback": Zeroes(8),
+        #         "additional_map": "0" * 8,
+        #         },
+        # "0" * 9: {
+        #         "stroke": "-D",
+        #         "callback": Zeroes(9),
+        #         "additional_map": "0" * 9,
+        #         },
         }
 
 Roman_system = {
@@ -180,7 +188,7 @@ symbol_system = {
             "dependencies": ["reverseU", "doubleU", "zeroes", "decimal"]
             },
         "dollar": {
-            "stroke": "KR",
+            "stroke": "K",
             "callback": lambda x: "$" + x,
             "dependencies": ["reverseU", "doubleU", "zeroes", "decimal"]
             }
