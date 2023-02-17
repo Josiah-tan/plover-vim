@@ -7,7 +7,7 @@
 # Quick links
 
 - See [speedrun video](https://www.youtube.com/watch?v=uQZp7RX-h6o) (2:50 min).
-- For interactive learning (*highly recommended`) see [plover-vim-tutor](https://github.com/Josiah-tan/plover-vim-tutor).
+- For interactive learning (`highly recommended`) see [plover-vim-tutor](https://github.com/Josiah-tan/plover-vim-tutor).
 
 # Aims:
 - highly extensible and customisable commands and translations
