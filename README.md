@@ -1,11 +1,13 @@
 # Plover_vim
+
 - This is an ambitious project that aims to make vim faster and more ergonomic for plover users
 - A Python library to create custom dictionaries for generating (mostly) single stroke vim commands
 	- e.g. ciw, gcip, ya}
 
 # Quick links
-See [speedrun video](https://www.youtube.com/watch?v=uQZp7RX-h6o).
-For interactive learning see [plover-vim-tutor](https://github.com/Josiah-tan/plover-vim-tutor).
+
+- See [speedrun video](https://www.youtube.com/watch?v=uQZp7RX-h6o).
+- For interactive learning see [plover-vim-tutor](https://github.com/Josiah-tan/plover-vim-tutor).
 
 # Aims:
 - highly extensible and customisable commands and translations
