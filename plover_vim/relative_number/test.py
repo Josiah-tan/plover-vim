@@ -1,5 +1,5 @@
 import unittest
-from plover_vim.relative_number.builtins import Lookup, RelativeNumberLookup
+from plover_vim.relative_number.builtins import RelativeNumberLookup
 from plover_vim.relative_number.Roman_numeral import number2Roman
 
 relative_number_lookup = RelativeNumberLookup()
@@ -18,7 +18,7 @@ relative_number_lookup = RelativeNumberLookup()
 #     })
 # dict(relative_number_lookup.dictionary.items())
 
-sample_lookup = Lookup({"up": "-B", "down": "-R"})
+# sample_lookup = Lookup({"up": "-B", "down": "-R"})
 
 class TestRelativeNumberLookup(unittest.TestCase):
     def test_additional_map(self):
@@ -58,45 +58,45 @@ class TestRelativeNumberLookup(unittest.TestCase):
         self.assertEqual(relative_number_lookup(("1234U78",)), "{&984321}")
 
 
-class TestLookup(unittest.TestCase):
-    def test_single_digit_down(self):
-        self.assertEqual(sample_lookup(("-R7",)), f"{{#down{' down' * 6}}}")
-    
-    def test_single_digit_up(self):
-        self.assertEqual(sample_lookup(("2B",)), "{#up up}")
-        self.assertEqual(sample_lookup(("5B",)), "{#up up up up up}")
-    
-    def test_multiple_digit(self):
-        self.assertEqual(sample_lookup(("1-6B",)), f"{{#up{' up' * 15}}}")
-
-    def test_reverse_down(self):
-        self.assertEqual(sample_lookup(("1EUR7",)), f"{{#down{' down' * 70}}}")
-
-    def repeat_digit(self):
-        self.assertEqual(sample_lookup(("-R7D",)), f"{{#down{' down' * 76}}}")
-        self.assertEqual(sample_lookup(("-3BD",)), f"{{#up{' up' * 32}}}")
-
-    def test_too_many_numbers(self):
-        with self.assertRaises(KeyError):
-            sample_lookup(("10R789",))
-
-    def test_incorrect_chord(self):
-        with self.assertRaises(KeyError):
-            sample_lookup(("1R-6",))
-            sample_lookup(("1-RB8",))
-    
-    def test_zeroes(self):
-        with self.assertRaises(KeyError):
-            sample_lookup(("0R",))
-            sample_lookup(("0B",))
-
-    def test_too_many_repeat_digit(self):
-        with self.assertRaises(KeyError):
-            sample_lookup(("14-RD",))
-    
-    def test_asterisk(self):
-        with self.assertRaises(KeyError):
-            sample_lookup(("14*R",))
+# class TestLookup(unittest.TestCase):
+    # def test_single_digit_down(self):
+    #     self.assertEqual(sample_lookup(("-R7",)), f"{{#down{' down' * 6}}}")
+    # 
+    # def test_single_digit_up(self):
+    #     self.assertEqual(sample_lookup(("2B",)), "{#up up}")
+    #     self.assertEqual(sample_lookup(("5B",)), "{#up up up up up}")
+    # 
+    # def test_multiple_digit(self):
+    #     self.assertEqual(sample_lookup(("1-6B",)), f"{{#up{' up' * 15}}}")
+    #
+    # def test_reverse_down(self):
+    #     self.assertEqual(sample_lookup(("1EUR7",)), f"{{#down{' down' * 70}}}")
+    #
+    # def repeat_digit(self):
+    #     self.assertEqual(sample_lookup(("-R7D",)), f"{{#down{' down' * 76}}}")
+    #     self.assertEqual(sample_lookup(("-3BD",)), f"{{#up{' up' * 32}}}")
+    #
+    # def test_too_many_numbers(self):
+    #     with self.assertRaises(KeyError):
+    #         sample_lookup(("10R789",))
+    #
+    # def test_incorrect_chord(self):
+    #     with self.assertRaises(KeyError):
+    #         sample_lookup(("1R-6",))
+    #         sample_lookup(("1-RB8",))
+    # 
+    # def test_zeroes(self):
+    #     with self.assertRaises(KeyError):
+    #         sample_lookup(("0R",))
+    #         sample_lookup(("0B",))
+    #
+    # def test_too_many_repeat_digit(self):
+    #     with self.assertRaises(KeyError):
+    #         sample_lookup(("14-RD",))
+    # 
+    # def test_asterisk(self):
+    #     with self.assertRaises(KeyError):
+    #         sample_lookup(("14*R",))
 
 class TestRomanNumerals(unittest.TestCase):
     def test_default(self):
@@ -164,9 +164,9 @@ class TestClock(unittest.TestCase):
         self.assertEqual(relative_number_lookup(("2URBG",)), "{^}:22")
         self.assertEqual(relative_number_lookup(("35URBG",)), "{^}:53")
     
-    def test_clock_append_failure(self):
-        with self.assertRaises(KeyError):
-            sample_lookup(("3URB8G",))
+    # def test_clock_append_failure(self):
+    #     with self.assertRaises(KeyError):
+    #         sample_lookup(("3URB8G",))
 
     
 # relative_number_lookup(("4ES",))

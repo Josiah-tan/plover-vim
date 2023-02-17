@@ -6,8 +6,8 @@
 
 # Quick links
 
-- See [speedrun video](https://www.youtube.com/watch?v=uQZp7RX-h6o).
-- For interactive learning see [plover-vim-tutor](https://github.com/Josiah-tan/plover-vim-tutor).
+- See [speedrun video](https://www.youtube.com/watch?v=uQZp7RX-h6o) (2:50 min).
+- For interactive learning (*highly recommended`) see [plover-vim-tutor](https://github.com/Josiah-tan/plover-vim-tutor).
 
 # Aims:
 - highly extensible and customisable commands and translations
@@ -81,10 +81,9 @@
 
 - First, make sure to install plover_vim into plover
 	- see [Installation](#Installation) for more instructions
-- copy [templates/relative_number/simple.py](templates/relative_number/simple.py) and add it to your dictionaries for a simple configuration
 - It is recommended to remap top left S key as #
-- note there is a version 2 of this currently in the making
-    - see [templates/Aerick/customised.py](templates/Aerick/customised.py) and [templates/Josiah/customised.py](templates/Josiah/customised.py) for examples of this new version
+- For a simple configuration see [templates/relative_number/customised.py](templates/relative_number/customised.py).
+- For my configuration see [templates/Josiah/customised.py](templates/Josiah/customised.py)
 
 ## Easy_motion
 
