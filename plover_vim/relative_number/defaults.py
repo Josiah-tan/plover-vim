@@ -194,8 +194,18 @@ symbol_system = {
             }
         }
 
+dimensional_system = {
+        "dimension": {
+            "stroke": "D",
+            "callback": lambda x: x + "D",
+            "dependencies": ["reverseU"],
+            "min_number": 0,
+            "max_number": 9,
+            }
+        }
+
 default_system = {
-        **classic_system, **zeroes_system, **up_down_system, **clock_system, **Roman_system, **symbol_system, **vim_up_down_system
+        **classic_system, **zeroes_system, **up_down_system, **clock_system, **Roman_system, **symbol_system, **vim_up_down_system, **dimensional_system
         }
 
 defaults_2 = {

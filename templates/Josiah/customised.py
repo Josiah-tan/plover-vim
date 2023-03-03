@@ -6,7 +6,7 @@ from contextlib import suppress
 
 from plover_vim.command_letter_2.builtins import Lookup as CommandLetterLookup2
 from plover_vim.relative_number.util import Zeroes, reverse, double, addWhitespace
-from plover_vim.relative_number.defaults import classic_system, zeroes_system, up_down_system, clock_system, Roman_system, symbol_system
+from plover_vim.relative_number.defaults import classic_system, zeroes_system, up_down_system, clock_system, Roman_system, symbol_system, dimensional_system
 from plover_vim.relative_number.builtins import RelativeNumberLookup as RelativeNumberLookup
 from plover_vim.Josiah_modifier.builtins import Lookup as JosiahModifierLookup
 
@@ -93,6 +93,7 @@ relative_number_lookup = RelativeNumberLookup({
         **clock_system,
         **Roman_system,
         **symbol_system,
+        **dimensional_system,
         # **vim_up_down_system
         "up_yank": {
             "stroke": "K-B",
