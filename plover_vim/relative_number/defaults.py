@@ -108,7 +108,7 @@ clock_system = {
         "clock_append": {
             "stroke": "-RBG",
             "callback": lambda x: f"{{^}}:{int(x):02}",
-            "dependencies": ["reverseU", "doubleU"],
+            "dependencies": ["reverseU", "doubleU", "0"],
             "min_number": 0,
             "max_number": 60,
             "post_callback": (lambda x: x)
