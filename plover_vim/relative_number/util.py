@@ -85,3 +85,16 @@ def clock(string: str):
 
 def addWhitespace(string: str):
     return " ".join([i for i in string])
+
+def getOrdinal(string: str):
+    number = int(string)
+    if number % 100 in [11, 12, 13]:
+        return f"{number}th"
+    elif number % 10 == 1:
+        return f"{number}st"
+    elif number % 10 == 2:
+        return f"{number}nd"
+    elif number % 10 == 3:
+        return f"{number}rd"
+    else:
+        return f"{number}th"
