@@ -1,3 +1,9 @@
+# 0.11.0
+
+Command Letter 2 now supports numbers
+`W@EBLT` → `{#control(j) 3 c i w}{plover:clear_trans_state}`
+changed tutor/extended and Josiah/extended folders to reflect this
+
 # 0.10.0
 
 adjustments to number system:
