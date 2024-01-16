@@ -1,7 +1,7 @@
 from plover_vim.shared.util import addCommandSyntax
 from plover_vim.shared.builtins import BaseLookup
 from plover_vim.command_letter.util import (
-        getSymbols, getCharacters
+        getSymbols, getCharacters, getRepetition
         )
 from plover_vim.Josiah_modifier.config import LONGEST_KEY
 from plover_vim.Josiah_modifier.defaults import defaults
@@ -23,8 +23,8 @@ class Lookup(BaseLookup):
         characters = getModifiedChars(
                 getCharacters(self.opts['spelling'], symbols)
                 )
-        return (prefixes * unique_ender * characters)
-
+        singular_command = (prefixes * unique_ender * characters)
+        return getRepetition(singular_command, self.opts["numbers"])
     def getDictionary(self):
         return self.getLeftCommands().map(addCommandSyntax(self.opts["command_suffix"]))
 

@@ -80,3 +80,11 @@ def getCharacters(spelling, symbols):
             spelling.filter(lambda character: character != "")
 
             ).named("character")
+
+def getRepetition(commands, numbers):
+    def applyRepetition(command, number):
+        if number == "":
+            return command
+        return ' '.join([command] * int(number))
+    return (commands.named("command") * s(numbers).named("number")).map(applyRepetition)
+

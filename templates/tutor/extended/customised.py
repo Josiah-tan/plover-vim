@@ -209,8 +209,13 @@ misc_lookup_2 = CommandLetterLookup2({
         })
 
 Josiah_modifier_lookup = JosiahLookup({
-        "unique_ender": "@",
-        })
+    "unique_ender": "@",
+    "numbers": {
+        "-S": "2",
+        "-T": "3",
+        "-TS": "4",
+        }
+    })
 
 
 def lookup(key):

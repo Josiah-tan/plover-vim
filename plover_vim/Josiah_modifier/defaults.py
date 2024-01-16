@@ -45,6 +45,10 @@ prefixes = {
         "": "",
         }
 
+numbers = {
+        "": ""
+        }
+
 defaults = {
         "disable_defaults": False,  # can be spelling, symbols etc ...
         # any dictionary entry overiddes the defaults
@@ -53,5 +57,6 @@ defaults = {
         "symbols": symbols,
         "shifted": shifted_symbols_aus,
         "unique_ender": "-LTZ",
-        "prefixes": prefixes
+        "prefixes": prefixes,
+        "numbers": numbers
         }

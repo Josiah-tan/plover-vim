@@ -1,3 +1,9 @@
+# 0.12.0
+
+Josiah modifiers now supports repetition
+`A@*FTS` → `{#control(tab) control(tab) control(tab) control(tab)}`
+changed tutor/extended and Josiah/extended folders to reflect this
+
 # 0.11.0
 
 Command Letter 2 now supports numbers

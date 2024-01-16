@@ -143,6 +143,11 @@ def lookup(key):
                     "unique_ender": "@",
                     "prefixes": {
                         "#": "escape"
+                        },
+                    "numbers": {
+                        "-S": "2",
+                        "-T": "3",
+                        "-TS": "4",
                         }
                     }
                 )
