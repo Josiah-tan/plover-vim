@@ -44,6 +44,8 @@ def getObjects(spelling, symbols):
 def getMiddles(middles):
     return s(middles).named("middles")
 
+def getNumbers(numbers):
+    return s(numbers).named("numbers")
 
 def getSystems(mods, enders):
     return combineModsEnders(mods, enders).named("systems")
@@ -57,8 +59,9 @@ def cleanWhiteSpace(d):
     return d.map(_cleanWhiteSpace)
 
 
-def _applyFormat(systems, escape, middles, objects):
+def _applyFormat(systems, escape, numbers, middles, objects):
     systems = re.sub("<escape>", escape, systems)
+    systems = re.sub("<numbers>", numbers, systems)
     systems = re.sub("<middles>", middles, systems)
     systems = re.sub("<objects>", objects, systems)
     return systems
@@ -70,4 +73,5 @@ def applyFormat(systems, srcs):
     systems *= srcs[0]
     systems *= srcs[1]
     systems *= srcs[2]
+    systems *= srcs[3]
     return systems.map(_applyFormat)

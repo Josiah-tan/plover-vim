@@ -1,5 +1,9 @@
 from plover_vim.Josiah_modifier.defaults import shifted_symbols_aus, symbols, spelling
 
+numbers = {
+        "": ""
+        }
+
 middles = {
         "": ""
         }
@@ -11,6 +15,7 @@ defaults = {
         "spelling": spelling,
         "symbols": symbols,
         "shifted": shifted_symbols_aus,
+        "numbers": numbers,
         "middles": middles,
         "escape": "escape",
         "systems": []

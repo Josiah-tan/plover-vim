@@ -19,6 +19,11 @@ findLookup2 = Lookup({
     # "spelling": {},  # dict: right finger spelling
     # "symbols": {},  # dict: left hand symbols
     # "shifted": {},  # set: any symbols that should be shifted
+    "numbers": {
+        "-S": "2",
+        "-T": "3",
+        "-TS": "4",
+        },  
     "middles": {
         "#E": "shift(t)",  # "#" to denote go to just before the letter
         "#U": "t",  
@@ -29,16 +34,15 @@ findLookup2 = Lookup({
     "systems": [
         {
             "unique_ender": "@LG",
-            # some ideas for others if you ever run out: -TZ, -SD, -TDZ, -SDZ, -TSZ, -TSD, or -TSDZ
             "mods": {
                 # "-FPB": "",  # left empty for you to customise!
                 # "-FP": "",
                 # "-FB": "",
                 # "-PB": "",
-                "-F": "<escape> v <middles> <objects>",  # Fisualise
-                "-P": "<escape> y <middles> <objects>",  # coPy
-                "-B": "<escape> c <middles> <objects>",  # Blot
-                "": "<escape> <middles> <objects>",
+                "-F": "<escape> <numbers> v <middles> <objects>",  # Fisualise
+                "-P": "<escape> <numbers> y <middles> <objects>",  # coPy
+                "-B": "<escape> <numbers> c <middles> <objects>",  # Blot
+                "": "<escape> <numbers> <middles> <objects>",
                 # "": ""  # for normal commands (done in josiah-modifers)
                 }
             }]
@@ -128,27 +132,32 @@ miscLookup2 = Lookup({
     # "symbols": {},  # dict: left hand symbols
     # "shifted": {},  # set: any symbols that should be shifted
     # "middles": {},  # dict: middles
+    "numbers": {
+        "-S": "2",
+        "-T": "3",
+        "-TS": "4",
+        },  
     "escape": "escape",  # default: "escape"
     "systems": [
         {
             "unique_ender": "@G",
             "mods": {  # 64 total possibilities from #EURPB
-                "-FP": "<escape> shift(at) <objects>",  # @
-                "#-FP": "<escape> q <objects>",  # liSten
-                "-FB": "<escape> c s <objects>",  # Blot Furround
-                "#-FB": "<escape> d s <objects>", # Blot Surround
-                "-FPB": "<escape> z <objects>",  # ZeN
-                "-PB": "<escape> g l <objects>",  # lioN
-                "#-PB": "<escape> g shift(L) <objects>",  # lioN
-                "-F": "<escape> g <objects>",  # the good Spot (primeagen youtube video on the g command)
+                "-FP": "<escape> <numbers> shift(at) <objects>",  # @
+                "#-FP": "<escape> <numbers> q <objects>",  # liSten
+                "-FB": "<escape> <numbers> c s <objects>",  # Blot Furround
+                "#-FB": "<escape> <numbers> d s <objects>", # Blot Surround
+                "-FPB": "<escape> <numbers> z <objects>",  # ZeN
+                "-PB": "<escape> <numbers> g l <objects>",  # lioN
+                "#-PB": "<escape> <numbers> g shift(L) <objects>",  # lioN
+                "-F": "<escape> <numbers> g <objects>",  # the good Spot (primeagen youtube video on the g command)
                 "#-F": "shift(s) <objects>", # Furround
-                "-P": "<escape> r <objects>",
-                "#-P": "<escape> <objects> <objects>", # repeat
-                "-B": "<escape> apostrophe <objects>",
-                "#-B": "<escape> m <objects>",
+                "-P": "<escape> <numbers> r <objects>",
+                "#-P": "<escape> <numbers> <objects> <objects>", # repeat
+                "-B": "<escape> <numbers> apostrophe <objects>",
+                "#-B": "<escape> <numbers> m <objects>",
 
-                "-EFP": "<escape> bracketleft <objects>", # [ 
-                "-UFP": "<escape> bracketright <objects>", # ] 
+                "-EFP": "<escape> <numbers> bracketleft <objects>", # [ 
+                "-UFP": "<escape> <numbers> bracketright <objects>", # ] 
                 }
             }]
         })
@@ -160,6 +169,11 @@ commandObjectLookup2 = Lookup({
     # "spelling": {},  # dict: right finger spelling
     # "symbols": {},  # dict: left hand symbols
     # "shifted": {},  # set: any symbols that should be shifted
+    "numbers": {
+        "-S": "2",
+        "-T": "3",
+        "-TS": "4",
+        },  
     "middles": {
         "E": "i",  # physically located closer to keyboard centre
         "EU": "O",  # used in Org mode?
@@ -170,22 +184,21 @@ commandObjectLookup2 = Lookup({
     "systems": [
         {
             "unique_ender": "@L",  # ring finger on T, pinky on DZ
-            # some ideas for others if you ever run out: -TZ, -SD, -TDZ, -SDZ, -TSZ, -TSD, or -TSDZ
             "mods": {
-                "-FPB": "<escape> equal <middles> <objects>",
-                "-FP": "<escape> y s <middles> <objects>",  # coPy Furround
-                "-FB": "<escape> c s <objects>",  # Blot Furround
-                "-PB": "<escape> g c <middles> objects>",  # commeNt
-                "-F": "<escape> v <middles> <objects>",  # Fisualise
-                "-P": "<escape> y <middles> <objects>",  # coPy
-                "-B": "<escape> c <middles> <objects>",  # Blot
+                "-FPB": "<escape> <numbers> equal <middles> <objects>",
+                "-FP": "<escape> <numbers> y s <middles> <objects>",  # coPy Furround
+                "-FB": "<escape> <numbers> c s <objects>",  # Blot Furround
+                "-PB": "<escape> <numbers> g c <middles> objects>",  # commeNt
+                "-F": "<escape> <numbers> v <middles> <objects>",  # Fisualise
+                "-P": "<escape> <numbers> y <middles> <objects>",  # coPy
+                "-B": "<escape> <numbers> c <middles> <objects>",  # Blot
                 "": "",
 
                 "#-FPB": "",
                 "#-FP": "shift(s) <objects>",
-                "#-FB": "<escape> d s <objects>",
-                "#-PB": "<escape> g b <middles> <objects>",
-                "#-F": "<escape> v <middles> <objects> p",  # visualise and paste!
+                "#-FB": "<escape> <numbers> d s <objects>",
+                "#-PB": "<escape> <numbers> g b <middles> <objects>",
+                "#-F": "<escape> <numbers> v <middles> <objects> p",  # visualise and paste!
                 "#-P": "",
                 "#-B": "",
                 "#": ""

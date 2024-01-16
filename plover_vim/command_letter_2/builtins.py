@@ -6,7 +6,7 @@ from plover_vim.command_letter.util import (
         getEnders, getSymbols
         )
 from plover_vim.command_letter_2.util import (
-        getMods, getEscape, getObjects,
+        getMods, getEscape, getObjects, getNumbers,
         getMiddles, getSystems,
         cleanWhiteSpace, applyFormat
         )
@@ -22,8 +22,9 @@ class SingleStrokeLeft:
         # characters = getCasedCharacters(getCharacters(self.opts['spelling'], symbols))
         objects = getObjects(self.opts['spelling'], symbols)
         middles = getMiddles(self.opts['middles'])
+        numbers = getNumbers(self.opts['numbers'])
         return cleanWhiteSpace(
-                applyFormat(systems, [escape, middles, objects])
+                applyFormat(systems, [escape, numbers, middles, objects])
                 )
         # return (escape * systems * characters)
 
