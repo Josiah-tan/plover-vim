@@ -1,3 +1,5 @@
+from contextlib import suppress
+
 # import the modules that you want for your vim experience here
 from plover_vim.Josiah_modifier.builtins import Lookup as JosiahModifierLookup
 

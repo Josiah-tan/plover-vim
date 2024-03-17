@@ -111,23 +111,24 @@ commandObjectLookup2 = Lookup({
             "unique_ender": "@L",  # ring finger on T, pinky on DZ
             # some ideas for others if you ever run out: -TZ, -SD, -TDZ, -SDZ, -TSZ, -TSD, or -TSDZ
             "mods": {
+
                 "-FPB": "<escape> <numbers> equal <middles> <objects>",
                 "-FP": "<escape> <numbers> y s <middles> <objects>",  # coPy Furround
-                "-FB": "<escape> <numbers> c s <objects>",  # Blot Furround
-                "-PB": "<escape> <numbers> g c <middles> objects>",  # commeNt
+                "-FB": "<escape> <numbers> shift(greater) <middles> <objects>",  # FB looks like half an > arrow
+                "-PB": "escape g c <middles> <objects>",  # commeNt
                 "-F": "<escape> <numbers> v <middles> <objects>",  # Fisualise
                 "-P": "<escape> <numbers> y <middles> <objects>",  # coPy
                 "-B": "<escape> <numbers> c <middles> <objects>",  # Blot
-                "": "",
+                "": "<escape> <numbers> g shift(u) <middles> <objects>",
 
-                "#-FPB": "",
-                "#-FP": "shift(s) <objects>",
-                "#-FB": "<escape> <numbers> d s <objects>",
-                "#-PB": "<escape> <numbers> g b <middles> <objects>",
+                "#-FPB": "<escape> <numbers> v <middles> <objects> shift(asciitilde)",
+                "#-FP": "escape c x <middles> <objects>",  # vim exFPange
+                "#-FB": "<escape> <numbers> less <middles> <objects>",
+                "#-PB": "escape g b <middles> <objects>",
                 "#-F": "<escape> <numbers> v <middles> <objects> p",  # visualise and paste!
-                "#-P": "",
-                "#-B": "",
-                "#": ""
+                "#-P": "<escape> <numbers> shift(quotedbl) shift(plus) y <middles> <objects>",
+                "#-B": "<escape> <numbers> g shift(question) <middles> <objects>", # Bguestion
+                "#": "<escape> <numbers> g u <middles> <objects>",
                 }
             }]
     })
