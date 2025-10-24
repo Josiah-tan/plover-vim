@@ -1,3 +1,5 @@
+import sys
+
 shifted_symbols_aus = {
         "asciitilde", "exclam", "at",
         "numbersign", "dollar", "percent",
@@ -8,6 +10,10 @@ shifted_symbols_aus = {
         # "less", "greater", "question" # shifting "<" => ">" which is weird, seems like "<" is fine without shifting
         "greater", "question"
         }
+
+# Add "less" only on Windows or Darwin (macOS)
+if sys.platform in ("win32", "darwin"):
+    shifted_symbols_aus.add("less")
 
 symbols = {
         "TR": ["tab", "delete", "backspace", "escape"],
