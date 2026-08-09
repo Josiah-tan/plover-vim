@@ -206,7 +206,23 @@ Josiah_modifier_lookup = JosiahLookup({
         })
 
 
+GENERATE_JAVELIN_ENTRIES = False;
+def generateJavelinEntries():
+    global GENERATE_JAVELIN_ENTRIES
+    if GENERATE_JAVELIN_ENTRIES:
+        GENERATE_JAVELIN_ENTRIES = False
+        import json
+        import os
+        with open(os.path.expanduser("~/.config/plover/javelin/in/extended_vim.json"), "w") as f:
+            json.dump({**find_lookup_2.dictionary.items_str_dict(),
+                **misc_lookup_2.dictionary.items_str_dict(),
+                **command_object_lookup_2.dictionary.items_str_dict(),
+                **relative_number_lookup.dictionary.items_str_dict(),
+                **Josiah_modifier_lookup.dictionary.items_str_dict(),
+                }, f, ensure_ascii=False, indent=0)
+
 def lookup(key):
+    generateJavelinEntries()
     for look in [
             find_lookup_2,
             misc_lookup_2,

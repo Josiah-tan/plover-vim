@@ -56,7 +56,18 @@ chrome_lookup = EasyMotionLookup({
 assert easy_motion_lookup.dictionary.longest_key == LONGEST_KEY
 
 
+GENERATE_JAVELIN_ENTRIES = False
+def generateEntries():
+    global GENERATE_JAVELIN_ENTRIES
+    if GENERATE_JAVELIN_ENTRIES:
+        GENERATE_JAVELIN_ENTRIES = False
+        import json
+        import os
+        with open(os.path.expanduser("~/.config/plover/javelin/in/easy_motion.json"), "w") as f:
+            json.dump({**chrome_lookup.dictionary.items_str_dict()}, f, ensure_ascii=False, indent=0)
+
 def lookup(key):
+    generateEntries()
     for look in [
             easy_motion_lookup,
             chrome_lookup,
